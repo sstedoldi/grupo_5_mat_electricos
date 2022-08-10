@@ -1,4 +1,5 @@
 # grupo_5_mat_electricos
+
 app e-commerce para venta de materiales eléctricos
 
 Materiales electricos para la construcción (cables, luminarias, interruptores, canalizaciones, cajas, etc.)
@@ -11,3 +12,6 @@ Santi de San Cayetano Pcia. Bs As, soy ingeniero electrico y estudiante de progr
 
 Publico:
 Constructoras, particulares, industria
+
+Espacio de trabajo Trello:
+https://trello.com/b/t1NlRnQI/
