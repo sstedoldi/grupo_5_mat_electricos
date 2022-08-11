@@ -11,3 +11,15 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 12px;
 }
+
+.logo-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
