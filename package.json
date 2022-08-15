@@ -1,0 +1,23 @@
+{
+  "name": "grupo_5_mat_electricos",
+  "version": "1.0.0",
+  "description": "app e-commerce para venta de materiales eléctricos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sstedoldi/grupo_5_mat_electricos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sstedoldi/grupo_5_mat_electricos/issues"
+  },
+  "homepage": "https://github.com/sstedoldi/grupo_5_mat_electricos#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
