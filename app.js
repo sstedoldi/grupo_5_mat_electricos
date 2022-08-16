@@ -17,6 +17,10 @@ app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/register.html"));
 });
 
+app.get("/productDetail", (req, res) => {
+  res.sendFile(path.join(__dirname, "./views/productDetail.html"));
+});
+
 //Para completar ver fin de la clase 15
 app.post("/crear", (req, res) => {
   res.send("Recibí un formulario");
