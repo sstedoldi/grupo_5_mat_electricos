@@ -142,11 +142,48 @@ body {
 /* &&&& */
 /* MAIN */
 
-.main-leading {
+/* .main-leading {
   display: block;
   width: 100vw;
   height: 100vw;
   text-align: center;
+} */
+
+.main-product {
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.product-figure-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.product-figure {
+  width: 50%;
+}
+
+.product-figure img {
+  width: 100%;
+}
+
+.product-info {
+  width: 50%;
+  align-content: center;
+}
+
+.product-info-uses {
+  margin-right: 10px;
+}
+
+.product-description {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 /* &&&& */
