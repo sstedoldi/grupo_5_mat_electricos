@@ -7,6 +7,8 @@
   box-sizing: border-box;
 }
 
+/* HOME STYLES */
+/* &&&&&&&&&&& */
 /* BODY */
 
 body {
@@ -16,14 +18,6 @@ body {
 
 /* &&&& */
 /* HEADER */
-
-/* .top-header-top {
-  background: hsl(0, 2%, 75%);
-  text-align: center;
-  justify-content: center;
-  padding: 2px;
-  font-size: medium;
-} */
 
 .main-header {
   /* background: linear-gradient(#ffffff, #bebebe); */
@@ -49,9 +43,9 @@ body {
   width: 100%;
 }
 
-.slogan {
+/* .slogan {
   display: none;
-}
+} */
 
 .main-header-search-bar {
   width: 50%;
@@ -119,7 +113,6 @@ body {
 .main-header-nav-categories a {
   display: inline-block;
   padding: 5px 0px;
-  font-size: 12px;
   text-decoration: none;
   color: rgb(67, 67, 67);
 }
@@ -141,10 +134,45 @@ body {
   color: white;
 }
 
+/* &&&& */
 /* MEDIA */
 
+.main-home-spot-1 {
+  text-align: center;
+}
+
+/* &&&& */
+/* FOOTER */
+
+.main-footer {
+  display: block;
+  margin: auto;
+  padding: 10px;
+  background: linear-gradient(#bebebe, #ffffff);
+}
+
+.main-footer-nav-info {
+  width: 100%;
+  list-style: none;
+  text-align: center;
+}
+
+.main-footer-nav-info a {
+  display: inline-block;
+  width: 120px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: rgb(67, 67, 67);
+  border: 1px solid rgb(67, 67, 67);
+  border-radius: 4px;
+}
+
+/* MEDIAS */
 /*Tablets cut*/
+
 @media (min-width: 520px) {
+  /* HEADER */
   .main-header-nav-categories {
     display: flex;
     width: 100%;
@@ -162,109 +190,70 @@ body {
     display: none;
   }
 
-  /* Ocultar burger */
-}
-
-/* &&&&&&&&&&&&&&& */
-
-.nav-categories {
-  display: none;
-  padding: 4px 0 4px 0;
-}
-
-.burger-button {
-  color: #3b3a3a;
-  display: block;
-  min-width: 35px;
-  padding: 8px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 18px;
-  margin: auto;
-}
-
-.nav-categories li {
-  list-style: none;
-  padding: 0;
-  margin: 2px 0 2px 0;
-  border: solid 1px gray;
-  border-radius: 4px;
-}
-
-.nav-categories a {
-  text-decoration: none;
-  color: #1f1f1f;
-  display: inline-block;
-  padding: 5px 5px;
-  font-size: 18px;
-}
-
-/* &&&& */
-/* MAIN */
-
-.main-leading {
-  display: block;
-  width: 100vw;
-  height: 100vw;
-  text-align: center;
-}
-
-/* &&&& */
-/* FOOTER */
-
-.footer-general {
-  display: flex;
-  justify-content: center;
-  padding: 0 35px 0 0;
-  background: linear-gradient(#bebebe, #ffffff);
-  min-height: min-content;
-}
-
-.footer-navbar-categories a {
-  list-style: none;
-  border: solid 1px gray;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #1f1f1f;
-  display: flex;
-}
-
-/* MEDIA - TABLET CUT */
-
-@media (min-width: 768px) {
-  /* BODY */
-
-  /* &&&& */
-  /* HEADER */
-
-  .nav-categories {
-    display: block;
-  }
-  .burger-button {
-    display: none;
-    background-color: #3f3d3d;
-  }
-  .logo-search-user {
-    display: flex;
-    justify-content: space-between;
-  }
-  .header-log {
-    min-width: 150px;
-    min-height: 150px;
-  }
-  .header-image-log {
-    min-width: 150px;
-    min-height: 150px;
-  }
-  .search-bar {
-    display: flex;
-  }
-
-  /* &&&& */
-  /* MAIN */
-
-  /* &&&& */
   /* FOOTER */
+  .main-footer-nav-info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .main-footer-nav-info a {
+    width: 160px;
+  }
 }
 
-/* MEDIA - PC CUT */
+/*PC cut*/
+/*Corte para desktop*/
+@media (min-width: 920px) {
+  body {
+    font-size: 16px;
+  }
+
+  .main-footer-nav-info a {
+    width: 240px;
+  }
+}
+
+/* PRODUCT STYLES */
+/* &&&&&&&&&&& */
+
+.main-product {
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.product-figure-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.product-figure {
+  width: 50%;
+}
+
+.product-figure img {
+  width: 100%;
+}
+
+.product-info {
+  width: 50%;
+  align-content: center;
+}
+
+.product-info-uses {
+  margin-right: 10px;
+}
+
+.product-description {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+/* OTHERS STYLES */
+/* &&&&&&&&&&& */
