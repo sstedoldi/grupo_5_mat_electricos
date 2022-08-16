@@ -56,88 +56,61 @@ body {
   width: 50%;
 }
 
+.main-header-search-bar form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid gray;
+}
+
+.main-header-search-bar input[type="text"] {
+  flex-grow: 2;
+  height: 25px;
+  border-radius: 2px;
+  border: none;
+  width: 90%;
+}
+
+.main-header-search-bar button {
+  background-color: white;
+  float: right;
+  height: 25px;
+  padding: 5px 10px;
+  margin-right: 16px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 10%;
+}
+
 .main-header-cart {
   width: 10%;
+  font-size: 25px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(67, 67, 67);
+}
+
+.main-header-cart a {
+  text-decoration: none;
+  color: rgb(67, 67, 67);
 }
 
 .main-header-user {
   width: 10%;
+  font-size: 25px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(67, 67, 67);
+}
+
+.main-header-user a {
+  text-decoration: none;
+  color: rgb(67, 67, 67);
 }
 
 /* &&&&&&&&&&&&&&& */
-
-.header-log {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
-.header-image-log {
-  border-radius: 5px;
-  max-width: 60px;
-  padding: 0 0 0 6px;
-}
-
-.logo-search-user {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-navbar-search {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.search-bar-header {
-  justify-content: center;
-  align-items: center;
-  width: 70%;
-}
-
-.search-bar {
-  display: none;
-  width: 100%;
-  border-radius: 4px;
-}
-
-.button.search {
-  display: flex;
-  margin: auto;
-}
-.fas-fa-search {
-  width: 100px;
-}
-
-.cart-user {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fab.fa-facebook {
-  color: #1f1f1f;
-  transition: all 1s;
-  padding: 5px;
-  width: 30px;
-}
-
-.cart-icon-2 {
-  color: #1f1f1f;
-  transition: all 1s;
-  padding: 5px;
-}
-
-.cart-icon-3 {
-  color: #1f1f1f;
-  transition: all 1s;
-  padding: 5px;
-}
-
-.cart-icon i:hover {
-  rotate: -30deg;
-  color: rgb(137, 137, 204);
-}
 
 .nav-categories {
   display: none;
