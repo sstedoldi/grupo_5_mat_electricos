@@ -7,46 +7,44 @@
     <title>Electricidad Belgrano</title>
     <link rel="stylesheet" href="css/style.css"></link>
     <link rel="stylesheet" href="css/normalize.css"></link>
-    <script src="https://kit.fontawesome.com/a3f2ed9b5b.js" crossorigin="anonymous"></script>
   </head>
-  <div class="top-header-top">Materiales eléctricos</div>
+  <!-- <div class="top-header-top">Materiales eléctricos</div> -->
   <body>
     <!-- HEADER -->
     <header class="main-header">
-      <div class="logo-search-user">
-        <div class="header-log">
-          <div class="burger-button">
-            <!-- Agregué font-size 20 ppx para todo los íconos,
-            Abrá que ver si conviene mantener esto... -->
-            <i class="fas fa-bars" style="font-size: 20px;"></i>
-          </div>
-          <a href="https://www.google.com/search?q=electricidad+belgrano&rlz=1C1VDKB_esAR1017AR1017&oq=ele&aqs=chrome.0.69i59l2j69i57j0i67i131i433j0i67i457j0i402l2j0i512j46i131i199i433i465i512j46i67i175i199.1880j0j15&sourceid=chrome&ie=UTF-8">
-            <img class="header-image-log" id="logo" width="200" src="./images/00-Logo-chico.png" alt="logo-elect-belgrano"/>
-          </a>
-          <div class="header-navbar-search">
-            <i class="fas fa-search" style="font-size: 20px;"></i>
-          </div>
-          <div class="cart-user">
-            <div>
-              <a class="cart-icon-1" href=""><i class="fab fa-facebook" style="font-size: 20px;"></i></a>
-            </div>
-            <div>
-              <a class="cart-icon-2" href=""><i class="fas fa-cart-plus" style="font-size: 20px;"></i></a>
-            </div>
-            <div>
-              <a class="cart-icon-3" href=""><i class="fas fa-user" style="font-size: 20px;" ></i></a>
-            </div>
-          </div>
+      <div class="main-header-top-bar">
+        <div class="main-header-logo">
+          <img id="logo" src="./images/00-Logo-chico.png" alt="logo-elect-belgrano"/>
+        </div>
+        <h1 class="slogan">"Tu casa amiga en materiales eléctricos"</h1>
+        <div class="main-header-search-bar">
+          <form action="#">
+            <input type="text" placeholder="Buscar productos, marcas y más" name="search">
+            <button>
+              <i class="fa fa-search" style="font-size: 12px;"></i>
+            </button>
+          </form>
+        </div>
+        <div class="main-header-cart">
+          <a href="/productCart"><i class="fas fa-cart-plus"></i></a>
+        </div>
+        <div class="main-header-user">
+          <a href="/login"><i class="fas fa-user-circle"></i></a>
         </div>
       </div>
-      <nav class="nav-categories">
-          <li><a href="">MÁS CATEGORIAS</i></a></li>
-          <li><a href="">LÁMPARAS</a></li>
-          <li><a href="">ILUMINACIÓN</a></li>
-          <li><a href="">INTERRUPTORES</a></li>
-          <li><a href="">CABLES</a></li>
-          <li><a href="">CANALIZACIONES</a></li>
+      <nav class="main-header-nav-categories">
+        <li><a href="">MÁS CATEGORIAS</i></a></li>
+        <li><a href="">LÁMPARAS</a></li>
+        <li><a href="">ILUMINACIÓN</a></li>
+        <li><a href="">INTERRUPTORES</a></li>
+        <li><a href="">CABLES</a></li>
+        <li><a href="">CANALIZACIONES</a></li>
       </nav>
+      <div class="main-header-burger-menu">
+        <a href="#"><i class="fas fa-bars"></i></a>
+      </div>
+      
+
     </header>
     <!-- &&&& -->
 

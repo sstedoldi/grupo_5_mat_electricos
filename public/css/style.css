@@ -17,22 +17,54 @@ body {
 /* &&&& */
 /* HEADER */
 
-.top-header-top {
-  background: #c2bfbf;
+/* .top-header-top {
+  background: hsl(0, 2%, 75%);
   text-align: center;
   justify-content: center;
   padding: 2px;
   font-size: medium;
-}
+} */
+
 .main-header {
-  /*display: flex;
-  justify-content: space-around;*/
-  text-align: center;
-  background: linear-gradient(#ffffff, #bebebe);
-  padding: 5px;
-  justify-content: space;
-  scroll-behavior: smooth;
+  /* background: linear-gradient(#ffffff, #bebebe); */
+  display: block;
+  margin: auto;
+  padding: 20px;
 }
+
+.main-header-top-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header-logo {
+  width: 30%;
+  max-width: 140px;
+}
+
+.main-header-logo img {
+  width: 100%;
+}
+
+.slogan {
+  display: none;
+}
+
+.main-header-search-bar {
+  width: 50%;
+}
+
+.main-header-cart {
+  width: 10%;
+}
+
+.main-header-user {
+  width: 10%;
+}
+
+/* &&&&&&&&&&&&&&& */
 
 .header-log {
   display: flex;
