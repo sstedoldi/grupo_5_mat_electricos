@@ -25,6 +25,14 @@ app.get("/productCart", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/productCart.html"));
 });
 
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "./views/login.html"));
+});
+
+app.get("/register", (req, res) => {
+  res.sendFile(path.join(__dirname, "./views/register.html"));
+});
+
 //Para completar ver fin de la clase 15
 app.post("/crear", (req, res) => {
   res.send("Recibí un formulario");
