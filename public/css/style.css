@@ -474,7 +474,7 @@ body {
   margin: 5px;
 }
 
-.button-edit-cart{
+.button-edit-cart {
   background-color: rgb(210, 210, 210);
   border: none;
   width: 75px;
@@ -482,11 +482,11 @@ body {
   border-radius: 2px;
 }
 
-.delete-article{
+.delete-article {
   margin: 5px;
 }
 
-.button-delete-article{
+.button-delete-article {
   background-color: rgb(210, 210, 210);
   border: none;
   width: 110px;
@@ -494,18 +494,18 @@ body {
   border-radius: 2px;
 }
 
-.cart-main-actions{
+.cart-main-actions {
   margin: 15px;
   text-align: center;
 }
 
-.keep-shopping{
+.keep-shopping {
   margin: 5px;
   display: flex;
   justify-content: center;
 }
 
-.button-keep-shopping{
+.button-keep-shopping {
   background-color: rgb(210, 210, 210);
   border: none;
   width: 80%;
@@ -518,17 +518,17 @@ body {
 
 }
 
-.fas.fa-angle-left{
+.fas.fa-angle-left {
   padding: 5px;
 }
 
-.copy-link-cart{
+.copy-link-cart {
   margin: 5px;
   display: flex;
   justify-content: center;
 }
 
-.button-copy-link-cart{
+.button-copy-link-cart {
   background-color: rgb(210, 210, 210);
   border: none;
   width: 80%;
@@ -541,13 +541,13 @@ body {
 
 }
 
-.empty-cart{
+.empty-cart {
   margin: 5px;
   display: flex;
   justify-content: center;
 }
 
-.button-empty-cart{
+.button-empty-cart {
   background-color: rgb(210, 210, 210);
   border: none;
   width: 80%;
@@ -560,13 +560,13 @@ body {
 
 }
 
-.update-cart{
+.update-cart {
   margin: 5px;
   display: flex;
   justify-content: center;
 }
 
-.button-update-cart{
+.button-update-cart {
   background-color: rgb(210, 210, 210);
   border: none;
   width: 80%;
@@ -579,19 +579,80 @@ body {
 
 }
 
-.fas.fa-sync-alt{
+.fas.fa-sync-alt {
   padding: 5px;
 }
 
 /* MEDIAS */
 
-/*Tablets cut*/
+/*Desktop cut*/
 
 @media (min-width: 920px) {
- 
-.product-cart-main-div{
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
-}
+
+  .product-cart-main-div {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .cart-summary {
+    width: 20%;
+  }
+
+  .all-cart-items {
+    width: 75%;
+  }
+
+  .cart-item-container {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: solid 1px rgb(190, 190, 190);
+  }
+
+  .cart-article-detail {
+    width: 70%;
+    border-top: none;
+  }
+
+  .cart-article-detail-prices {
+    position: relative;
+    bottom: 25px;
+  }
+
+  .cart-aricle-price,
+  .cart-aricle-quantity,
+  .cart-aricle-sub-total {
+    margin: 0 2px;
+  }
+
+  .cart-aricle-price-h5,
+  .cart-aricle-quantity-h5,
+  .cart-aricle-sub-total-h5 {
+    position: relative;
+    bottom: 15px;
+  }
+
+  .button-delete-article {
+    height: 20px;
+    width: 150px;
+  }
+
+  .cart-main-actions {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 70px;
+    margin-bottom: 35px;
+  }
+
+  .button-keep-shopping,
+  .button-copy-link-cart,
+  .button-empty-cart,
+  .button-update-cart {
+    height: 45px;
+
+  }
+
 }
