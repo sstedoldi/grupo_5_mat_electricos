@@ -1,175 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Electricidad Belgrano</title>
-    <link rel="stylesheet" href="css/style.css">
-    </link>
-    <link rel="stylesheet" href="css/normalize.css">
-    </link>
-</head>
-<!-- <div class="top-header-top">Materiales eléctricos</div> -->
-
-<body>
+  <head>
+    <%- include("partials/head") %>
+  </head>
+  <body>
     <!-- HEADER -->
-    <header class="main-header">
-        <div class="main-header-top-bar">
-            <div class="main-header-logo">
-                <img id="logo" src="./images/00-Logo-chico.png" alt="logo-elect-belgrano" />
-            </div>
-            <!-- <h1 class="slogan">"Tu casa amiga en materiales eléctricos"</h1> -->
-            <div class="main-header-search-bar">
-                <form action="#">
-                    <input type="text" placeholder="Buscar productos, marcas y más" name="search">
-                    <button>
-                        <i class="fa fa-search" style="font-size: 12px;"></i>
-                    </button>
-                </form>
-            </div>
-            <div class="main-header-cart">
-                <a href="/productCart"><i class="fas fa-cart-plus"></i></a>
-            </div>
-            <div class="main-header-user">
-                <a href="/login"><i class="fas fa-user-circle"></i></a>
-            </div>
-        </div>
-        <nav class="main-header-nav-categories">
-            <li><a href="">MÁS CATEGORIAS</i></a></li>
-            <li><a href="">LÁMPARAS</a></li>
-            <li><a href="">ILUMINACIÓN</a></li>
-            <li><a href="">INTERRUPTORES</a></li>
-            <li><a href="">CABLES</a></li>
-            <li><a href="">CANALIZACIONES</a></li>
-        </nav>
-        <div class="main-header-burger-menu">
-            <a href="#"><i class="fas fa-bars"></i></a>
-        </div>
-    </header>
+    <header class="main-header"><%- include("partials/header") %></header>
     <!-- &&&& -->
     <!-- MAIN -->
     <main class="main-cart">
-        <h1 class="cart-title">Carrito de compras</h1>
-        <div class="product-cart-main-div">
-
-            <div class="cart-summary">
-                <h3 class="summary-title">TU PEDIDO</h3>
-                <div class="summary-calculo-envio">Estimacion de envio e impuestos<i class="fas fa-angle-down"></i>
-                </div>
-                <div class="cart-totals">
-                    <div class="cart-totals-sub">
-                        <p>Total parcial</p>
-                        <p>$1,200</p>
-                    </div>
-                    <div class="cart-totals-cost">
-                        <p>Costo financiero</p>
-                        <p>$0,00</p>
-                    </div>
-                    <div class="cart-grand-total">
-                        <p>TOTAL</p>
-                        <p>$1,200</p>
-                    </div>
-                </div>
-                <div class="final-payment"><button type="button" class="button-final-payment">Ir a pagar</button></div>
+      <h1 class="cart-title">Carrito de compras</h1>
+      <div class="product-cart-main-div">
+        <div class="cart-summary">
+          <h3 class="summary-title">TU PEDIDO</h3>
+          <div class="summary-calculo-envio">
+            Estimacion de envio e impuestos<i class="fas fa-angle-down"></i>
+          </div>
+          <div class="cart-totals">
+            <div class="cart-totals-sub">
+              <p>Total parcial</p>
+              <p>$1,200</p>
             </div>
-            <div class="all-cart-items">
-                <div class="cart-items">
-                    <h4>Articulos</h4>
-                    <div class="cart-item-container">
-                        <div class="cart-article-detail">
-                            <img src="./images/products/lampara-led-carrito-ejemplo.jpg" alt="imagen del producto"
-                                class="cart-product-image">
-                            <p class="cart-article-description">Lámpara led clásica alta poténcia 40w 3600lm 220v luz
-                                cálida
-                                220v
-                                e27
-                            </p>
-                        </div>
-                        <div class="cart-article-detail-prices">
-                            <div class="cart-aricle-price">
-                                <h5 class="cart-aricle-price-h5">Precio:</h5>
-                                <p>$592</p>
-                            </div>
-                            <div class="cart-aricle-quantity">
-                                <h5 class="cart-aricle-quantity-h5">Cantidad:</h5>
-                                <p class="cart-aricle-quantity-number">1</p>
-                            </div>
-                            <div class="cart-aricle-sub-total">
-                                <h5 class="cart-aricle-sub-total-h5">Total parcial:</h5>
-                                <p>$592</p>
-                            </div>
-                        </div>
-                        <div class="cart-article-buttons">
-                            <div class="edit-cart"><button type="button" class="button-edit-cart">Editar</button></div>
-                            <div class="delete-article"><button type="button" class="button-delete-article">Eliminar
-                                    articulo</button></div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="cart-items">
-                    <div class="cart-item-container">
-                        <div class="cart-article-detail">
-                            <img src="./images/products/01-Luminaria-Emergencia-40LEDs.jpg" alt="imagen del producto"
-                                class="cart-product-image">
-                            <p class="cart-article-description">Lampara led 5w =50w g9 bipin 450lm 220v luz fria</p>
-                        </div>
-                        <div class="cart-article-detail-prices">
-                            <div class="cart-aricle-price">
-                                <h5 class="cart-aricle-price-h5">Precio:</h5>
-                                <p>$608</p>
-                            </div>
-                            <div class="cart-aricle-quantity">
-                                <h5 class="cart-aricle-quantity-h5">Cantidad:</h5>
-                                <p class="cart-aricle-quantity-number">1</p>
-                            </div>
-                            <div class="cart-aricle-sub-total">
-                                <h5 class="cart-aricle-sub-total-h5">Total parcial:</h5>
-                                <p>$608</p>
-                            </div>
-                        </div>
-                        <div class="cart-article-buttons">
-                            <div class="edit-cart"><button type="button" class="button-edit-cart">Editar</button></div>
-                            <div class="delete-article"><button type="button" class="button-delete-article">Eliminar
-                                    articulo</button></div>
-                        </div>
-
-                    </div>
-                </div>
+            <div class="cart-totals-cost">
+              <p>Costo financiero</p>
+              <p>$0,00</p>
             </div>
-            <div class="cart-main-actions">
-                <div class="keep-shopping"><button type="button" class="button-keep-shopping"><i
-                            class="fas fa-angle-left"></i>Seguir comprando</button></div>
-                <div class="copy-link-cart"><button type="button" class="button-copy-link-cart">Copiar link del
-                        carrito</button></div>
-                <div class="empty-cart"><button type="button" class="button-empty-cart">Vaciar carrito de compra
-                    </button></div>
-                <div class="update-cart"><button type="button" class="button-update-cart"><i
-                            class="fas fa-sync-alt"></i>Cambiaste cantidades? Actualizar
-                    </button></div>
-
-
-
+            <div class="cart-grand-total">
+              <p>TOTAL</p>
+              <p>$1,200</p>
             </div>
-
+          </div>
+          <div class="final-payment">
+            <button type="button" class="button-final-payment">
+              Ir a pagar
+            </button>
+          </div>
         </div>
+        <div class="all-cart-items">
+          <div class="cart-items">
+            <h4>Articulos</h4>
+            <div class="cart-item-container">
+              <div class="cart-article-detail">
+                <img
+                  src="./images/products/lampara-led-carrito-ejemplo.jpg"
+                  alt="imagen del producto"
+                  class="cart-product-image"
+                />
+                <p class="cart-article-description">
+                  Lámpara led clásica alta poténcia 40w 3600lm 220v luz cálida
+                  220v e27
+                </p>
+              </div>
+              <div class="cart-article-detail-prices">
+                <div class="cart-aricle-price">
+                  <h5 class="cart-aricle-price-h5">Precio:</h5>
+                  <p>$592</p>
+                </div>
+                <div class="cart-aricle-quantity">
+                  <h5 class="cart-aricle-quantity-h5">Cantidad:</h5>
+                  <p class="cart-aricle-quantity-number">1</p>
+                </div>
+                <div class="cart-aricle-sub-total">
+                  <h5 class="cart-aricle-sub-total-h5">Total parcial:</h5>
+                  <p>$592</p>
+                </div>
+              </div>
+              <div class="cart-article-buttons">
+                <div class="edit-cart">
+                  <button type="button" class="button-edit-cart">Editar</button>
+                </div>
+                <div class="delete-article">
+                  <button type="button" class="button-delete-article">
+                    Eliminar articulo
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cart-items">
+            <div class="cart-item-container">
+              <div class="cart-article-detail">
+                <img
+                  src="./images/products/01-Luminaria-Emergencia-40LEDs.jpg"
+                  alt="imagen del producto"
+                  class="cart-product-image"
+                />
+                <p class="cart-article-description">
+                  Lampara led 5w =50w g9 bipin 450lm 220v luz fria
+                </p>
+              </div>
+              <div class="cart-article-detail-prices">
+                <div class="cart-aricle-price">
+                  <h5 class="cart-aricle-price-h5">Precio:</h5>
+                  <p>$608</p>
+                </div>
+                <div class="cart-aricle-quantity">
+                  <h5 class="cart-aricle-quantity-h5">Cantidad:</h5>
+                  <p class="cart-aricle-quantity-number">1</p>
+                </div>
+                <div class="cart-aricle-sub-total">
+                  <h5 class="cart-aricle-sub-total-h5">Total parcial:</h5>
+                  <p>$608</p>
+                </div>
+              </div>
+              <div class="cart-article-buttons">
+                <div class="edit-cart">
+                  <button type="button" class="button-edit-cart">Editar</button>
+                </div>
+                <div class="delete-article">
+                  <button type="button" class="button-delete-article">
+                    Eliminar articulo
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cart-main-actions">
+          <div class="keep-shopping">
+            <button type="button" class="button-keep-shopping">
+              <i class="fas fa-angle-left"></i>Seguir comprando
+            </button>
+          </div>
+          <div class="copy-link-cart">
+            <button type="button" class="button-copy-link-cart">
+              Copiar link del carrito
+            </button>
+          </div>
+          <div class="empty-cart">
+            <button type="button" class="button-empty-cart">
+              Vaciar carrito de compra
+            </button>
+          </div>
+          <div class="update-cart">
+            <button type="button" class="button-update-cart">
+              <i class="fas fa-sync-alt"></i>Cambiaste cantidades? Actualizar
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
-
     <!-- &&&& -->
     <!-- FOOTER -->
-    <footer class="main-footer">
-        <nav class="main-footer-nav-info">
-            <li><a href="">QUIÉNES SOMOS</i></a></li>
-            <li><a href="">ESCRIBINOS</a></li>
-            <li><a href="">DÓNDE ESTAMOS</a></li>
-        </nav>
-        <p>Celular de contacto: 2983512274</p>
-        <p>Belgrano 230 - San Cayetano - Pcia. de Buenos Aires</p>
-    </footer>
+    <footer class="main-footer"><%- include("partials/footer") %></footer>
     <!-- &&&& -->
-
-</body>
-
+  </body>
 </html>

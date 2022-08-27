@@ -1,49 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Electricidad Belgrano</title>
-    <link rel="stylesheet" href="css/style.css"></link>
-    <link rel="stylesheet" href="css/normalize.css"></link>
+    <%- include("partials/head") %>
   </head>
   <!-- <div class="top-header-top">Materiales eléctricos</div> -->
   <body>
     <!-- HEADER -->
-    <header class="main-header">
-        <div class="main-header-top-bar">
-            <div class="main-header-logo">
-            <img id="logo" src="./images/00-Logo-chico.png" alt="logo-elect-belgrano"/>
-            </div>
-            <!-- <h1 class="slogan">"Tu casa amiga en materiales eléctricos"</h1> -->
-            <div class="main-header-search-bar">
-            <form action="#">
-                <input type="text" placeholder="Buscar productos, marcas y más" name="search">
-                <button>
-                <i class="fa fa-search" style="font-size: 12px;"></i>
-                </button>
-            </form>
-            </div>
-            <div class="main-header-cart">
-            <a href="/productCart"><i class="fas fa-cart-plus"></i></a>
-            </div>
-            <div class="main-header-user">
-            <a href="/login"><i class="fas fa-user-circle"></i></a>
-            </div>
-        </div>
-        <nav class="main-header-nav-categories">
-            <li><a href="">MÁS CATEGORIAS</i></a></li>
-            <li><a href="">LÁMPARAS</a></li>
-            <li><a href="">ILUMINACIÓN</a></li>
-            <li><a href="">INTERRUPTORES</a></li>
-            <li><a href="">CABLES</a></li>
-            <li><a href="">CANALIZACIONES</a></li>
-        </nav>
-        <div class="main-header-burger-menu">
-            <a href="#"><i class="fas fa-bars"></i></a>
-        </div>
-    </header>
+    <header class="main-header"><%- include("partials/header") %></header>
     <!-- &&&& -->
     <!-- MAIN -->
     <main class="main-product">
@@ -123,15 +86,7 @@
     </main>
     <!-- &&&& -->
     <!-- FOOTER -->
-    <footer class="main-footer">
-        <nav class="main-footer-nav-info">
-          <li><a href="">QUIÉNES SOMOS</i></a></li>
-          <li><a href="">ESCRIBINOS</a></li>
-          <li><a href="">DÓNDE ESTAMOS</a></li>
-        </nav>
-        <p>Celular de contacto: 2983512274</p>
-        <p>Belgrano 230 - San Cayetano - Pcia. de Buenos Aires</p>                 
-      </footer>
+    <footer class="main-footer"><%- include("partials/footer") %></footer>
     <!-- &&&& -->
   </body>
 </html>
