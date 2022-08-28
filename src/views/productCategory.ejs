@@ -14,68 +14,11 @@
         <main class="main-sections">
             <section>
               <h3 class="main-section-title">Productos de la categoría: <%= category.name %></h3>
-              <div class="lastVisit-articles">
+              <div class="category-articles">
                 <!-- ############# -->
-                <article>
-                  <img
-                    src=<%= product.image %> 
-                    width="360"
-                    alt=<% "img-"+product.name %> 
-                  />  
-                  <div class="main-section-article-info">
-                    <i class="fas fa-truck"></i>
-                    <div class="main-section-article-info-price">
-                      <p class="article-prices">$6.770</p>
-                      <p class="article-discount">40% OFF</p>
-                    </div>
-                    <p class="article-description">Cafetera Moulinex</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./images/img-macbook-pro-2019.jpg"
-                    width="360"
-                    alt="img-macbook-pro-2019"
-                  />
-                  <div class="main-section-article-info">
-                    <i class="fas fa-truck"></i>
-                    <div class="main-section-article-info-price">
-                      <p class="article-prices">$230.000</p>
-                      <p class="article-discount">20% OFF</p>
-                    </div>
-                    <p class="article-description">MacBook Pro 2019</p>
-                  </div>  
-                </article>
-                <article>
-                  <img
-                    src="./images/img-samsung-galaxy-s10.jpg"
-                    width="360"
-                    alt="img-samsung-galaxy-s10"
-                  />
-                  <div class="main-section-article-info">
-                    <i class="fas fa-truck"></i>
-                    <div class="main-section-article-info-price">
-                      <p class="article-prices">$70.500</p>
-                      <p class="article-discount">10% OFF</p>
-                    </div>
-                    <p class="article-description">Sansung Galaxy S10</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./images/img-tv-samsung-smart.jpg"
-                    width="360"
-                    alt="img-tv-samsung-smart-50"
-                    />
-                  <div class="main-section-article-info">
-                    <i class="fas fa-truck"></i>
-                    <div class="main-section-article-info-price">
-                      <p class="article-prices">$109.900</p>
-                      <p class="article-discount">20% OFF</p>
-                    </div>
-                    <p class="article-description">TV Samsung Smart 50</p>
-                  </div>
-                </article>
+                <% for (let i = 0; i<=10; i++) { %> 
+                    <%- include("partials/article", { product : category.products[i]}) %>
+                <% } %>         
                 <!-- ############# -->
               </div>
             </section>
