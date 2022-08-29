@@ -1,6 +1,7 @@
 //Primary modules
 const express = require("express");
 const path = require("path");
+const methodOverride = require("method-override");
 
 //App instance
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "../public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+app.use(methodOverride("_method")); //Dentro del form se indica
 
 //Server
 const port = 3000;

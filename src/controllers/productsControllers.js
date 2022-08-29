@@ -1,11 +1,35 @@
 //Data managing
+products = [];
 
 //Controller definition
 const productsController = {
-  detail: (req, res) => {
-    //Debe usar id producto y enviar su información
-    res.render("productDetail");
+  index: (req, res) => {
+    res.send("listar productos");
   },
+  detail: (req, res) => {
+    const idProduct = req.params.id;
+    res.render("productDetail", products[idProduct]);
+  },
+  create: (req, res) => {
+    res.send("form para crear producto");
+  },
+  store: (req, res) => {
+    res.send("guardado de producto");
+  },
+  edit: (req, res) => {
+    const idProduct = req.params.id;
+    res.send("modificar de producto" + idProduct);
+  },
+  update: (req, res) => {
+    const idProduct = req.params.id;
+    res.send("modificar de producto" + idProduct);
+  },
+  delete: (req, res) => {
+    const idProduct = req.params.id;
+    res.send("borrado del producto" + idProduct);
+  },
+
+  ////
   cart: (req, res) => {
     res.render("productCart");
   },
