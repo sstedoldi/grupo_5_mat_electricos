@@ -1,3 +1,4 @@
+//EN CONTRUCCIÓN
 //Data managing
 const categories = [];
 const products = [];
