@@ -3,6 +3,7 @@
 //Controller definition
 const productsController = {
   detail: (req, res) => {
+    //Debe usar id producto y enviar su información
     res.render("productDetail");
   },
   cart: (req, res) => {
