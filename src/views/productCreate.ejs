@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include("partials/head") %>
 </head>
+
 <body>
-     <!-- HEADER -->
-    <header class="main-header"><%- include("partials/header") %></header>
+    <!-- HEADER -->
+    <header class="main-header">
+        <%- include("partials/header") %>
+    </header>
     <!-- &&&& -->
     <!-- MAIN -->
-    <main></main>
-     <!-- &&&& -->
+    <main>
+        <div class="form-product-create">
+            <h3> Cargá un nuevo producto!</h3>
+            <form action="/" method="GET">
+                <input class="" type="text" name="name" id="name" placeholder="Nombre del producto" />
+
+                <label for="descripcion">Describa su producto:</label>
+                <textarea name="descripcion"></textarea>
+
+                <label for="product-color">Seleccioná el color del producto:</label>
+                <input type="color" id="product-color" name="product-color">
+
+                <label for="archivo-imagen-producto">Seleccione una imagen:</label>
+                <input type="file" id="archivo-imagen-producto" name="archivo-imagen-producto">
+
+                <label for="categoria-producto">Elija una categoria:</label>
+                <select id="categoria-producto" name="categoria-producto">
+                    <option value="Lámaparas">Lámaparas</option>
+                    <option value="Iluminacion">Iluminacion</option>
+                    <option value="Interruptores">Interruptores</option>
+                    <option value="Cables">Cables</option>
+                    <option value="Canalizaciones">Canalizaciones</option>
+                    <option value="Otra">Otra</option>
+                </select>
+
+                <input class="" type="number" name="precio" id="price" placeholder="Ingrese el precio del producto" />
+
+                <input class="buttons" type="submit" value="Crear producto" />
+            </form>
+        </div>
+
+
+    </main>
+    <!-- &&&& -->
     <!-- FOOTER -->
-    <footer class="main-footer"><%- include("partials/footer") %></footer>
+    <footer class="main-footer">
+        <%- include("partials/footer") %>
+    </footer>
     <!-- &&&& -->
 </body>
+
 </html>
