@@ -11,7 +11,7 @@ const productsController = {
     res.render("productDetail", products[idProduct]);
   },
   create: (req, res) => {
-    res.send("form para crear producto");
+    res.render("productCreate");
   },
   store: (req, res) => {
     res.send("guardado de producto");
