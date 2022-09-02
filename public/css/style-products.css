@@ -517,4 +517,8 @@
   .formularios-create-description{
     width: 100%;
   }
+
+  .form-create-title{
+    font-size: 26px;
+  }
 }
