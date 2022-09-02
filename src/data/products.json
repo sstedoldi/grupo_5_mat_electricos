@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "category": "Cables",
+    "sub-category": "Cables subterráneos",
+    "description": "SUBTE.ALUM.1x 25",
+    "brand": "IMSA",
+    "nonvat-price": 2.528,
+    "vat": 21,
+    "discount": 0,
+    "image": "img-default-cables.jpg"
+  },
+  {
+    "id": 2,
+    "category": "Cables",
+    "sub-category": "ERPLA/ KALOP/ UPERCAB eléctricos",
+    "description": "TIPO TALLER 3x 1.5 xmt.",
+    "brand": "ERPLA/ KALOP/ UPERCAB",
+    "nonvat-price": 1.715,
+    "vat": 21,
+    "discount": 0,
+    "image": "img-default-cables.jpg"
+  },
+  {
+    "id": 3,
+    "category": "Elect. Domiciliaria",
+    "sub-category": "Automáticos de tanque.",
+    "description": "AUTOMAT.DE TANQUE C/CABLE 3MTS. F-2000",
+    "brand": "FIBOSA",
+    "nonvat-price": 13.031,
+    "vat": 21,
+    "discount": 0,
+    "image": "img-default-elec-dom.jpg"
+  },
+  {
+    "id": 4,
+    "category": "Elect. Domiciliaria",
+    "sub-category": "Cablecanal",
+    "description": "CABLEC.C/ADH.T/MAD.14x 7   x Tramo",
+    "brand": "HOYOS",
+    "nonvat-price": 1.781,
+    "vat": 21,
+    "discount": 0,
+    "image": "img-default-elec-dom.jpg"
+  },
+  {
+    "id": 5,
+    "category": "Iluminación",
+    "sub-category": "Balastos e Ignitores",
+    "description": "BAL.MERC.250W Interior SKYWATCH 1100706",
+    "brand": "ITALAVIA",
+    "nonvat-price": 29.695,
+    "vat": 21,
+    "discount": 0,
+    "image": "img-default-iluminacion.jpg"
+  },
+  {
+    "id": 6,
+    "category": "Iluminación",
+    "sub-category": "De Seguridad",
+    "description": "ART. ILUM. APE C/TUBOS LED 2X36W ATFXL 240",
+    "brand": "GEVELUX",
+    "nonvat-price": 1097.911,
+    "vat": 21,
+    "discount": 0,
+    "image": "img-default-iluminacion.jpg"
+  },
+  {
+    "id": 7,
+    "category": "Energía Solar",
+    "sub-category": "Energía Solar",
+    "description": "PANEL SOLAR MONOCRISTALINO 145W SIN MARCO",
+    "brand": "HISSUMA",
+    "nonvat-price": 284.476,
+    "vat": 10.5,
+    "discount": 0,
+    "image": "img-default-energia-solar.jpg"
+  },
+  {
+    "id": 8,
+    "category": "Energía Solar",
+    "sub-category": "Energía Solar",
+    "description": "PANEL SOLAR POLICRISTALINO DE 120W",
+    "brand": "HISSUMA",
+    "nonvat-price": 184.309,
+    "vat": 10.5,
+    "discount": 0,
+    "image": "img-default-energia-solar.jpg"
+  },
+  {
+    "id": 9,
+    "category": "Herramientas",
+    "sub-category": "Aislantes",
+    "description": "TABLERO P/COLUMNA",
+    "brand": "AISMEC",
+    "nonvat-price": 9.327,
+    "vat": 21,
+    "discount": 0,
+    "image": "img-default-herramientas.jpg"
+  },
+  {
+    "id": 10,
+    "category": "Herramientas",
+    "sub-category": "Aislantes",
+    "description": "TABLERO P/COLUMNA 60x135mm C/PROT.S/ARMAR TCA-2",
+    "brand": "TEA",
+    "nonvat-price": 13.598,
+    "vat": 21,
+    "discount": 0,
+    "image": "img-default-herramientas.jpg"
+  }
+]

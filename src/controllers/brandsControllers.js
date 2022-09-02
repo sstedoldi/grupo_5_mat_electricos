@@ -4,7 +4,7 @@ const products = [];
 
 //Controller definition
 const brandsController = {
-  list: (req, res) => {
+  index: (req, res) => {
     //Codigo para tomar categoria elegida y filtrar productos
     let brand; //Object
     let productsFiltered = []; //Object list

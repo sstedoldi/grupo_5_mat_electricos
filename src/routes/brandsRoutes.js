@@ -8,7 +8,7 @@ const brandsControllers = require("../controllers/brandsControllers.js");
 const router = express.Router();
 
 //Router methods
-router.get("/brandList", brandsControllers.list);
+router.get("/brandList", brandsControllers.index);
 
 ////
 module.exports = router;

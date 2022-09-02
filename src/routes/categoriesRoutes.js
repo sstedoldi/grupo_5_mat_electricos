@@ -8,7 +8,7 @@ const categoriesControllers = require("../controllers/categoriesControllers.js")
 const router = express.Router();
 
 //Router methods
-router.get("/categoryList", categoriesControllers.list);
+router.get("/categoryList", categoriesControllers.index);
 
 ////
 module.exports = router;
