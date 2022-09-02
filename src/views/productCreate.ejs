@@ -3,7 +3,8 @@
 
 <head>
     <%- include("partials/head") %>
-    <link rel="stylesheet" href="/css/style-products.css"></link>
+        <link rel="stylesheet" href="/css/style-products.css">
+        </link>
 </head>
 
 <body>
@@ -15,9 +16,9 @@
     <!-- MAIN -->
     <main>
         <div class="form-product-create">
-            <h3> Cargá un nuevo producto!</h3>
             <form action="/products/" method="POST" enctype="multipart/form-data">
                 <div class="div-create-forms">
+                    <h3 class="form-create-title"> Cargá un nuevo producto!</h3>
                     <div class="formularios-create">
                         <label for="name" class="form-label-create">Nombre del producto:</label>
                         <input class="form-input-create" type="text" name="name" id="name"
@@ -34,7 +35,7 @@
                         <input type="color" id="product-color" name="product-color" class="form-input-create">
                     </div>
                     <div class="formularios-create">
-                        <label for="archivo-imagen-producto" class="form-label-create">Seleccione una imagen:</label>
+                        <label for="archivo-imagen-producto" class="form-label-create">Imagen:</label>
                         <input type="file" id="archivo-imagen-producto" name="archivo-imagen-producto"
                             class="form-input-create">
                     </div>
@@ -51,10 +52,9 @@
                     </div>
                     <div class="formularios-create">
                         <label for="descripcion" class="form-label-create">Describa su producto:</label>
-                        <textarea name="descripcion" id="description" class="form-input-create"
-                            placeholder="Ej:'Producto casi nuevo, poco uso, etc...'"></textarea>
+                        <textarea name="descripcion" id="description" class="form-input-create-description"></textarea>
                     </div>
-                    <div class="formularios-create">
+                    <div class="formularios-create-button">
                         <input class="button-create" type="submit" value="Crear producto" />
                     </div>
                 </div>

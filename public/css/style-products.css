@@ -437,17 +437,70 @@
 /* PRODUCT CREATE STYLES*/
 /* &&&&&&&&&&& */
 
-.form-product-create{
+.form-product-create {
   width: 85%;
   margin: auto;
-  font-size: 10px;
+  padding-bottom: 25px;
 }
 
-.div-create-forms{
+.div-create-forms {
   width: 90%;
   margin: auto;
-  text-align: center;
+  text-align: left;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  max-width: 520px;
 }
 
-.formularios-create{
+.formularios-create {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.form-create-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 550;
+  padding-top: 20px;
+}
+
+.form-label-create {
+  display: inline-block;
+  font-size: 16px;
+  margin: 16px 0;
+}
+
+.form-input-create {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-input-create-color{
+  width: 20%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-input-create-description {
+  width: 100%;
+  height: 120px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.formularios-create-button{
+  text-align: left;
+}
+
+.button-create{
+  margin: 20px 20px;
+  background-color: rgb(190, 190, 190);
+  font-size: 20px;
+  border-radius: 5px;
 }
