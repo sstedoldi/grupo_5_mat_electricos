@@ -428,8 +428,26 @@
 
 /*PC cut*/
 
-@media (min-width: 820px) {
+@media (min-width: 920px) {
   .main-sections {
     max-width: 1300px;
   }
+}
+
+/* PRODUCT CREATE STYLES*/
+/* &&&&&&&&&&& */
+
+.form-product-create{
+  width: 85%;
+  margin: auto;
+  font-size: 10px;
+}
+
+.div-create-forms{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.formularios-create{
 }

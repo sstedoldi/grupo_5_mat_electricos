@@ -3,6 +3,7 @@
 
 <head>
     <%- include("partials/head") %>
+    <link rel="stylesheet" href="/css/style-products.css"></link>
 </head>
 
 <body>
@@ -15,31 +16,48 @@
     <main>
         <div class="form-product-create">
             <h3> Cargá un nuevo producto!</h3>
-            <form action="/" method="GET">
-                <input class="" type="text" name="name" id="name" placeholder="Nombre del producto" />
+            <form action="/products/" method="POST" enctype="multipart/form-data">
+                <div class="div-create-forms">
+                    <div class="formularios-create">
+                        <label for="name" class="form-label-create">Nombre del producto:</label>
+                        <input class="form-input-create" type="text" name="name" id="name"
+                            placeholder="Ej: 'PC MacBook Pro" />
+                    </div>
+                    <div class="formularios-create">
+                        <label for="precio" class="form-label-create">Precio del producto:</label>
+                        <input class="form-input-create" type="number" name="precio" id="price"
+                            placeholder="Ej: 27778" />
+                    </div>
 
-                <label for="descripcion">Describa su producto:</label>
-                <textarea name="descripcion"></textarea>
-
-                <label for="product-color">Seleccioná el color del producto:</label>
-                <input type="color" id="product-color" name="product-color">
-
-                <label for="archivo-imagen-producto">Seleccione una imagen:</label>
-                <input type="file" id="archivo-imagen-producto" name="archivo-imagen-producto">
-
-                <label for="categoria-producto">Elija una categoria:</label>
-                <select id="categoria-producto" name="categoria-producto">
-                    <option value="Lámaparas">Lámaparas</option>
-                    <option value="Iluminacion">Iluminacion</option>
-                    <option value="Interruptores">Interruptores</option>
-                    <option value="Cables">Cables</option>
-                    <option value="Canalizaciones">Canalizaciones</option>
-                    <option value="Otra">Otra</option>
-                </select>
-
-                <input class="" type="number" name="precio" id="price" placeholder="Ingrese el precio del producto" />
-
-                <input class="buttons" type="submit" value="Crear producto" />
+                    <div class="formularios-create">
+                        <label for="product-color" class="form-label-create">Seleccioná el color del producto:</label>
+                        <input type="color" id="product-color" name="product-color" class="form-input-create">
+                    </div>
+                    <div class="formularios-create">
+                        <label for="archivo-imagen-producto" class="form-label-create">Seleccione una imagen:</label>
+                        <input type="file" id="archivo-imagen-producto" name="archivo-imagen-producto"
+                            class="form-input-create">
+                    </div>
+                    <div class="formularios-create">
+                        <label for="categoria-producto" class="form-label-create">Elija una categoria:</label>
+                        <select id="categoria-producto" name="categoria-producto" class="form-input-create">
+                            <option value="Lámaparas">Lámaparas</option>
+                            <option value="Iluminacion">Iluminacion</option>
+                            <option value="Interruptores">Interruptores</option>
+                            <option value="Cables">Cables</option>
+                            <option value="Canalizaciones">Canalizaciones</option>
+                            <option value="Otra">Otra</option>
+                        </select>
+                    </div>
+                    <div class="formularios-create">
+                        <label for="descripcion" class="form-label-create">Describa su producto:</label>
+                        <textarea name="descripcion" id="description" class="form-input-create"
+                            placeholder="Ej:'Producto casi nuevo, poco uso, etc...'"></textarea>
+                    </div>
+                    <div class="formularios-create">
+                        <input class="button-create" type="submit" value="Crear producto" />
+                    </div>
+                </div>
             </form>
         </div>
 
