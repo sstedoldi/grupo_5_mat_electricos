@@ -16,9 +16,9 @@
     <!-- MAIN -->
     <main>
         <div class="form-product-create">
+            <h3 class="form-create-title"> Cargá un nuevo producto!</h3>
             <form action="/products/" method="POST" enctype="multipart/form-data">
                 <div class="div-create-forms">
-                    <h3 class="form-create-title"> Cargá un nuevo producto!</h3>
                     <div class="formularios-create">
                         <label for="name" class="form-label-create">Nombre del producto:</label>
                         <input class="form-input-create" type="text" name="name" id="name"
@@ -28,16 +28,6 @@
                         <label for="precio" class="form-label-create">Precio del producto:</label>
                         <input class="form-input-create" type="number" name="precio" id="price"
                             placeholder="Ej: 27778" />
-                    </div>
-
-                    <div class="formularios-create">
-                        <label for="product-color" class="form-label-create">Seleccioná el color del producto:</label>
-                        <input type="color" id="product-color" name="product-color" class="form-input-create">
-                    </div>
-                    <div class="formularios-create">
-                        <label for="archivo-imagen-producto" class="form-label-create">Imagen:</label>
-                        <input type="file" id="archivo-imagen-producto" name="archivo-imagen-producto"
-                            class="form-input-create">
                     </div>
                     <div class="formularios-create">
                         <label for="categoria-producto" class="form-label-create">Elija una categoria:</label>
@@ -51,6 +41,15 @@
                         </select>
                     </div>
                     <div class="formularios-create">
+                        <label for="product-color" class="form-label-create">Seleccioná el color del producto:</label>
+                        <input type="color" id="product-color" name="product-color" class="form-input-create">
+                    </div>
+                    <div class="formularios-create">
+                        <label for="archivo-imagen-producto" class="form-label-create">Imagen:</label>
+                        <input type="file" id="archivo-imagen-producto" name="archivo-imagen-producto"
+                            class="form-input-create">
+                    </div>
+                    <div class="formularios-create-description">
                         <label for="descripcion" class="form-label-create">Describa su producto:</label>
                         <textarea name="descripcion" id="description" class="form-input-create-description"></textarea>
                     </div>
