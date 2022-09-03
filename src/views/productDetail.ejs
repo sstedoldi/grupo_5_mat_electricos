@@ -13,12 +13,12 @@
     <main class="main-product">
         <div class="product-figure-info">
             <div class="product-figure">
-                <img src="./images/products/01-Luminaria-Emergencia-40LEDs.jpg" alt="Figura del producto seleccionado">
+                <img src=<%= product.image %> alt="Figura del producto seleccionado">
             </div>
             <div class="product-info">
-                <h3 class="product-info-name">Nombre del producto</h3>
-                <h5 class="product-info-brand">Marca del producto</h5>
-                <p class="product-info-price"><b>&#x24 PRECIO</b> c/u</p>
+                <h3 class="product-info-name"><%= product.subcategory %></h3>
+                <h5 class="product-info-brand"><%= product.description %></h5>
+                <p class="product-info-price"><b>&#x24 <%= product.nonvatPrice %></b> c/u</p>
                 <div class="product-quantity">
                     <label for="quantity">Cantidad:</label>
                     <input type="number" id="quantity" name="quantity" min="1" max="2000">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="product-description">
-            <p class="product-full-description">Descripción completa del producto</p>
+            <p class="product-full-description"><%= product.description %></p>
             <table style="border:0">
                 <tr>
                     <td><b>Marca</b></td>

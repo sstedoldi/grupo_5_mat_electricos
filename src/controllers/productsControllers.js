@@ -11,6 +11,7 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 //Controller definition
 const productsController = {
+  //lista todos los productos
   index: (req, res) => {
     res.render("products", {
       products,
@@ -18,8 +19,13 @@ const productsController = {
     });
   },
   detail: (req, res) => {
-    const idProduct = req.params.id;
-    res.render("productDetail", products[idProduct]);
+    //muestra el detalle de un producto
+    let id = req.params.id;
+    let product = products.find((oneProduct) => oneProduct.id == id);
+    res.render("productDetail", {
+      product,
+      toThousand,
+    });
   },
   create: (req, res) => {
     res.render("productCreate");
