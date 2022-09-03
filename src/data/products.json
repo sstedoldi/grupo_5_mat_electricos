@@ -8,7 +8,7 @@
     "nonvatPrice": 2.528,
     "vat": 21,
     "discount": 0,
-    "image": "img-default-cables.jpg"
+    "image": "images/products/img-default-cables.jpg"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "nonvatPrice": 1.715,
     "vat": 21,
     "discount": 0,
-    "image": "img-default-cables.jpg"
+    "image": "images/products/img-default-cables.jpg"
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "nonvatPrice": 13.031,
     "vat": 21,
     "discount": 0,
-    "image": "img-default-elec-dom.jpg"
+    "image": "images/products/img-default-elec-dom.jpg"
   },
   {
     "id": 4,
@@ -41,7 +41,7 @@
     "nonvatPrice": 1.781,
     "vat": 21,
     "discount": 0,
-    "image": "img-default-elec-dom.jpg"
+    "image": "images/products/img-default-elec-dom.jpg"
   },
   {
     "id": 5,
@@ -52,7 +52,7 @@
     "nonvatPrice": 29.695,
     "vat": 21,
     "discount": 0,
-    "image": "img-default-iluminacion.jpg"
+    "image": "images/products/img-default-iluminacion.jpg"
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
     "nonvatPrice": 1097.911,
     "vat": 21,
     "discount": 0,
-    "image": "img-default-iluminacion.jpg"
+    "image": "images/products/img-default-iluminacion.jpg"
   },
   {
     "id": 7,
@@ -74,7 +74,7 @@
     "nonvatPrice": 284.476,
     "vat": 10.5,
     "discount": 0,
-    "image": "img-default-energia-solar.jpg"
+    "image": "images/products/img-default-energia-solar.jpg"
   },
   {
     "id": 8,
@@ -85,7 +85,7 @@
     "nonvatPrice": 184.309,
     "vat": 10.5,
     "discount": 0,
-    "image": "img-default-energia-solar.jpg"
+    "image": "images/products/img-default-energia-solar.jpg"
   },
   {
     "id": 9,
@@ -96,7 +96,7 @@
     "nonvatPrice": 9.327,
     "vat": 21,
     "discount": 0,
-    "image": "img-default-herramientas.jpg"
+    "image": "images/products/img-default-herramientas.jpg"
   },
   {
     "id": 10,
@@ -107,6 +107,6 @@
     "nonvatPrice": 13.598,
     "vat": 21,
     "discount": 0,
-    "image": "img-default-herramientas.jpg"
+    "image": "images/products/img-default-herramientas.jpg"
   }
 ]
