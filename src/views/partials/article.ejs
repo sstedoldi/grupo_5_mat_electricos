@@ -1,12 +1,15 @@
 <article>
-  <img src=<%=product.image%> width="360" alt=<% "img-"+ product.name %> />
+  <img src=<%=product.image%> width="360" alt=<% "img-"+ product.subcategory %> />
   <div class="main-section-article-info">
     <!-- <i class="fas fa-truck"></i> -->
     <div class="main-section-article-info-price">
-      <p class="article-price">$ <%= product.price %></p>
-      <p class="article-discount"><%= product.discount %></p>
+      <p class="article-price">$ <%= product.nonvatPrice %></p>
+      <p style="font-size: 12px">(sin IVA)</p>
+      <p class="article-discount">% <%= product.discount %></p>
     </div>
-    <p class="article-name"><%= product.name %></p>
+    <p class="article-name"><%= product.category %></p>
+    <p class="article-name"><%= product.subcategory %></p>
+    <p class="article-name"><%= product.description %></p>
   </div>
 </article>
 

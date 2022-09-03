@@ -20,12 +20,12 @@ app.listen(port, () => console.log("Servidor corriendo en puerto ", 3000));
 const mainRoutes = require("./routes/mainRoutes.js");
 const usersRoutes = require("./routes/usersRoutes.js");
 const productsRoutes = require("./routes/productsRoutes.js");
-const categoriesRoutes = require("./routes/categoriesRoutes.js");
-const brandsRoutes = require("./routes/brandsRoutes.js");
+// const categoriesRoutes = require("./routes/categoriesRoutes.js");
+// const brandsRoutes = require("./routes/brandsRoutes.js");
 
 //Views
 app.use("/", mainRoutes);
 app.use("/users", usersRoutes);
 app.use("/products", productsRoutes);
-app.use("/categories", categoriesRoutes);
-app.use("/brands", brandsRoutes);
+// app.use("/categories", categoriesRoutes);
+// app.use("/brands", brandsRoutes);

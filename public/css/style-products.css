@@ -329,7 +329,7 @@
   }
 }
 
-/* CATEGORIES STYLES */
+/* PRODUCTS STYLES */
 /* &&&&&&&&&&& */
 
 /* &&&& */
@@ -355,7 +355,7 @@
 }
 
 /* flex */
-.category-articles {
+.products-articles {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -514,11 +514,11 @@
   .formularios-create {
     width: 50%;
   }
-  .formularios-create-description{
+  .formularios-create-description {
     width: 100%;
   }
 
-  .form-create-title{
+  .form-create-title {
     font-size: 26px;
   }
 }
