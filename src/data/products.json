@@ -1,112 +1,164 @@
 [
-  {
-    "id": 1,
-    "category": "Cables",
-    "subcategory": "Cables subterráneos",
-    "description": "SUBTE.ALUM.1x 25",
-    "brand": "IMSA",
-    "nonvatPrice": 2.528,
-    "vat": 21,
-    "discount": 0,
-    "image": "/images/products/img-default-cables.jpg"
-  },
-  {
-    "id": 2,
-    "category": "Cables",
-    "subcategory": "ERPLA/ KALOP/ UPERCAB eléctricos",
-    "description": "TIPO TALLER 3x 1.5 xmt.",
-    "brand": "ERPLA/ KALOP/ UPERCAB",
-    "nonvatPrice": 1.715,
-    "vat": 21,
-    "discount": 0,
-    "image": "/images/products/img-default-cables.jpg"
-  },
-  {
-    "id": 3,
-    "category": "Elect. Domiciliaria",
-    "subcategory": "Automáticos de tanque.",
-    "description": "AUTOMAT.DE TANQUE C/CABLE 3MTS. F-2000",
-    "brand": "FIBOSA",
-    "nonvatPrice": 13.031,
-    "vat": 21,
-    "discount": 0,
-    "image": "/images/products/img-default-elec-dom.jpg"
-  },
-  {
-    "id": 4,
-    "category": "Elect. Domiciliaria",
-    "subcategory": "Cablecanal",
-    "description": "CABLEC.C/ADH.T/MAD.14x 7   x Tramo",
-    "brand": "HOYOS",
-    "nonvatPrice": 1.781,
-    "vat": 21,
-    "discount": 0,
-    "image": "/images/products/img-default-elec-dom.jpg"
-  },
-  {
-    "id": 5,
-    "category": "Iluminación",
-    "subcategory": "Balastos e Ignitores",
-    "description": "BAL.MERC.250W Interior SKYWATCH 1100706",
-    "brand": "ITALAVIA",
-    "nonvatPrice": 29.695,
-    "vat": 21,
-    "discount": 0,
-    "image": "/images/products/img-default-iluminacion.jpg"
-  },
-  {
-    "id": 6,
-    "category": "Iluminación",
-    "subcategory": "De Seguridad",
-    "description": "ART. ILUM. APE C/TUBOS LED 2X36W ATFXL 240",
-    "brand": "GEVELUX",
-    "nonvatPrice": 1097.911,
-    "vat": 21,
-    "discount": 0,
-    "image": "/images/products/img-default-iluminacion.jpg"
-  },
-  {
-    "id": 7,
-    "category": "Energía Solar",
-    "subcategory": "Energía Solar",
-    "description": "PANEL SOLAR MONOCRISTALINO 145W SIN MARCO",
-    "brand": "HISSUMA",
-    "nonvatPrice": 284.476,
-    "vat": 10.5,
-    "discount": 0,
-    "image": "/images/products/img-default-energia-solar.jpg"
-  },
-  {
-    "id": 8,
-    "category": "Energía Solar",
-    "subcategory": "Energía Solar",
-    "description": "PANEL SOLAR POLICRISTALINO DE 120W",
-    "brand": "HISSUMA",
-    "nonvatPrice": 184.309,
-    "vat": 10.5,
-    "discount": 0,
-    "image": "/images/products/img-default-energia-solar.jpg"
-  },
-  {
-    "id": 9,
-    "category": "Herramientas",
-    "subcategory": "Aislantes",
-    "description": "TABLERO P/COLUMNA",
-    "brand": "AISMEC",
-    "nonvatPrice": 9.327,
-    "vat": 21,
-    "discount": 0,
-    "image": "/images/products/img-default-herramientas.jpg"
-  },
-  {
-    "id": 10,
-    "category": "Herramientas",
-    "subcategory": "Aislantes",
-    "description": "TABLERO P/COLUMNA 60x135mm C/PROT.S/ARMAR TCA-2",
-    "brand": "TEA",
-    "nonvatPrice": 13.598,
-    "vat": 21,
-    "discount": 0,
-    "image": "/images/products/img-default-herramientas.jpg"
-  }
+ {
+  "id": 1,
+  "category": "Cables",
+  "subcategory": "Cables subterráneos",
+  "description": "SUBTE.ALUM.1x 25",
+  "brand": "IMSA",
+  "nonvatPrice": 2.528,
+  "vat": 21,
+  "discount": 0,
+  "image": "img-default-cables.jpg"
+ },
+ {
+  "id": 2,
+  "category": "Cables",
+  "subcategory": "ERPLA/ KALOP/ UPERCAB eléctricos",
+  "description": "TIPO TALLER 3x 1.5 xmt.",
+  "brand": "ERPLA/ KALOP/ UPERCAB",
+  "nonvatPrice": 1.715,
+  "vat": 21,
+  "discount": 0,
+  "image": "img-default-cables.jpg"
+ },
+ {
+  "id": 3,
+  "category": "Elect. Domiciliaria",
+  "subcategory": "Automáticos de tanque.",
+  "description": "AUTOMAT.DE TANQUE C/CABLE 3MTS. F-2000",
+  "brand": "FIBOSA",
+  "nonvatPrice": 13.031,
+  "vat": 21,
+  "discount": 0,
+  "image": "img-default-elec-dom.jpg"
+ },
+ {
+  "id": 4,
+  "category": "Elect. Domiciliaria",
+  "subcategory": "Cablecanal",
+  "description": "CABLEC.C/ADH.T/MAD.14x 7   x Tramo",
+  "brand": "HOYOS",
+  "nonvatPrice": 1.781,
+  "vat": 21,
+  "discount": 0,
+  "image": "img-default-elec-dom.jpg"
+ },
+ {
+  "id": 5,
+  "category": "Iluminación",
+  "subcategory": "Balastos e Ignitores",
+  "description": "BAL.MERC.250W Interior SKYWATCH 1100706",
+  "brand": "ITALAVIA",
+  "nonvatPrice": 29.695,
+  "vat": 21,
+  "discount": 0,
+  "image": "img-default-iluminacion.jpg"
+ },
+ {
+  "id": 6,
+  "category": "Iluminación",
+  "subcategory": "De Seguridad",
+  "description": "ART. ILUM. APE C/TUBOS LED 2X36W ATFXL 240",
+  "brand": "GEVELUX",
+  "nonvatPrice": 1097.911,
+  "vat": 21,
+  "discount": 0,
+  "image": "img-default-iluminacion.jpg"
+ },
+ {
+  "id": 7,
+  "category": "Energía Solar",
+  "subcategory": "Energía Solar",
+  "description": "PANEL SOLAR MONOCRISTALINO 145W SIN MARCO",
+  "brand": "HISSUMA",
+  "nonvatPrice": 284.476,
+  "vat": 10.5,
+  "discount": 0,
+  "image": "img-default-energia-solar.jpg"
+ },
+ {
+  "id": 8,
+  "category": "Energía Solar",
+  "subcategory": "Energía Solar",
+  "description": "PANEL SOLAR POLICRISTALINO DE 120W",
+  "brand": "HISSUMA",
+  "nonvatPrice": 184.309,
+  "vat": 10.5,
+  "discount": 0,
+  "image": "img-default-energia-solar.jpg"
+ },
+ {
+  "id": 9,
+  "category": "Herramientas",
+  "subcategory": "Aislantes",
+  "description": "TABLERO P/COLUMNA",
+  "brand": "AISMEC",
+  "nonvatPrice": 9.327,
+  "vat": 21,
+  "discount": 0,
+  "image": "img-default-herramientas.jpg"
+ },
+ {
+  "id": 10,
+  "category": "Herramientas",
+  "subcategory": "Aislantes",
+  "description": "TABLERO P/COLUMNA 60x135mm C/PROT.S/ARMAR TCA-2",
+  "brand": "TEA",
+  "nonvatPrice": 13.598,
+  "vat": 21,
+  "discount": 0,
+  "image": "img-default-herramientas.jpg"
+ },
+ {
+  "id": 11,
+  "name": "Zapatillas",
+  "price": "6298",
+  "category": "Iluminacion",
+  "description": "Soy una descripcion ",
+  "image": "default-image.png"
+ },
+ {
+  "id": 12,
+  "name": "Cable electrico",
+  "price": "6298",
+  "category": "Iluminacion",
+  "description": "Soy una descripcion ",
+  "image": "img-1662241789741.jpg"
+ },
+ {
+  "id": 13,
+  "name": "PC mcbook pro",
+  "nonvatPrice": "6298",
+  "category": "Iluminacion",
+  "description": "Soy una descripcion",
+  "image": "img-1662242444124.jpg"
+ },
+ {
+  "id": 14,
+  "name": "PC mcbook pro",
+  "nonvatPrice": "6298",
+  "category": "Iluminacion",
+  "description": "Soy una descripcion",
+  "image": "img-1662242817472.jpg"
+ },
+ {
+  "id": 15,
+  "name": "PC mcbook pro",
+  "nonvatPrice": "6298",
+  "category": "Iluminacion",
+  "description": "Soy una descripcion",
+  "image": "img-1662242860071.jpg"
+ },
+ {
+  "id": 16,
+  "name": "Lampara 15w",
+  "nonvatPrice": "1298",
+  "discount": "10",
+  "category": [
+   "Iluminacion",
+   "Lámaparas"
+  ],
+  "description": "Lampara exclente para iluminar ambientes",
+  "image": "img-1662243511456.jpg"
+ }
 ]

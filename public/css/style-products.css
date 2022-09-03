@@ -450,6 +450,7 @@
   background-color: rgb(240, 240, 240);
   border-radius: 8px;
   max-width: 520px;
+  border: solid 1px grey;
 }
 
 .formularios-create {

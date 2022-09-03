@@ -25,13 +25,13 @@
                             placeholder="Ej: 'PC MacBook Pro" />
                     </div>
                     <div class="formularios-create">
-                        <label for="precio" class="form-label-create">Precio del producto:</label>
-                        <input class="form-input-create" type="number" name="precio" id="price"
+                        <label for="nonvatPrice" class="form-label-create">Precio del producto:</label>
+                        <input class="form-input-create" type="number" name="nonvatPrice" id="nonvatPrice"
                             placeholder="Ej: 27778" />
                     </div>
                     <div class="formularios-create">
-                        <label for="categoria-producto" class="form-label-create">Elija una categoria:</label>
-                        <select id="categoria-producto" name="categoria-producto" class="form-input-create">
+                        <label for="category" class="form-label-create">Elija una categoria:</label>
+                        <select id="category" name="category" class="form-input-create">
                             <option value="Lámaparas">Lámaparas</option>
                             <option value="Iluminacion">Iluminacion</option>
                             <option value="Interruptores">Interruptores</option>
@@ -41,17 +41,29 @@
                         </select>
                     </div>
                     <div class="formularios-create">
-                        <label for="product-color" class="form-label-create">Seleccioná el color del producto:</label>
-                        <input type="color" id="product-color" name="product-color" class="form-input-create">
+                        <label for="discount" class="form-label-create">Descuento:</label>
+                        <input class="form-input-create" type="number" name="discount" id="discount"
+                            placeholder="Ej: 15" />
                     </div>
                     <div class="formularios-create">
-                        <label for="archivo-imagen-producto" class="form-label-create">Imagen:</label>
-                        <input type="file" id="archivo-imagen-producto" name="archivo-imagen-producto"
+                        <label for="productImage" class="form-label-create">Imagen:</label>
+                        <input type="file" id="productImage" name="productImage"
                             class="form-input-create">
                     </div>
+                    <div class="formularios-create">
+                        <label for="category" class="form-label-create">Elija una categoria:</label>
+                        <select id="category" name="category" class="form-input-create">
+                            <option value="Lámaparas">Lámaparas</option>
+                            <option value="Iluminacion">Iluminacion</option>
+                            <option value="Interruptores">Interruptores</option>
+                            <option value="Cables">Cables</option>
+                            <option value="Canalizaciones">Canalizaciones</option>
+                            <option value="Otra">Otra</option>
+                        </select>
+                    </div>
                     <div class="formularios-create-description">
-                        <label for="descripcion" class="form-label-create">Describa su producto:</label>
-                        <textarea name="descripcion" id="description" class="form-input-create-description"></textarea>
+                        <label for="description" class="form-label-create">Describa su producto:</label>
+                        <textarea name="description" id="description" class="form-input-create-description"></textarea>
                     </div>
                     <div class="formularios-create-button">
                         <input class="button-create" type="submit" value="Crear producto" />
