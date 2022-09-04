@@ -40,6 +40,7 @@ const productsController = {
       nonvatPrice: req.body.nonvatPrice,
       discount: req.body.discount,
       category: req.body.category,
+      subcategory: req.body.subcategory,
       description: req.body.description,
       image: req.file ? req.file.filename : "default-image.png",
     };
