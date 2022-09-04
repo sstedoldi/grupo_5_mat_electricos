@@ -31,22 +31,22 @@ const productsController = {
     res.render("productCreate");
   },
   store: (req, res) => {
-		console.log(req.file);
-		console.log(req.body);
-		// Do the magic
-		let newProduct={
-			id: products[products.length - 1].id + 1,
-			name: req.body.name,
-			nonvatPrice: req.body.nonvatPrice,
-			discount: req.body.discount,
-			category: req.body.category,
-			description: req.body.description,
-			image:req.file? req.file.filename : "default-image.png"
-		};
-		products.push(newProduct);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-		res.redirect('/products/');
-	},
+    console.log(req.file);
+    console.log(req.body);
+    // Do the magic
+    let newProduct = {
+      id: products[products.length - 1].id + 1,
+      name: req.body.name,
+      nonvatPrice: req.body.nonvatPrice,
+      discount: req.body.discount,
+      category: req.body.category,
+      description: req.body.description,
+      image: req.file ? req.file.filename : "default-image.png",
+    };
+    products.push(newProduct);
+    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
+    res.redirect("/products/");
+  },
   edit: (req, res) => {
     const idProduct = req.params.id;
     res.send("modificar de producto" + idProduct);
@@ -63,6 +63,23 @@ const productsController = {
   ////
   cart: (req, res) => {
     res.render("productCart");
+  },
+  ////
+  search: (req, res) => {
+    let query = req.query.search;
+    let productsFiltered = products.filter((product) => {
+      return (
+        product.category.includes(query) ||
+        product.subcategory.includes(query) ||
+        product.description.includes(query) ||
+        product.brand.includes(query)
+      );
+    });
+    res.render("productSearch", {
+      query,
+      productsFiltered,
+      toThousand,
+    });
   },
 };
 

@@ -108,54 +108,5 @@
     "vat": 21,
     "discount": 0,
     "image": "/img-default-herramientas.jpg"
-  },
-  {
-    "id": 11,
-    "name": "Zapatillas",
-    "price": "6298",
-    "category": "Iluminacion",
-    "description": "Soy una descripcion ",
-    "image": "default-image.png"
-  },
-  {
-    "id": 12,
-    "name": "Cable electrico",
-    "price": "6298",
-    "category": "Iluminacion",
-    "description": "Soy una descripcion ",
-    "image": "/img-1662241789741.jpg"
-  },
-  {
-    "id": 13,
-    "name": "PC mcbook pro",
-    "nonvatPrice": "6298",
-    "category": "Iluminacion",
-    "description": "Soy una descripcion",
-    "image": "/img-1662242444124.jpg"
-  },
-  {
-    "id": 14,
-    "name": "PC mcbook pro",
-    "nonvatPrice": "6298",
-    "category": "Iluminacion",
-    "description": "Soy una descripcion",
-    "image": "/img-1662242817472.jpg"
-  },
-  {
-    "id": 15,
-    "name": "PC mcbook pro",
-    "nonvatPrice": "6298",
-    "category": "Iluminacion",
-    "description": "Soy una descripcion",
-    "image": "/img-1662242860071.jpg"
-  },
-  {
-    "id": 16,
-    "name": "Lampara 15w",
-    "nonvatPrice": "1298",
-    "discount": "10",
-    "category": ["Iluminacion", "Lámaparas"],
-    "description": "Lampara exclente para iluminar ambientes",
-    "image": "/img-1662243511456.jpg"
   }
 ]
