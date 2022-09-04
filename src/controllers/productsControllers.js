@@ -57,17 +57,17 @@ const productsController = {
     res.send("modificar de producto" + idProduct);
   },
   delete: (req, res) => {
-   for( let i =0; i< products.length; i++){
-    if(products[i].id == parseInt(req.params.id)){
-      products.splice(i, 1)
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].id == parseInt(req.params.id)) {
+        products.splice(i, 1);
+      }
     }
-   }
-   products1 = JSON.stringify(products); 
-   fs.writeFileSync(productsFilePath, products1); 
+    let products1 = JSON.stringify(products); //agrego let
+    fs.writeFileSync(productsFilePath, products1);
 
-   products2 = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
+    let products2 = JSON.parse(fs.readFileSync(productsFilePath, "utf-8")); //agrego let
 
-   res.render("products", {products: products2})
+    res.render("products", { products: products2 });
   },
 
   ////

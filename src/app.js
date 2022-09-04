@@ -1,18 +1,19 @@
 //Primary modules
 const express = require("express");
 const path = require("path");
-const methodOverride = require("method-override");
+
+const methodOverride = require("method-override"); //to use put & delete in html
 
 //App instance
 const app = express();
 
-//settings
+//Settings
 app.use(express.static(path.join(__dirname, "../public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.use(methodOverride("_method")); //Dentro del form se indica
-
-app.use(express.urlencoded({ extended: false}));
+app.use(methodOverride("_method")); //to use put & delete in html
+//to use data from forms:
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 //Server
