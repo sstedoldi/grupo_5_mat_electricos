@@ -57,8 +57,17 @@ const productsController = {
     res.send("modificar de producto" + idProduct);
   },
   delete: (req, res) => {
-    const idProduct = req.params.id;
-    res.send("borrado del producto" + idProduct);
+   for( let i =0; i< products.length; i++){
+    if(products[i].id == parseInt(req.params.id)){
+      products.splice(i, 1)
+    }
+   }
+   products1 = JSON.stringify(products); 
+   fs.writeFileSync(productsFilePath, products1); 
+
+   products2 = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
+
+   res.render("products", {products: products2})
   },
 
   ////

@@ -40,7 +40,7 @@ router.get("/edit/:id", productsController.edit);
 //Recibir datos del form para producto editado
 router.put("/:id", productsController.update);
 //Eliminar un producto
-router.delete("/:id", productsController.delete);
+router.delete("/delete/:id", productsController.delete);
 
 //Cart
 router.get("/productCart", productsController.cart);
