@@ -16,9 +16,9 @@ app.use(methodOverride("_method")); //to use put & delete in html
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 //404 not found
-app.use((req, res, next) => {
-  res.status(404).render("not-found");
-});
+// app.use((req, res, next) => {
+//   res.status(404).render("not-found");
+// });
 
 //Server
 const port = 3000;
