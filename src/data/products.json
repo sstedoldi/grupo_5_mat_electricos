@@ -8,6 +8,7 @@
     "nonvatPrice": 2.528,
     "vat": 21,
     "discount": 0,
+    "status": "visited",
     "image": "img-default-cables.jpg"
   },
   {
@@ -19,6 +20,7 @@
     "nonvatPrice": 1.715,
     "vat": 21,
     "discount": 0,
+    "status": "visited",
     "image": "img-default-cables.jpg"
   },
   {
@@ -30,6 +32,7 @@
     "nonvatPrice": 13.031,
     "vat": 21,
     "discount": 0,
+    "status": "visited",
     "image": "img-default-elec-dom.jpg"
   },
   {
@@ -40,7 +43,8 @@
     "brand": "HOYOS",
     "nonvatPrice": 1.781,
     "vat": 21,
-    "discount": 0,
+    "discount": 5,
+    "status": "hot-sale",
     "image": "img-default-elec-dom.jpg"
   },
   {
@@ -51,7 +55,8 @@
     "brand": "ITALAVIA",
     "nonvatPrice": 29.695,
     "vat": 21,
-    "discount": 0,
+    "discount": 10,
+    "status": "hot-sale",
     "image": "img-default-iluminacion.jpg"
   },
   {
@@ -63,6 +68,7 @@
     "nonvatPrice": 1097.911,
     "vat": 21,
     "discount": 0,
+    "status": "visited",
     "image": "img-default-iluminacion.jpg"
   },
   {
@@ -74,6 +80,7 @@
     "nonvatPrice": 284.476,
     "vat": 10.5,
     "discount": 0,
+    "status": "",
     "image": "img-default-energia-solar.jpg"
   },
   {
@@ -84,7 +91,8 @@
     "brand": "HISSUMA",
     "nonvatPrice": 184.309,
     "vat": 10.5,
-    "discount": 0,
+    "discount": 15,
+    "status": "hot-sale",
     "image": "img-default-energia-solar.jpg"
   },
   {
@@ -96,6 +104,7 @@
     "nonvatPrice": 9.327,
     "vat": 21,
     "discount": 0,
+    "status": "",
     "image": "img-default-herramientas.jpg"
   },
   {
@@ -106,7 +115,8 @@
     "brand": "TEA",
     "nonvatPrice": 13.598,
     "vat": 21,
-    "discount": 0,
+    "discount": 20,
+    "status": "hot-sale",
     "image": "img-default-herramientas.jpg"
   }
 ]
