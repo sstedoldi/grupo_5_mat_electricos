@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 [
   {
     "id": 1,
@@ -113,7 +110,3 @@
     "image": "/images/products/img-default-herramientas.jpg"
   }
 ]
->>>>>>> 9874bf88b911fc1cf42fa8cd4eb7eb98be2c6dc6
-=======
-[{"id":1,"category":"Cables","subcategory":"Cables subterráneos","description":"SUBTE.ALUM.1x 25","brand":"IMSA","nonvatPrice":2.528,"vat":21,"discount":0,"image":"/img-default-cables.jpg"},{"id":2,"category":"Cables","subcategory":"ERPLA/ KALOP/ UPERCAB eléctricos","description":"TIPO TALLER 3x 1.5 xmt.","brand":"ERPLA/ KALOP/ UPERCAB","nonvatPrice":1.715,"vat":21,"discount":0,"image":"/img-default-cables.jpg"},{"id":3,"category":"Elect. Domiciliaria","subcategory":"Automáticos de tanque.","description":"AUTOMAT.DE TANQUE C/CABLE 3MTS. F-2000","brand":"FIBOSA","nonvatPrice":13.031,"vat":21,"discount":0,"image":"/img-default-elec-dom.jpg"},{"id":4,"category":"Elect. Domiciliaria","subcategory":"Cablecanal","description":"CABLEC.C/ADH.T/MAD.14x 7   x Tramo","brand":"HOYOS","nonvatPrice":1.781,"vat":21,"discount":0,"image":"/img-default-elec-dom.jpg"},{"id":6,"category":"Iluminación","subcategory":"De Seguridad","description":"ART. ILUM. APE C/TUBOS LED 2X36W ATFXL 240","brand":"GEVELUX","nonvatPrice":1097.911,"vat":21,"discount":0,"image":"/img-default-iluminacion.jpg"},{"id":7,"category":"Energía Solar","subcategory":"Energía Solar","description":"PANEL SOLAR MONOCRISTALINO 145W SIN MARCO","brand":"HISSUMA","nonvatPrice":284.476,"vat":10.5,"discount":0,"image":"/img-default-energia-solar.jpg"},{"id":8,"category":"Energía Solar","subcategory":"Energía Solar","description":"PANEL SOLAR POLICRISTALINO DE 120W","brand":"HISSUMA","nonvatPrice":184.309,"vat":10.5,"discount":0,"image":"/img-default-energia-solar.jpg"},{"id":9,"category":"Herramientas","subcategory":"Aislantes","description":"TABLERO P/COLUMNA","brand":"AISMEC","nonvatPrice":9.327,"vat":21,"discount":0,"image":"/img-default-herramientas.jpg"},{"id":10,"category":"Herramientas","subcategory":"Aislantes","description":"TABLERO P/COLUMNA 60x135mm C/PROT.S/ARMAR TCA-2","brand":"TEA","nonvatPrice":13.598,"vat":21,"discount":0,"image":"/img-default-herramientas.jpg"}]
->>>>>>> 3434f1991bd8f165a2bd818407da430723832a63
