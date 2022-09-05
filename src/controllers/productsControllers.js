@@ -3,12 +3,18 @@ products = [];
 
 //Controller definition
 const productsController = {
+  //lista todos los productos
   index: (req, res) => {
     res.send("listar productos");
   },
   detail: (req, res) => {
-    const idProduct = req.params.id;
-    res.render("productDetail", products[idProduct]);
+    //muestra el detalle de un producto
+    let id = req.params.id;
+    let product = products.find((oneProduct) => oneProduct.id == id);
+    res.render("productDetail", {
+      product,
+      toThousand,
+    });
   },
   create: (req, res) => {
     res.render("productCreate");

@@ -329,7 +329,7 @@
   }
 }
 
-/* CATEGORIES STYLES */
+/* PRODUCTS STYLES */
 /* &&&&&&&&&&& */
 
 /* &&&& */
@@ -355,7 +355,7 @@
 }
 
 /* flex */
-.category-articles {
+.products-articles {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -433,3 +433,95 @@
     max-width: 1300px;
   }
 }
+<<<<<<< HEAD
+=======
+
+/* PRODUCT CREATE STYLES*/
+/* &&&&&&&&&&& */
+
+.form-product-create {
+  width: 85%;
+  margin: auto;
+  padding-bottom: 25px;
+}
+
+.div-create-forms {
+  width: 90%;
+  margin: auto;
+  text-align: left;
+  background-color: rgb(240, 240, 240);
+  border-radius: 8px;
+  max-width: 520px;
+}
+
+.formularios-create {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.formularios-create-description {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.form-create-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 550;
+  padding-top: 20px;
+}
+
+.form-label-create {
+  display: inline-block;
+  font-size: 16px;
+  margin: 16px 0;
+}
+
+.form-input-create {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-input-create-description {
+  width: 100%;
+  height: 120px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.formularios-create-button {
+  text-align: left;
+}
+
+.button-create {
+  margin: 20px 20px;
+  background-color: rgb(190, 190, 190);
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+/*PC cut*/
+
+@media (min-width: 920px) {
+  .div-create-forms {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+  }
+
+  .formularios-create {
+    width: 50%;
+  }
+  .formularios-create-description {
+    width: 100%;
+  }
+
+  .form-create-title {
+    font-size: 26px;
+  }
+}
+>>>>>>> 9874bf88b911fc1cf42fa8cd4eb7eb98be2c6dc6
