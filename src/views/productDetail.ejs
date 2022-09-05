@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <%- include("partials/head") %>
-    <link rel="stylesheet" href="/css/style-products.css"></link>
-  </head>
-  <!-- <div class="top-header-top">Materiales eléctricos</div> -->
-  <body>
+        <link rel="stylesheet" href="/css/style-products.css">
+        </link>
+</head>
+<!-- <div class="top-header-top">Materiales eléctricos</div> -->
+
+<body>
     <!-- HEADER -->
-    <header class="main-header"><%- include("partials/header") %></header>
+    <header class="main-header">
+        <%- include("partials/header") %>
+    </header>
     <!-- &&&& -->
     <!-- MAIN -->
     <main class="main-product">
         <div class="product-figure-info">
             <div class="product-figure">
-                <img src=<%= product.image %> alt="Figura del producto seleccionado">
+                <img src="/images/products/<%= product.image %>" alt="img-<%= product.subcategory %>.jpg">
             </div>
             <div class="product-info">
-                <h3 class="product-info-name"><%= product.subcategory %></h3>
-                <h5 class="product-info-brand"><%= product.description %></h5>
+                <h3 class="product-info-name">
+                    <%= product.subcategory %>
+                </h3>
+                <h5 class="product-info-brand">
+                    <%= product.description %>
+                </h5>
                 <p class="product-info-price"><b>&#x24 <%= product.nonvatPrice %></b> c/u</p>
                 <div class="product-quantity">
                     <label for="quantity">Cantidad:</label>
@@ -25,7 +34,7 @@
                 </div>
                 <br>
                 <div class="product-add-to-chart">
-                    <button style="width:75%" heigth="25px">Agregar al carrito 
+                    <button style="width:75%" heigth="25px">Agregar al carrito
                         <i class="fas fa-cart-plus" style="font-size: 20px;"></i>
                     </button>
                 </div>
@@ -37,9 +46,16 @@
                 </div>
                 <br>
                 <div class="product-payment-options">
-                    <button style="width:75%" heigth="25px">Ver formas de pago 
+                    <button style="width:75%" heigth="25px">Ver formas de pago
                         <i class="fas fa-credit-card" style="font-size: 20px;"></i>
                     </button>
+                </div>
+                <br>
+                <div class="product-payment-options">
+                    <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                        <button style="width:75%" heigth="25px">Borrar producto
+                        </button>
+                    </form>
                 </div>
                 <br>
                 <div class="product-info-uses">
@@ -48,7 +64,9 @@
             </div>
         </div>
         <div class="product-description">
-            <p class="product-full-description"><%= product.description %></p>
+            <p class="product-full-description">
+                <%= product.description %>
+            </p>
             <table style="border:0">
                 <tr>
                     <td><b>Marca</b></td>
@@ -87,7 +105,10 @@
     </main>
     <!-- &&&& -->
     <!-- FOOTER -->
-    <footer class="main-footer"><%- include("partials/footer") %></footer>
+    <footer class="main-footer">
+        <%- include("partials/footer") %>
+    </footer>
     <!-- &&&& -->
-  </body>
+</body>
+
 </html>

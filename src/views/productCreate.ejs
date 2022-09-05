@@ -14,6 +14,7 @@
     <!-- MAIN -->
     <main>
         <div class="form-product-create">
+<<<<<<< HEAD
             <h3> Cargá un nuevo producto!</h3>
             <form action="/" method="GET">
                 <input class="" type="text" name="name" id="name" placeholder="Nombre del producto" />
@@ -40,6 +41,61 @@
                 <input class="" type="number" name="precio" id="price" placeholder="Ingrese el precio del producto" />
 
                 <input class="buttons" type="submit" value="Crear producto" />
+=======
+            <h3 class="form-create-title"> Cargá un nuevo producto!</h3>
+            <form action="/products/" method="POST" enctype="multipart/form-data">
+                <div class="div-create-forms">
+                    <div class="formularios-create">
+                        <label for="name" class="form-label-create">Nombre del producto:</label>
+                        <input class="form-input-create" type="text" name="name" id="name"
+                            placeholder="Ej: 'PC MacBook Pro" />
+                    </div>
+                    <div class="formularios-create">
+                        <label for="nonvatPrice" class="form-label-create">Precio del producto:</label>
+                        <input class="form-input-create" type="number" name="nonvatPrice" id="nonvatPrice"
+                            placeholder="Ej: 27778" />
+                    </div>
+                    <div class="formularios-create">
+                        <label for="category" class="form-label-create">Elija una categoria:</label>
+                        <select id="category" name="category" class="form-input-create">
+                            <option value="Lámaparas">Lámaparas</option>
+                            <option value="Iluminacion">Iluminacion</option>
+                            <option value="Interruptores">Interruptores</option>
+                            <option value="Cables">Cables</option>
+                            <option value="Canalizaciones">Canalizaciones</option>
+                            <option value="Otra">Otra</option>
+                        </select>
+                    </div>
+                    <div class="formularios-create">
+                        <label for="discount" class="form-label-create">Descuento:</label>
+                        <input class="form-input-create" type="number" name="discount" id="discount"
+                            placeholder="Ej: 15" />
+                    </div>
+                    <div class="formularios-create">
+                        <label for="productImage" class="form-label-create">Imagen:</label>
+                        <input type="file" id="productImage" name="productImage"
+                            class="form-input-create">
+                    </div>
+                    <div class="formularios-create">
+                        <label for="subcategory" class="form-label-create">Elija una categoria:</label>
+                        <select id="subcategory" name="subcategory" class="form-input-create">
+                            <option value="Lámaparas">Lámaparas</option>
+                            <option value="Iluminacion">Iluminacion</option>
+                            <option value="Interruptores">Interruptores</option>
+                            <option value="Cables">Cables</option>
+                            <option value="Canalizaciones">Canalizaciones</option>
+                            <option value="Otra">Otra</option>
+                        </select>
+                    </div>
+                    <div class="formularios-create-description">
+                        <label for="description" class="form-label-create">Describa su producto:</label>
+                        <textarea name="description" id="description" class="form-input-create-description"></textarea>
+                    </div>
+                    <div class="formularios-create-button">
+                        <input class="button-create" type="submit" value="Crear producto" />
+                    </div>
+                </div>
+>>>>>>> 3434f1991bd8f165a2bd818407da430723832a63
             </form>
         </div>
 
