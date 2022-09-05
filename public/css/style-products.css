@@ -428,13 +428,11 @@
 
 /*PC cut*/
 
-@media (min-width: 820px) {
+@media (min-width: 920px) {
   .main-sections {
     max-width: 1300px;
   }
 }
-<<<<<<< HEAD
-=======
 
 /* PRODUCT CREATE STYLES*/
 /* &&&&&&&&&&& */
@@ -525,4 +523,3 @@
     font-size: 26px;
   }
 }
->>>>>>> 9874bf88b911fc1cf42fa8cd4eb7eb98be2c6dc6
