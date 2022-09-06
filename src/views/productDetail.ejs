@@ -46,8 +46,14 @@
                 </div>
                 <br>
                 <div class="product-payment-options">
-                    <button style="width:75%" heigth="25px">Ver formas de pago
+                  <button style="width:75%" heigth="25px">Ver formas de pago
                         <i class="fas fa-credit-card" style="font-size: 20px;"></i>
+                    </button>
+                </div>
+                <br>
+                <div class="product-payment-options">
+                    <form action="/products/edit/<%= product.id %>" method="GET">
+                    <button style="width:75%" heigth="25px">Editar producto
                     </button>
                 </div>
                 <br>
