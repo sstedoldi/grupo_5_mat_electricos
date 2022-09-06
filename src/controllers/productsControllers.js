@@ -45,11 +45,10 @@ const productsController = {
   },
   edit: (req, res) => {
     let id = req.params.id;
-    let product = products.find((oneProduct) => oneProduct.id == id);
+    let productToEdit = products.find((oneProduct) => oneProduct.id == id);
 
     res.render("productEdit", {
-      product,
-      toThousand,
+      productToEdit
     });
   },
   update: (req, res) => {

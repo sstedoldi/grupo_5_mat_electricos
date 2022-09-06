@@ -11,22 +11,23 @@
     <!-- MAIN -->
     <main>
         <div class="form-product-create">
-            <h3 class="form-create-title"> Edita el producto: <%= product.id %> </h3>
-            <form action="/products/edit/<% product.id%>?_method=PUT" method="POST">
+            <h3 class="form-create-title"> Edita el producto: <%= productToEdit.id %> </h3>
+            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST">
                 <div class="div-create-forms">
                     <div class="formularios-create">
                         <label for="brand" class="form-label-create">Marca del producto:</label>
                         <input class="form-input-create" type="text" name="brand" id="brand"
-                            placeholder="Ej: 'Schneider" />
+                            value="<%= productToEdit.brand%>" />
                     </div>
                     <div class="formularios-create">
                         <label for="model" class="form-label-create">Modelo del producto:</label>
                         <input class="form-input-create" type="text" name="model" id="model"
-                            placeholder="Ej: 'SKD-81" />
+                            value="<%= productToEdit.model%>" />
                     </div>
                     <div class="formularios-create">
                         <label for="category" class="form-label-create">Elija una categoria:</label>
                         <select id="category" name="category" class="form-input-create">
+                            <option value=""><%= productToEdit.category%></option>
                             <option value="Lámaparas">Lámaparas</option>
                             <option value="Iluminacion">Iluminacion</option>
                             <option value="Interruptores">Interruptores</option>
@@ -38,6 +39,7 @@
                     <div class="formularios-create">
                         <label for="subcategory" class="form-label-create">Elija una subcategoria:</label>
                         <select id="subcategory" name="subcategory" class="form-input-create">
+                            <option value=""><%= productToEdit.subcategory%></option>
                             <option value="Lámparas">Lámparas</option>
                             <option value="Iluminacion">Iluminacion</option>
                             <option value="Interruptores">Interruptores</option>
@@ -48,32 +50,49 @@
                     </div>
                     <div class="formularios-create">
                         <label for="nonvatPrice" class="form-label-create">Precio del producto:</label>
-                        <input class="form-input-create" type="number" name="nonvatPrice" id="nonvatPrice"
+                        <input class="form-input-create" value="<%= productToEdit.nonvatPrice%>" type="number" name="nonvatPrice" id="nonvatPrice"
                             placeholder="Ej: 27778" />
                     </div>
                     <div class="formularios-create">
                         <label for="discount" class="form-label-create">Descuento:</label>
-                        <input class="form-input-create" type="number" name="discount" id="discount"
+                        <input class="form-input-create" value="<%= productToEdit.discount%>" type="number" name="discount" id="discount"
                             placeholder="Ej: 15" />
                     </div>
                     <div class="formularios-create">
                         <label for="status" class="form-label-create">Elija un estado:</label>
-                        <select id="status" name="status" class="form-input-create">
+                        <select id="status" value="<% (productToEdit.discount > 0)?"hot-sale": "new"%>" 
+ 
+                        name="status" class="form-input-create">
                             <option value="new">Nuevo ingreso</option>
                             <option value="hot-sale">En oferta</option>
                         </select>
                     </div>
                     <div class="formularios-create">
                         <label for="productImage" class="form-label-create">Imagen:</label>
-                        <input type="file" id="productImage" name="productImage"
+                        <input type="file"  id="productImage" name="productImage"
                             class="form-input-create">
                     </div>
                     <div class="formularios-create-description">
                         <label for="description" class="form-label-create">Describa su producto:</label>
-                        <textarea name="description" id="description" class="form-input-create-description"></textarea>
+                        <textarea name="description" id="description" class="form-input-create-description"><%= productToEdit.description %></textarea>
                     </div>
-                    <div class="formularios-create-button">
+
+
+
+
+                     <div class="formularios-create-button">
                         <input class="button-create" type="submit" value="Editar producto" />
+                    </div>
+
+
+
+
+
+                    <div class="formularios-create-button">
+                        <form action="/products/delete/<%= productToEdit.id %>?_method=DELETE" method="POST">
+                            <button class="button-create" style="width:75%" heigth="25px">Borrar Producto
+                            </button>
+                        </form>
                     </div>
                     </div>
                 </div>
