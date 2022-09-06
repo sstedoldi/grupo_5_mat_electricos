@@ -36,12 +36,7 @@ const productsController = {
     // Do the magic
     let newProduct = {
       id: products[products.length - 1].id + 1,
-      name: req.body.name,
-      nonvatPrice: req.body.nonvatPrice,
-      discount: req.body.discount,
-      category: req.body.category,
-      subcategory: req.body.subcategory,
-      description: req.body.description,
+      ...req.body,
       image: req.file ? req.file.filename : "default-image.png",
     };
     products.push(newProduct);
@@ -49,8 +44,13 @@ const productsController = {
     res.redirect("/products/");
   },
   edit: (req, res) => {
-    const idProduct = req.params.id;
-    res.send("modificar de producto" + idProduct);
+    let id = req.params.id;
+    let product = products.find((oneProduct) => oneProduct.id == id);
+
+    res.render("productEdit", {
+      product,
+      toThousand,
+    });
   },
   update: (req, res) => {
     let id = req.params.id;
@@ -81,18 +81,6 @@ const productsController = {
       JSON.stringify(finalProducts, null, " ")
     );
     res.redirect("/products/"); //hacia una ruta
-
-    // for (let i = 0; i < products.length; i++) {
-    //   if (products[i].id == parseInt(req.params.id)) {
-    //     products.splice(i, 1);
-    //   }
-    // }
-    // let products1 = JSON.stringify(products); //agrego let
-    // fs.writeFileSync(productsFilePath, products1);
-
-    // let products2 = JSON.parse(fs.readFileSync(productsFilePath, "utf-8")); //agrego let
-
-    // res.render("/products", { products: products2 });
   },
 
   ////
