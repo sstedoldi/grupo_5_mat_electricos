@@ -27,15 +27,15 @@
  },
  {
   "id": 3,
-  "category": "Elect. Domiciliaria",
-  "subcategory": "Automáticos de tanque.",
-  "description": "AUTOMAT.DE TANQUE C/CABLE 3MTS. F-2000",
   "brand": "FIBOSA",
   "model": "",
-  "nonvatPrice": 13.031,
-  "vat": 21,
-  "discount": 0,
-  "status": "visited",
+  "category": "",
+  "subcategory": "",
+  "nonvatPrice": "13.031",
+  "discount": "0",
+  "status": "new",
+  "productImage": "",
+  "description": "AUTOMAT.DE TANQUE C/CABLE 3MTS. F-2000",
   "image": "img-default-elec-dom.jpg"
  },
  {
