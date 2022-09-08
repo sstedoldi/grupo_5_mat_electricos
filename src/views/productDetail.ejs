@@ -21,42 +21,44 @@
                 <img src="/images/products/<%= product.image %>" alt="img-<%= product.subcategory %>.jpg">
             </div>
             <div class="product-info">
-                <h3 class="product-info-name">
-                    <%= product.subcategory %>
-                </h3>
-                <h5 class="product-info-brand">
-                    <%= product.description %>
-                </h5>
-                <p class="product-info-price"><b>&#x24 <%= product.nonvatPrice %></b> c/u</p>
+                <div class="product-info-title">
+                    <p class="product-info-name">
+                        <%= product.subcategory %>
+                    </p>
+                    <p class="product-info-brand">
+                        <%= product.description %>
+                    </p>
+                </div>
+                <p class="product-info-price"><b class="product-info-price-number">&#x24 <%= product.nonvatPrice %></b>
+                    c/u</p>
                 <div class="product-quantity">
                     <label for="quantity">Cantidad:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="2000">
+                    <input type="number" class="product-quantity-input" id="quantity" name="quantity" min="1" max="2000">
                 </div>
                 <br>
-                <div class="product-add-to-chart">
-                    <button style="width:75%" heigth="25px">Agregar al carrito
+                <div>
+                    <button class="product-add-to-cart">Agregar al carrito
                         <i class="fas fa-cart-plus" style="font-size: 20px;"></i>
                     </button>
                 </div>
                 <br>
                 <div>
-                    <a class="product-add-to-wishes" href="#">Agregar a mi lista de deseos
-                        <i class="fas fa-heart-circle" style="font-size: 20px;"></i>
-                    </a>
-                </div>
-                <br>
-                <div class="product-payment-options">
-                  <button style="width:75%" heigth="25px">Ver formas de pago
+                    <button class="product-payment-options">Ver formas de pago
                         <i class="fas fa-credit-card" style="font-size: 20px;"></i>
                     </button>
                 </div>
                 <br>
-                <div class="product-payment-options">
+                <div>
                     <form action="/products/edit/<%= product.id %>" method="GET">
-                    <button style="width:75%" heigth="25px">Editar producto
-                    </button>
+                        <button class="product-payment-options">Editar producto
+                        </button>
                 </div>
                 <br>
+                <div class="product-add-to-wishes">
+                    <a  href="#">Agregar a mi lista de deseos
+                        <i class="fas fa-heart"></i>
+                    </a>
+                </div>
                 <!-- <div class="product-payment-options">
                     <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
                         <button style="width:75%" heigth="25px">Borrar producto
@@ -64,8 +66,8 @@
                     </form>
                 </div> -->
                 <br>
-                <div class="product-info-uses">
-                    <p>Información sobre los posibles usos del producto y sus ventajas</p>
+                <div>
+                    <p class="product-info-uses">Información sobre los posibles usos del producto y sus ventajas</p>
                 </div>
             </div>
         </div>
@@ -73,7 +75,7 @@
             <p class="product-full-description">
                 <%= product.description %>
             </p>
-            <table style="border:0">
+            <table class="product-description-atributes">
                 <tr>
                     <td><b>Marca</b></td>
                     <td class="brand">Nombre de la marca</td>
