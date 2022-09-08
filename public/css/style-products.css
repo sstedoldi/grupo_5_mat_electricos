@@ -2,8 +2,9 @@
 /* &&&&&&&&&&& */
 
 .main-product {
-  padding: 10px;
-  margin: 0 10px;
+  padding: 20px;
+  margin: auto;
+  max-width: 769px;
 }
 
 .product-figure-info {
@@ -88,6 +89,28 @@
   max-width: 400px;
   margin: auto;
   text-align: center;
+}
+
+/* MEDIA QUERIES */
+/* &&&&&&&&&&& */
+
+@media (min-width: 920px) {
+  
+  .main-product {
+    max-width: 1200px;
+  }
+  .product-figure-info{
+    display: flex;
+    flex-direction: row;
+  }
+  .product-figure{
+    width: 45%;
+  }
+
+  .product-info{
+    width: 50%;
+  }
+
 }
 
 /* PRODUCT CART STYLES */
