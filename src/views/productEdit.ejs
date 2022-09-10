@@ -86,18 +86,17 @@
                         <textarea name="description" id="description"
                             class="form-input-create-description"><%= productToEdit.description %></textarea>
                     </div>
-                    <div class="formularios-create-button">
+                    <div  class="formularios-create-button">
                         <input class="button-create" type="submit" value="Editar producto" />
                     </div>
-                    <div class="formularios-create-button">
-                        <form action="/products/delete/<%= productToEdit.id %>?_method=DELETE" method="POST">
-                            <button class="button-create">Borrar Producto
-                            </button>
-                        </form>
-                    </div>
                 </div>
-
             </form>
+            <div class="div-create-forms" class="formularios-create-button">
+                <form action="/products/delete/<%= productToEdit.id %>?_method=DELETE" method="POST">
+                    <button class="button-delete">Borrar Producto
+                    </button>
+                </form>
+            </div>
         </div>
     </main>
     <!-- &&&& -->

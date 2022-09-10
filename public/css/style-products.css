@@ -95,22 +95,20 @@
 /* &&&&&&&&&&& */
 
 @media (min-width: 920px) {
-  
   .main-product {
     max-width: 1200px;
   }
-  .product-figure-info{
+  .product-figure-info {
     display: flex;
     flex-direction: row;
   }
-  .product-figure{
+  .product-figure {
     width: 45%;
   }
 
-  .product-info{
+  .product-info {
     width: 50%;
   }
-
 }
 
 /* PRODUCT CART STYLES */
@@ -574,6 +572,13 @@
 .button-create {
   margin: 20px 20px;
   background-color: rgb(190, 190, 190);
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.button-delete {
+  margin: 20px 20px;
+  background-color: red;
   font-size: 20px;
   border-radius: 5px;
 }
