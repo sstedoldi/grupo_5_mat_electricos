@@ -21,8 +21,13 @@ Santiago:
 Oportunidad de mejora: dedicarle más tiempo y estar más al día con el playground.
 Dedicación actual: 10hs(+clases)/semana
 
--> Plantear en las encuentas, sobre la organización de las explicaciones
-del profe.
-
 Sprint 2
-Nos juntaremos a resolver una vista y el estilo, en conjunto.
+
+Vista responsive OK.
+Necesitamos más tiempo. Tenemos que ponernos al día.
+
+Sprint 3
+
+EJS y partials hechos para las vistas de products.
+Resta trabajar en EJS y partials de users.
+Avanzamos en el CRUD de products.
