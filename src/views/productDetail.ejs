@@ -18,7 +18,8 @@
     <main class="main-product">
         <div class="product-figure-info">
             <div class="product-figure">
-                <img src="/images/products/<%= product.image %>" alt="img-<%= product.category %>.jpg">
+                <img src=<%= (product.image == undefined) ? "/images/products/img-default-"+product.category.toLowerCase()+".jpg" : "/images/products/"+product.image %>
+                width="360" alt="img-<%= product.category.toLowerCase() %>.jpg" />
             </div>
             <div class="product-info">
                 <div class="product-info-title">
