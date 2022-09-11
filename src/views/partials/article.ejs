@@ -1,6 +1,7 @@
 <article>
   <a href="/products/productDetail/<%= product.id %>">
-    <img src="/images/products/<%= product.image %>" width="360" alt="img-<%= product.subcategory %>.jpg" />
+    <img src=<%= (product.image == undefined) ? "/images/products/img-default-"+product.category.toLowerCase()+".jpg" : "/images/products/"+product.image %>
+       width="360" alt="img-<%= product.category.toLowerCase() %>.jpg" />
   </a>
   <div class="main-section-article-info">
     <!-- <i class="fas fa-truck"></i> -->

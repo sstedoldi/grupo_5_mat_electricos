@@ -1,5 +1,7 @@
 //Primary modules
 const express = require("express");
+const { check } = require("express-validator");
+const path = require("path");
 
 //Router instance
 const router = express.Router();
@@ -7,8 +9,18 @@ const router = express.Router();
 //Require multer
 const multer = require("multer");
 
-//Require path
-const path = require("path");
+//Product validation - Todavia falta terminar
+const productValidation = [
+  check("brand").notEmpty().withMessage("Ingresar la marca"),
+  check("model")
+    .notEmpty()
+    .withMessage("Ingresar el modelo o indicar 'sin modelo'"),
+  check("category").notEmpty().withMessage("Ingresar la categoria"),
+  check("subcategory").notEmpty().withMessage("Ingresar la subcategoria"),
+  check("precio").notEmpty().withMessage("Ingresar el precio"),
+  check("status").notEmpty().withMessage("Ingresar el estado"),
+  check("description").notEmpty().withMessage("Ingresar la descripción"),
+];
 
 //Multer method
 var multerStorage = multer.diskStorage({

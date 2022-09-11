@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 //Data managing
-const productsFilePath = path.join(__dirname, "../data/products.json");
+const productsFilePath = path.join(__dirname, "../data/mat_elec_products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 //REGEX of thousand
@@ -37,7 +37,9 @@ const productsController = {
     let newProduct = {
       id: products[products.length - 1].id + 1,
       ...req.body,
-      image: req.file ? req.file.filename : "default-image.png",
+      image: req.file
+        ? req.file.filename
+        : "default-image" + req.body.category.toLowerCase() + ".png",
     };
     products.push(newProduct);
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
@@ -48,7 +50,7 @@ const productsController = {
     let productToEdit = products.find((oneProduct) => oneProduct.id == id);
 
     res.render("productEdit", {
-      productToEdit
+      productToEdit,
     });
   },
   update: (req, res) => {
