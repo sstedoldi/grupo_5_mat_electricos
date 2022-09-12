@@ -6,6 +6,7 @@ const methodOverride = require("method-override"); //to use put & delete in html
 
 //App instance
 const app = express();
+const session = require("express-session")
 
 //Settings
 app.use(express.static(path.join(__dirname, "../public")));
@@ -13,6 +14,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method")); //to use put & delete in html
 //to use data from forms:
+app.use(session( {secret: "nuestro mensaje secreto"}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 //404 not found
