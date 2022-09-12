@@ -51,8 +51,7 @@ const usersController = {
     });
   },  
   updateUser: (req, res) => {
-    let idUser = req.para
-    ms.idUser;
+    let idUser = req.params.idUser;
     let userToEdit = users.find((oneUsers) => oneUsers.idUser == idUser);
     userToEdit = {
       idUser: userToEdit.idUser,
