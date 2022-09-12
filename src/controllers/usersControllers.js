@@ -1,4 +1,5 @@
 ////Primary modules
+const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 
@@ -20,6 +21,36 @@ const usersController = {
   loginUser: (req, res) => {
     res.render("login.ejs");
   },
+  processLogin: function(req, res){
+    let errors = validationResult(req);
+    if(errors.isEmpty()){
+      let usersJSON =fs.readFileSync("./src/data/users.json", {errors: errors.errors});
+      let users;
+      if(usersJSON ==""){
+        users =[];
+      }else{
+        users = JSON.parse(usersJSON);
+      }
+     for (let i=0; i< users.length; i++){
+      if(users[i].email == req.body.email){
+        if(bcrypt.compareSync(req.body.password, user[i].password)){
+          let usuarioAloguearse = users[i];
+          break;
+        }
+      }
+     } 
+      if(usuarioAloguearse == undefined){
+        return res.render("login", {errors: [
+          {msg: "credenciales invalidas"}
+        ]});
+      }
+      req.session.usuarioLogueado = usuarioAloguearse;
+      res.render("success")
+    }else{
+      return res.render("login", {errors: errors.errors});
+    }
+  },
+  
   register: (req, res)=>{
     res.render("register");
   },
@@ -74,9 +105,7 @@ const usersController = {
   deleteUser: (req, res)=>{
     let idUser = req.params.idUser;
     let finalUsers = users.filter((user) => user.idUser != idUser);
-    fs.writeFileSync(
-      usersFilePath,
-      JSON.stringify(finalUsers, null, " ")
+    fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " ")
     );
     res.redirect("/usersList/"); //hacia una ruta
   }

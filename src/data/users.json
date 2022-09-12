@@ -25,5 +25,14 @@
   "email": "rumartin@arcor.com",
   "password": "HGFD",
   "usersImage": "default-image.png"
+ },
+ {
+  "idUser": 4,
+  "name": "RUBEN",
+  "lastname": "MARTIN",
+  "years": "35",
+  "email": "rumartin@arcor.com",
+  "password": "Viernes",
+  "usersImage": "default-image.png"
  }
 ]

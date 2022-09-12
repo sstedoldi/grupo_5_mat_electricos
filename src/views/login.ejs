@@ -10,26 +10,31 @@
     <!-- &&&& -->
     <!-- MAIinN -->
     <main class="main-login">
-      <div class="form-login">
+      <% if (typeof errors != "undefined"){ %>
+        <p style="color: red">ERROR</p>
+        <ul><%for (leti = 0; i < errors.length; i++){%>
+          <li>
+            <%=errors[i].msg%>
+          </li>
+          <%}%>
+        </ul>
+        <%}%>
+      <form action="/users/login" method="POST"><div class="form-login">
         <h3>Inicia sesión</h3>
-        <br />
+        <br /><label for="">Email</label>
         <input
           class="controls"
-          type="text"
-          name="user"
-          value=""
-          placeholder="Usuario"
-        />
-        <br />
+          type="email"
+          name="email"
+          placeholder="ej@ejemplo.com"><br />
+        <label for="">Contraseña</label>
         <input
           class="controls"
           type="password"
           name="password"
-          value=""
-          placeholder="contraseña"
-        />
-        <br />
+          placeholder="contraseña"><br />
         <input class="buttons" type="submit" name="login" value="Ingresar" />
+      </form>
         <br />
         <p><a href="#">Olvidaste tu contraseña?</a></p>
         <br />

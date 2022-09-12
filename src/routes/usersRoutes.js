@@ -30,8 +30,21 @@ var upload = multer({ storage: multerStorage });
 router.get("/", usersController.index);
 //Detalla de un usuario
 router.get("/userDetail/:idUser", usersController.detail);
-
+//View form login
 router.get("/login", usersController.loginUser);
+//Send login
+router.post("/login", [
+  //check("email").isEmail().withMessage("Email Invalido"),
+  //check("password").isLength({min: 8}).withMessage("La contraseña debe tener al menos 8 caracteres")
+],usersController.processLogin);
+router.get("/check",function(req, res){
+  if(req.session.usuarioLogueado == undefined){
+    res.send("No estas logueado");
+  }else{
+    res.send("El usuario logueado es" + req.session.usuarioLogueado.email);
+  }
+})
+
 //Views Create
 router.get("/register", usersController.register);
 //Create new user
