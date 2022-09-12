@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head") %>
+        <link rel="stylesheet" href="/css/style-products.css">
+        </link>
+</head>
+<!-- <div class="top-header-top">Materiales eléctricos</div> -->
+
+<body>
+    <!-- HEADER -->
+    <header class="main-header">
+        <%- include("partials/header") %>
+    </header>
+    <!-- &&&& -->
+    <!-- MAIN -->
+    <main class="main-product">
+        
+        <div class="div-create-forms">
+           <h3>Detalle de usuario <%= users.name %></h3>
+    
+                <p class="article-name">Nombre: <%= users.name %></p> 
+                <p class="article-name">Apellido: <%= users.lastname %></p>       
+                <p class="article-name">Email: <%= users.email %></p>          
+                <p class="article-name">Años: <%= users.years %></p>
+            
+          
+          </div>
+    
+
+    </main>
+    <!-- &&&& -->
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <%- include("partials/footer") %>
+    </footer>
+    <!-- &&&& -->
+</body>
+
+</html>
