@@ -1,9 +1,6 @@
 //Primary modules
 const express = require("express");
 
-//Controllers
-const usersController = require("../controllers/usersControllers.js");
-
 //Router instance
 const router = express.Router();
 
@@ -12,6 +9,9 @@ const multer = require("multer");
 
 //Require path
 const path = require("path");
+
+//Require express validator
+const { check } = require("express-validator");
 
 //Multer method
 var multerStorage = multer.diskStorage({
@@ -25,6 +25,9 @@ var multerStorage = multer.diskStorage({
 
 //Method upload
 var upload = multer({ storage: multerStorage });
+
+//Controllers
+const usersController = require("../controllers/usersControllers.js");
 
 //Router methods
 router.get("/", usersController.index);
@@ -48,7 +51,12 @@ router.get("/check",function(req, res){
 //Views Create
 router.get("/register", usersController.register);
 //Create new user
-router.post("/", upload.single("userImage") ,usersController.registerUser);
+router.post("/", upload.single("userImage"), [
+  check('name').isLength({min:1}).withMessage('Debe ingresar un nombre'),
+  check('email').isEmail().withMessage('Debe ingresar un email valido'),
+  check('password').isLength({min:3}).withMessage('Debe ingresar una clave de mas de 3 caracteres'),
+  check('pass_confirm').isLength({min:3}).withMessage('Debe ingresar una clave de mas de 3 caracteres'),
+] ,usersController.registerUser);
 //Edit user
 router.get("/userEdit/:idUser", usersController.updateUser);
 //Update user
