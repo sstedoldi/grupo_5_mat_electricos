@@ -40,7 +40,7 @@ const productsController = {
       ...req.body,
       image: req.file
         ? req.file.filename
-        : "img-default-" + req.body.category.toLowerCase() + ".jpg",
+        : "img-default-" + req.body.category.toLowerCase() + ".jpg", //Revisar para que elimine los espacios
     };
     products.push(newProduct);
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
