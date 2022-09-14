@@ -3,7 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 //Data managing
-const productsFilePath = path.join(__dirname, "../data/mat_elec_products.json");
+// const productsFilePath = path.join(__dirname, "../data/mat_elec_products.json");
+const productsFilePath = path.join(__dirname, "../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 //REGEX of thousand
@@ -39,7 +40,7 @@ const productsController = {
       ...req.body,
       image: req.file
         ? req.file.filename
-        : "default-image" + req.body.category.toLowerCase() + ".png",
+        : "img-default-" + req.body.category.toLowerCase() + ".jpg",
     };
     products.push(newProduct);
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));

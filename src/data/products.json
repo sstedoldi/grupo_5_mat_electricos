@@ -36,7 +36,7 @@
   "status": "new",
   "productImage": "",
   "description": "AUTOMAT.DE TANQUE C/CABLE 3MTS. F-2000",
-  "image": "img-default-elec-dom.jpg"
+  "image": "img-default-elect. domiciliaria.jpg"
  },
  {
   "id": 4,
@@ -49,7 +49,7 @@
   "status": "new",
   "productImage": "",
   "description": "CABLEC.C/ADH.T/MAD.14x 7   x Tramo",
-  "image": "img-default-elec-dom.jpg"
+  "image": "img-default-elect. domiciliaria.jpg"
  },
  {
   "id": 5,
@@ -62,7 +62,7 @@
   "vat": "21",
   "discount": "10",
   "status": "hot-sale",
-  "image": "img-default-iluminacion.jpg"
+  "image": "img-default-iluminación.jpg"
  },
  {
   "id": 6,
@@ -75,7 +75,7 @@
   "vat": "21",
   "discount": "0",
   "status": "visited",
-  "image": "img-default-iluminacion.jpg"
+  "image": "img-default-iluminación.jpg"
  },
  {
   "id": 7,
@@ -88,7 +88,7 @@
   "vat": "10.5",
   "discount": "10",
   "status": "",
-  "image": "img-default-energia-solar.jpg"
+  "image": "img-default-energía solar.jpg"
  },
  {
   "id": 8,
@@ -101,7 +101,7 @@
   "vat": 10.5,
   "discount": 15,
   "status": "hot-sale",
-  "image": "img-default-energia-solar.jpg"
+  "image": "img-default-energía solar.jpg"
  },
  {
   "id": 9,
@@ -140,5 +140,17 @@
   "status": "new",
   "description": "",
   "image": "default-image.png"
+ },
+ {
+  "id": 12,
+  "brand": "Santiago",
+  "model": "Santiago",
+  "category": "Herramientas",
+  "subcategory": "Otra",
+  "nonvatPrice": "1",
+  "discount": "5",
+  "status": "hot-sale",
+  "description": "........",
+  "image": "img-default-herramientas.jpg"
  }
 ]
