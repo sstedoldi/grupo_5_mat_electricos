@@ -1,57 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("partials/head") %>
-  </head>
-  <!-- <div class="top-header-top">Materiales eléctricos</div> -->
-  <body>
-    <!-- HEADER -->
-    <header class="main-header"><%- include("partials/header") %></header>
-    <!-- &&&& -->
-    <!-- MAIN -->
-    <main class="main-register">
-      <form action="/users/" method="POST" enctype="multipart/form-data">
+
+<head>
+  <%- include("partials/head") %>
+</head>
+<!-- <div class="top-header-top">Materiales eléctricos</div> -->
+
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <%- include("partials/header") %>
+  </header>
+  <!-- &&&& -->
+  <!-- MAIN -->
+  <main class="main-register">
+    <form action="/users/" method="POST" enctype="multipart/form-data">
       <div class="form-register">
         <h3>Registrate</h3>
-          <div><label for="name">Nombre</label>
-          <input  class="controls" type="text" name="name" id="name">
-          <br></div>
-
-          <div><label for="lastname">Apellido</label>
-          <input class="controls"  type="text" name="lastname" id="lastname">
-          <br></div>
-
-          <div><label for="years">Edad</label>
-          <input  class="controls" type="text" name="years" id="years">
-          <br></div>
-
-
-          <div><label for="email">Email</label>
-          <input  class="controls" type="email" name="email" id="email">
-          <br></div>
-
-          <div><label for="password">Contraseña</label>
-          <input  class="controls" type="password" name="password" id="password">
-          <br></div>
-
-          <div class="formularios-create">
-            <label for="productImage" class="form-label-create">Imagen de Perfil:</label>
-            <input type="file" id="usersImage" name="usersImage">
-                
+        <div><label for="name">Nombre</label>
+          <input class="controls" type="text" name="name" id="name"
+          value=" <%= locals.oldData && oldData.name !==undefined ? oldData.name : "" %>">
+          <div class="errors-register">
+            <%= locals.errors && errors.name !==undefined ? errors.name.msg : "" %>
           </div>
-            <br />
-            <p><a href="#">Estoy de acuerdo con Terminos y Condiciones</a></p>
-            <br />
-            <input class="buttons" type="submit" value="Registrar" />
-        
-            <br />
-            <p><a href="/users/login">Ya tenes cuenta?</a></p>
+          <br>
+        </div>
+
+        <div><label for="lastname">Apellido</label>
+          <input class="controls" type="text" name="lastName" id="lastName"
+          value=" <%= locals.oldData && oldData.lastName !==undefined ? oldData.lastName : "" %>">
+          <div class="errors-register">
+            <%= locals.errors && errors.lastName !==undefined ? errors.lastName.msg : "" %>
           </div>
-     </form>
-    </main>
-    <!-- &&&& -->
-    <!-- FOOTER -->
-    <footer class="main-footer"><%- include("partials/footer") %></footer>
-    <!-- &&&& -->
-  </body>
+          <br>
+        </div>
+
+        <div><label for="years">Edad</label>
+          <input class="controls" type="text" name="years" id="years"
+          value=" <%= locals.oldData && oldData.years !==undefined ? oldData.years : "" %>">
+          <div class="errors-register">
+            <%= locals.errors && errors.years !==undefined ? errors.years.msg : "" %>
+          </div>
+          <br>
+        </div>
+
+
+        <div><label for="email">Email</label>
+          <input class="controls" type="email" name="email" id="email"
+          value=" <%= locals.oldData && oldData.email !==undefined ? oldData.email : "" %>">
+          <div class="errors-register">
+            <%= locals.errors && errors.email !==undefined ? errors.email.msg : "" %>
+          </div>
+          <br>
+        </div>
+
+        <div><label for="password">Contraseña</label>
+          <input class="controls" type="password" name="password" id="password"
+          value=" <%= locals.oldData && oldData.password !==undefined ? oldData.password : "" %>">
+          <div class="errors-register">
+            <%= locals.errors && errors.password !==undefined ? errors.password.msg : "" %>
+          </div>
+          <br>
+        </div>
+
+        <div class="formularios-create">
+          <label for="productImage" class="form-label-create">Imagen de Perfil:</label>
+          <input type="file" id="usersImage" name="usersImage">
+        </div>
+        <br />
+        <p><a href="#">Estoy de acuerdo con Terminos y Condiciones</a></p>
+        <br />
+        <input class="buttons" type="submit" value="Registrar" />
+
+        <br />
+        <p><a href="/users/login">Ya tenes cuenta?</a></p>
+      </div>
+    </form>
+  </main>
+  <!-- &&&& -->
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <%- include("partials/footer") %>
+  </footer>
+  <!-- &&&& -->
+</body>
+
 </html>

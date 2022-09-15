@@ -52,7 +52,9 @@ router.get("/check",function(req, res){
 router.get("/register", usersController.register);
 //Create new user
 router.post("/", upload.single("userImage"), [
-  check('name').isLength({min:1}).withMessage('Debe ingresar un nombre'),
+  check('name').isLength({min:2}).withMessage('Debe ingresar un nombre'),
+  check('lastName').isLength({min:2}).withMessage('Debe ingresar un apellido'),
+  check('years').isNumeric().withMessage('Debe ingresar su edad sin espacios'),
   check('email').isEmail().withMessage('Debe ingresar un email valido'),
   check('password').isLength({min:3}).withMessage('Debe ingresar una clave de mas de 3 caracteres'),
   check('pass_confirm').isLength({min:3}).withMessage('Debe ingresar una clave de mas de 3 caracteres'),
