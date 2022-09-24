@@ -215,112 +215,15 @@ body {
   text-align: center;
 }
 
-/* LOGIN STYLES */
+/* ERRORS STYLES */
 /* &&&&&&&&&&& */
 
-.main-login {
-  display: flex;
-  justify-content: center;
-}
-
-.form-login {
-  width: 300px;
-  background: #4e4d4d;
+.errors {
   text-align: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
-  box-shadow: 7px 13px 37px #000;
-  padding: 20px 30px;
-  border-top: 4px solid #800505;
-  color: white;
+  background-color: darksalmon;
 }
 
-.form-login h3 {
-  font-size: 18px;
-  text-align: center;
-  height: 30px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid;
-}
-
-.controls {
-  width: 100%;
-  border: 1px solid #800505;
-  margin-bottom: 15px;
-  padding: 11px 10px;
-  background: #252323;
-  font-weight: bold;
-  text-align: center;
-}
-
-.buttons {
-  width: 100%;
-  height: 30px;
-  background: #800505;
-  border: none;
-  color: white;
-}
-
-.form-login p {
-  height: 30px;
-  text-align: center;
-  border-bottom: 1px solid;
-}
-
-.form-login a {
-  color: white;
-  text-decoration: none;
-}
-
-.form-login a:hover {
-  text-decoration: underline;
-}
-
-/* REGISTER STYLES */
-/* &&&&&&&&&&& */
-
-.main-register {
-  display: flex;
-  justify-content: center;
-}
-
-.form-register {
-  width: 400px;
-  background: #4e4d4d;
-  text-align: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
-  box-shadow: 7px 13px 37px #000;
-  padding: 20px 30px;
-  border-radius: 4px;
-  color: white;
-}
-
-.form-register h3 {
-  font-size: 18px;
-  text-align: center;
-  height: 30px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid;
-}
-
-.form-register p {
-  height: 30px;
-  text-align: center;
-  border-bottom: 1px solid;
-}
-
-.form-register a {
-  color: white;
-  text-decoration: none;
-}
-
-.form-register a:hover {
-  text-decoration: underline;
-}
-
-.errors-register{
-  font-size: 12px;
-  color:red;
-  font-weight: 100;
+.errors ul {
+  list-style: none;
+  color: rgb(79, 0, 19);
 }

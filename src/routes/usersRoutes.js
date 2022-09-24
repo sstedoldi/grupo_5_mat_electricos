@@ -36,29 +36,48 @@ router.get("/userDetail/:idUser", usersController.detail);
 //View form login
 router.get("/login", usersController.loginUser);
 //Send login
-router.post("/login", [
-  //check("email").isEmail().withMessage("Email Invalido"),
-  //check("password").isLength({min: 8}).withMessage("La contraseña debe tener al menos 8 caracteres")
-],usersController.processLogin);
-router.get("/check",function(req, res){
-  if(req.session.usuarioLogueado == undefined){
+router.post(
+  "/login",
+  [
+    check("email").isEmail().withMessage("Ingrese un e-mail válido"),
+    check("password")
+      .isLength({ min: 8 })
+      .withMessage("La contraseña debe tener al menos 8 caracteres"),
+  ],
+  usersController.processLogin
+);
+router.get("/check", function (req, res) {
+  if (req.session.usuarioLogueado == undefined) {
     res.send("No estas logueado");
-  }else{
+  } else {
     res.send("El usuario logueado es" + req.session.usuarioLogueado.email);
   }
-})
+});
 
 //Views Create
 router.get("/register", usersController.register);
 //Create new user
-router.post("/", upload.single("userImage"), [
-  check('name').isLength({min:2}).withMessage('Debe ingresar un nombre'),
-  check('lastName').isLength({min:2}).withMessage('Debe ingresar un apellido'),
-  check('years').isNumeric().withMessage('Debe ingresar su edad sin espacios'),
-  check('email').isEmail().withMessage('Debe ingresar un email valido'),
-  check('password').isLength({min:3}).withMessage('Debe ingresar una clave de mas de 3 caracteres'),
-  check('pass_confirm').isLength({min:3}).withMessage('Debe ingresar una clave de mas de 3 caracteres'),
-] ,usersController.registerUser);
+router.post(
+  "/",
+  upload.single("userImage"),
+  [
+    check("name").isLength({ min: 2 }).withMessage("Debe ingresar un nombre"),
+    check("lastName")
+      .isLength({ min: 2 })
+      .withMessage("Debe ingresar un apellido"),
+    check("years")
+      .isNumeric()
+      .withMessage("Debe ingresar su edad sin espacios"),
+    check("email").isEmail().withMessage("Debe ingresar un email valido"),
+    check("password")
+      .isLength({ min: 3 })
+      .withMessage("Debe ingresar una clave de mas de 3 caracteres"),
+    check("pass_confirm")
+      .isLength({ min: 3 })
+      .withMessage("Debe ingresar una clave de mas de 3 caracteres"),
+  ],
+  usersController.registerUser
+);
 //Edit user
 router.get("/userEdit/:idUser", usersController.updateUser);
 //Update user

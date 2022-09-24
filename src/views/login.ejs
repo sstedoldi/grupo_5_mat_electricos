@@ -2,43 +2,50 @@
 <html lang="en">
   <head>
     <%- include("partials/head") %>
+    <link rel="stylesheet" href="/css/style-users.css"></link>
   </head>
   <!-- <div class="top-header-top">Materiales eléctricos</div> -->
   <body>
     <!-- HEADER -->
     <header class="main-header"><%- include("partials/header") %></header>
     <!-- &&&& -->
-    <!-- MAIinN -->
-    <main class="main-login">
+    <!-- MAIN -->
+    <!-- ERRORES -->
+    <div class="errors">
       <% if (typeof errors != "undefined"){ %>
-        <p style="color: red">ERROR</p>
-        <ul><%for (leti = 0; i < errors.length; i++){%>
-          <li>
-            <%=errors[i].msg%>
-          </li>
-          <%}%>
+        <!-- <p style="color: red">ERROR</p> -->
+        <ul>
+          <%for (let i = 0; i < errors.length; i++){%>
+            <li>
+              <%=errors[i].msg%>
+            </li>
+            <%}%>
         </ul>
-        <%}%>
-      <form action="/users/login" method="POST"><div class="form-login">
-        <h3>Inicia sesión</h3>
-        <br /><label for="">Email</label>
-        <input
-          class="controls"
-          type="email"
-          name="email"
-          placeholder="ej@ejemplo.com"><br />
-        <label for="">Contraseña</label>
-        <input
-          class="controls"
-          type="password"
-          name="password"
-          placeholder="contraseña"><br />
-        <input class="buttons" type="submit" name="login" value="Ingresar" />
-      </form>
-        <br />
-        <p><a href="#">Olvidaste tu contraseña?</a></p>
-        <br />
-        <p><a href="/users/register">Registrate acá</a></p>
+      <%}%>
+    </div>
+    <main class="main-login">
+      <!-- LOGIN FORM -->
+      <div class="form-login">
+        <form action="/users/login" method="POST">
+          <h3>Inicia sesión</h3>
+          <br /><label for="">Email</label>
+          <input
+            class="controls"
+            type="email"
+            name="email"
+            placeholder="ej@ejemplo.com"><br />
+          <label for="">Contraseña</label>
+          <input
+            class="controls"
+            type="password"
+            name="password"
+            placeholder="contraseña"><br />
+          <input class="buttons" type="submit" name="login" value="Ingresar" />
+        </form>
+          <br />
+          <p><a href="#">Olvidaste tu contraseña?</a></p>
+          <br />
+          <p><a href="/users/register">Registrate acá</a></p>
       </div>
     </main>
     <!-- &&&& -->

@@ -6,21 +6,28 @@ const methodOverride = require("method-override"); //to use put & delete in html
 
 //App instance
 const app = express();
-const session = require("express-session")
+const session = require("express-session");
 
 //Settings
 app.use(express.static(path.join(__dirname, "../public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method")); //to use put & delete in html
+//Session
+app.use(
+  session({
+    secret: "Secreto/*!!",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 //to use data from forms:
-app.use(session( {secret: "nuestro mensaje secreto"}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 //404 not found
 // app.use((req, res, next) => {
 //   res.status(404).render("not-found");
-    //next(); 
+//next();
 // });
 
 //Server
