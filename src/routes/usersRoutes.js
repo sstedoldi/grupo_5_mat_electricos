@@ -29,12 +29,13 @@ var multerStorage = multer.diskStorage({
 //Method upload
 var upload = multer({ storage: multerStorage });
 
+////////////////
 //Router methods
 router.get("/", usersController.index);
 //Detalla de un usuario
-router.get("/userDetail/:idUser", usersController.detail);
+router.get("/userDetail/:idUser", authMiddleware, usersController.detail);
 //View form login
-router.get("/login", usersController.loginUser);
+router.get("/login", guestMiddleware, usersController.loginUser);
 //Send login
 router.post(
   "/login",
@@ -46,17 +47,9 @@ router.post(
   ],
   usersController.processLogin
 );
-router.get("/check", function (req, res) {
-  if (req.session.usuarioLogueado == undefined) {
-    res.send("No estas logueado");
-  } else {
-    res.send("El usuario logueado es" + req.session.usuarioLogueado.email);
-  }
-});
-
-//Views Create
+//Register view
 router.get("/register", guestMiddleware, usersController.register);
-//Create new user
+//Creating new user
 router.post(
   "/",
   upload.single("userImage"),
@@ -68,22 +61,30 @@ router.post(
     check("years")
       .isNumeric()
       .withMessage("Debe ingresar su edad sin espacios"),
-    check("email").isEmail().withMessage("Debe ingresar un email valido"),
+    check("email").isEmail().withMessage("Debe ingresar un e-mail valido"),
     check("password")
-      .isLength({ min: 3 })
-      .withMessage("Debe ingresar una clave de mas de 3 caracteres"),
+      .isLength({ min: 8 })
+      .withMessage("Debe ingresar una clave de mas de 8 caracteres"),
     check("pass_confirm")
-      .isLength({ min: 3 })
-      .withMessage("Debe ingresar una clave de mas de 3 caracteres"),
+      .isLength({ min: 8 })
+      .withMessage("Debe ingresar una clave de mas de 8 caracteres"),
   ],
   usersController.registerUser
 );
 //Edit user
-router.get("/userEdit/:idUser", usersController.updateUser);
+router.get("/userEdit/:idUser", authMiddleware, usersController.updateUser);
 //Update user
-router.put("/:idUser", usersController.updateUser);
+router.put("/:idUser", authMiddleware, usersController.updateUser);
 //Delete user
-router.delete("/delete/:idUser", usersController.deleteUser);
+router.delete("/delete/:idUser", authMiddleware, usersController.deleteUser);
 ////
-
+//**Chequeos provisorios:
+router.get("/check", function (req, res) {
+  if (req.session.usuarioLogueado == undefined) {
+    res.send("No estas logueado");
+  } else {
+    res.send("El usuario logueado es" + req.session.usuarioLogueado.email);
+  }
+});
+////
 module.exports = router;

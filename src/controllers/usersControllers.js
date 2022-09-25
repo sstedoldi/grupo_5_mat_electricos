@@ -63,7 +63,7 @@ const usersController = {
         res.cookie("recordame", usuarioALoguearse.email, { maxAge: 60000 });
       }
       //Provisorio
-      res.render("success");
+      res.send("success");
     } else {
       return res.render("login", { errors: errors.errors });
     }
@@ -74,7 +74,7 @@ const usersController = {
     let idUser = req.params.idUser;
     let user = users.find((oneUser) => oneUser.idUser == idUser);
     res.render("userDetail", {
-      users,
+      user,
       toThousand,
     });
   },
@@ -83,7 +83,8 @@ const usersController = {
   register: (req, res) => {
     res.render("register");
   },
-  //Procesado del Registro
+  //
+  //
   registerUser: (req, res) => {
     let errors = validationResult(req);
     console.log(errors.mapped());

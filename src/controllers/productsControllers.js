@@ -19,6 +19,8 @@ const productsController = {
       toThousand,
     });
   },
+  //
+  //
   detail: (req, res) => {
     //muestra el detalle de un producto
     let id = req.params.id;
@@ -28,9 +30,13 @@ const productsController = {
       toThousand,
     });
   },
+  //
+  //
   create: (req, res) => {
     res.render("productCreate");
   },
+  //
+  //
   store: (req, res) => {
     console.log(req.file);
     console.log(req.body);
@@ -46,6 +52,8 @@ const productsController = {
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
     res.redirect("/products/");
   },
+  //
+  //
   edit: (req, res) => {
     let id = req.params.id;
     let productToEdit = products.find((oneProduct) => oneProduct.id == id);
@@ -54,6 +62,8 @@ const productsController = {
       productToEdit,
     });
   },
+  //
+  //
   update: (req, res) => {
     let id = req.params.id;
     let productToEdit = products.find((product) => product.id == id);
@@ -70,11 +80,11 @@ const productsController = {
       }
       return product;
     });
-
     fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, " "));
     res.redirect("/products/");
   },
-
+  //
+  //
   delete: (req, res) => {
     let id = req.params.id;
     let finalProducts = products.filter((product) => product.id != id);
@@ -84,12 +94,13 @@ const productsController = {
     );
     res.redirect("/products/"); //hacia una ruta
   },
-
-  ////
+  //
+  //
   cart: (req, res) => {
     res.render("productCart");
   },
-  ////
+  //
+  //
   search: (req, res) => {
     let query = req.query.search;
     let productsFiltered = products.filter((product) => {
