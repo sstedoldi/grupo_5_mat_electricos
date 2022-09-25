@@ -2,10 +2,8 @@
 const express = require("express");
 const { check } = require("express-validator");
 const path = require("path");
-
 //Router instance
 const router = express.Router();
-
 //Require multer
 const multer = require("multer");
 
@@ -38,15 +36,21 @@ var upload = multer({ storage: multerStorage });
 //Controllers
 const productsController = require("../controllers/productsControllers.js");
 
+////////////////
 //Router methods
-//Listado completo de productos:
+//Listado completo de productos
 router.get("/", productsController.index);
 //Detalla de un producto
 router.get("/productDetail/:id", productsController.detail);
 //Monstrar form para crear un producto
 router.get("/create", productsController.create);
 //Recibir datos del form para producto nuevo
-router.post("/", upload.single("productImage"), productsController.store);
+router.post(
+  "/",
+  upload.single("productImage"),
+  productValidation,
+  productsController.store
+);
 //Form para modificar un producto, con boton "editar"
 router.get("/edit/:id", productsController.edit);
 //Recibir datos del form para producto editado

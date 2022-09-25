@@ -1,38 +1,12 @@
 [
-  {
-    "idUser": 1,
-    "name": "Rubens",
-    "lastname": "Martin",
-    "years": "35",
-    "email": "rumartin@arcor.com",
-    "password": "Viernes",
-    "usersImage": ""
-  },
-  {
-    "idUser": 2,
-    "name": "Rubens",
-    "lastname": "Martin",
-    "years": "35",
-    "email": "rumartin@arcor.com",
-    "password": "",
-    "usersImage": ""
-  },
-  {
-    "idUser": 3,
-    "name": "RUBEN",
-    "lastname": "MARTIN",
-    "years": "35",
-    "email": "rumartin@arcor.com",
-    "password": "HGFD",
-    "usersImage": "default-image.png"
-  },
-  {
-    "idUser": 4,
-    "name": "RUBEN",
-    "lastname": "MARTIN",
-    "years": "35",
-    "email": "rumartin@arcor.com",
-    "password": "Viernesss",
-    "usersImage": "default-image.png"
-  }
+ {
+  "id": 1,
+  "name": "Santiago",
+  "lastName": "Tedoldi",
+  "birthDate": "",
+  "email": "santtedo@gmail.com",
+  "password": "$2b$10$UeoamC.xYJi0MU6aotVS0OjWN7KsAxxYE.K5adjY6FG1iarfodVt6",
+  "conditions": "on",
+  "userImage": "img-1664140328419.jpg"
+ }
 ]

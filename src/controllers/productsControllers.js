@@ -40,9 +40,8 @@ const productsController = {
   store: (req, res) => {
     console.log(req.file);
     console.log(req.body);
-    // Do the magic
     let newProduct = {
-      id: products[products.length - 1].id + 1,
+      id: products.length == 0 ? 1 : products[products.length - 1].id + 1,
       ...req.body,
       image: req.file
         ? req.file.filename

@@ -126,9 +126,3 @@
 .form-register a:hover {
   text-decoration: underline;
 }
-
-.errors-register {
-  font-size: 12px;
-  color: red;
-  font-weight: 100;
-}

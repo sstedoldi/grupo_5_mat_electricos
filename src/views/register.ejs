@@ -21,56 +21,57 @@
         <h3>Registrate</h3>
         <!-- name -->
         <label for="name">Nombre</label>
+        <div class="errors">
+          <%= locals.errors && errors.name ? errors.name.msg : "" %>
+        </div> 
           <input 
             class="controls" 
             type="text" 
             name="name" 
             value="<%= locals.oldData && oldData.name ? oldData.name : "" %>">
-          <div class="errors">
-            <%= locals.errors && errors.name ? errors.name.msg : "" %>
-          </div> 
+
         <!-- lastname -->
         <label for="lastname">Apellido</label>
+        <div class="errors">
+          <%= locals.errors && errors.lastName ? errors.lastName.msg : "" %>
+        </div>
           <input 
             class="controls" 
             type="text" 
             name="lastName"
             value="<%= locals.oldData && oldData.lastName ? oldData.lastName : "" %>">
-          <div class="errors">
-            <%= locals.errors && errors.lastName ? errors.lastName.msg : "" %>
-          </div>
         <!-- birthDate -->
         <label for="birthDate">Nacimiento</label>
+        <div class="errors">
+          <%= locals.errors && errors.years ? errors.years.msg : "" %>
+        </div>
           <input 
             class="controls" 
             type="date" 
             name="birthDate">
-          <div class="errors">
-            <%= locals.errors && errors.years ? errors.years.msg : "" %>
-          </div>
         <!-- email -->
         <label for="email">e-mail</label>
+        <div class="errors">
+          <%= locals.errors && errors.email ? errors.email.msg : "" %>
+        </div>
           <input 
             class="controls" 
             type="email" 
             name="email"
             value=" <%= locals.oldData && oldData.email ? oldData.email : "" %>">
-          <div class="errors">
-            <%= locals.errors && errors.email ? errors.email.msg : "" %>
-          </div>
         <!-- password -->
         <label for="password">Contraseña</label>
+        <div class="errors">
+          <%= locals.errors && errors.password ? errors.password.msg : "" %>
+        </div>
           <input 
             class="controls" 
             type="password" 
             name="password">
-          <div class="errors">
-            <%= locals.errors && errors.password ? errors.password.msg : "" %>
-          </div>
         <!-- userImage -->
         <div class="formularios-create">
-          <label for="usersImage" class="form-label-create">Imagen de Perfil:</label>
-            <input type="file" id="usersImage" name="usersImage">
+          <label for="userImage" class="form-label-create">Imagen de Perfil:</label>
+            <input type="file" id="userImage" name="userImage" class="form-input-create">
         </div>
         <br>
         <!-- conditions -->

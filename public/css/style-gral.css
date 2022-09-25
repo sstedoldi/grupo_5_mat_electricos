@@ -219,11 +219,13 @@ body {
 /* &&&&&&&&&&& */
 
 .errors {
-  text-align: center;
   background-color: darksalmon;
+  color: rgb(79, 0, 19);
+  width: 100%;
+  border: 1px solid rgb(79, 0, 19);
+  text-align: center;
 }
 
 .errors ul {
   list-style: none;
-  color: rgb(79, 0, 19);
 }

@@ -1,13 +1,11 @@
 //Primary modules
 const express = require("express");
+const { check } = require("express-validator");
+const path = require("path");
 //Router instance
 const router = express.Router();
 //Require multer
 const multer = require("multer");
-//Require path
-const path = require("path");
-//Require express validator
-const { check } = require("express-validator");
 
 //Controllers
 const usersController = require("../controllers/usersControllers.js");
@@ -15,6 +13,31 @@ const usersController = require("../controllers/usersControllers.js");
 //middleWares
 const guestMiddleware = require("../middlewares/guestMiddleware.js");
 const authMiddleware = require("../middlewares/authMiddleware.js");
+
+//Login validation
+const loginValidation = [
+  check("email").isEmail().withMessage("Ingrese un e-mail válido"),
+  check("password")
+    .isLength({ min: 8 })
+    .withMessage("La contraseña debe tener al menos 8 caracteres"),
+];
+//Register validation
+const registerValidation = [
+  check("name").isLength({ min: 2 }).withMessage("Debe ingresar un nombre"),
+  check("lastName")
+    .isLength({ min: 2 })
+    .withMessage("Debe ingresar un apellido"),
+  check("birthDate")
+    .exists()
+    .withMessage("Debe ingresar su fecha de nacimiento"),
+  check("email").isEmail().withMessage("Debe ingresar un e-mail valido"),
+  check("password")
+    .isLength({ min: 8 })
+    .withMessage("Debe ingresar una clave de mas de 8 caracteres"),
+  // check("pass_confirm")
+  //   .isLength({ min: 8 })
+  //   .withMessage("Debe ingresar una clave de mas de 8 caracteres")
+];
 
 //Multer method
 var multerStorage = multer.diskStorage({
@@ -37,38 +60,14 @@ router.get("/userDetail/:idUser", authMiddleware, usersController.detail);
 //View form login
 router.get("/login", guestMiddleware, usersController.loginUser);
 //Send login
-router.post(
-  "/login",
-  [
-    check("email").isEmail().withMessage("Ingrese un e-mail válido"),
-    check("password")
-      .isLength({ min: 8 })
-      .withMessage("La contraseña debe tener al menos 8 caracteres"),
-  ],
-  usersController.processLogin
-);
+router.post("/login", loginValidation, usersController.processLogin);
 //Register view
 router.get("/register", guestMiddleware, usersController.register);
 //Creating new user
 router.post(
   "/",
   upload.single("userImage"),
-  [
-    check("name").isLength({ min: 2 }).withMessage("Debe ingresar un nombre"),
-    check("lastName")
-      .isLength({ min: 2 })
-      .withMessage("Debe ingresar un apellido"),
-    check("years")
-      .isNumeric()
-      .withMessage("Debe ingresar su edad sin espacios"),
-    check("email").isEmail().withMessage("Debe ingresar un e-mail valido"),
-    check("password")
-      .isLength({ min: 8 })
-      .withMessage("Debe ingresar una clave de mas de 8 caracteres"),
-    check("pass_confirm")
-      .isLength({ min: 8 })
-      .withMessage("Debe ingresar una clave de mas de 8 caracteres"),
-  ],
+  registerValidation,
   usersController.registerUser
 );
 //Edit user

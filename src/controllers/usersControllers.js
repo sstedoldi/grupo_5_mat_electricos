@@ -2,6 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
+const bcrypt = require("bcrypt");
 
 //Data managing
 const usersFilePath = path.join(__dirname, "../data/users.json");
@@ -28,8 +29,8 @@ const usersController = {
   processLogin: function (req, res) {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      //Traigo a todos los usuarios registrados
       let usersJSON = fs.readFileSync("./src/data/users.json", {
+        //Traigo a todos los usuarios registrados
         errors: errors.errors,
       });
       let users;
@@ -38,19 +39,15 @@ const usersController = {
       } else {
         users = JSON.parse(usersJSON);
       }
-      //Busco al usuario el usuario ingresado
-      for (let user in users) {
+      for (let user of users) {
         if (user.email == req.body.email) {
-          //Cambio de users a user
           if (bcrypt.compareSync(req.body.password, user.password)) {
-            //adapto por el cambio del for
             var usuarioALoguearse = user;
             break;
           }
         }
       }
-      //Si no se hayó usuarioALoguearse, envío el error
-      if (!usuarioALoguearse) {
+      if (usuarioALoguearse == undefined) {
         return res.render("login", {
           errors: [{ msg: "Credenciales invalidas" }],
         });
@@ -87,18 +84,21 @@ const usersController = {
   //
   registerUser: (req, res) => {
     let errors = validationResult(req);
-    console.log(errors.mapped());
+    // console.log(errors.mapped());
     if (!errors.isEmpty()) {
       let oldData = req.body;
+      console.log(errors.mapped());
       return res.render("register", { errors: errors.mapped(), oldData });
     } else {
       let newUser = {
+        id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
         ...req.body,
-        image: req.file ? req.file.filename : "default-image.png",
+        password: bcrypt.hashSync(req.body.password, 10),
+        userImage: req.file ? req.file.filename : "default-image.png",
       };
       users.push(newUser);
       fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-      res.redirect("/users/");
+      return res.redirect("/users/login/");
     }
   },
   //
