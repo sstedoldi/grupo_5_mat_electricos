@@ -24,30 +24,38 @@ const usersController = {
   processLogin: function (req, res) {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      let usersJSON = fs.readFileSync("./src/data/users.json", { errors: errors.errors });
+      //Traigo a todos los usuarios registrados
+      let usersJSON = fs.readFileSync("./src/data/users.json", {
+        errors: errors.errors,
+      });
       let users;
       if (usersJSON == "") {
         users = [];
       } else {
         users = JSON.parse(usersJSON);
       }
-      for (let i = 0; i < users.length; i++) {
-        if (users[i].email == req.body.email) {
-          if (bcrypt.compareSync(req.body.password, user[i].password)) {
-            let usuarioAloguearse = users[i];
+      //Busco al usuario el usuario ingresado
+      //for (let i = 0; i < users.length; i++) { //Cambio a for in
+      for (let user in users) {
+        if (user.email == req.body.email) {
+          //Cambio de users a user
+          if (bcrypt.compareSync(req.body.password, user.password)) {
+            //adapto por el cambio del for
+            var usuarioALoguearse = user;
             break;
           }
         }
       }
-      if (usuarioAloguearse == undefined) {
+      //Si no se hayó usuarioALoguearse, envío el error
+      if (usuarioALoguearse == undefined) {
         return res.render("login", {
-          errors: [
-            { msg: "credenciales invalidas" }
-          ]
+          errors: [{ msg: "Credenciales invalidas" }],
         });
       }
-      req.session.usuarioLogueado = usuarioAloguearse;
-      res.render("success")
+      //Session
+      req.session.usuarioLogueado = usuarioALoguearse;
+      //Provisorio
+      res.render("success");
     } else {
       return res.render("login", { errors: errors.errors });
     }
@@ -67,30 +75,28 @@ const usersController = {
   },
 
   registerUser: (req, res) => {
-
-		let errors = validationResult(req);
-		console.log(errors.mapped());
-		if(!errors.isEmpty()){
-			let oldData = req.body;
-			return res.render('register', {errors: errors.mapped(), oldData})
-		} else {
-
-			let newUser={
-				...req.body,
-				image:req.file? req.file.filename : "default-image.png"
-		};
-		users.push(newUser);
-		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
-		res.redirect('/users/');
-	}
-	},
+    let errors = validationResult(req);
+    console.log(errors.mapped());
+    if (!errors.isEmpty()) {
+      let oldData = req.body;
+      return res.render("register", { errors: errors.mapped(), oldData });
+    } else {
+      let newUser = {
+        ...req.body,
+        image: req.file ? req.file.filename : "default-image.png",
+      };
+      users.push(newUser);
+      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+      res.redirect("/users/");
+    }
+  },
 
   editUser: (req, res) => {
     let idUser = req.params.idUser;
     let userToEdit = users.find((oneUser) => oneUser.idUser == idUser);
 
     res.render("/userEdit", {
-      userToEdit
+      userToEdit,
     });
   },
   updateUser: (req, res) => {
@@ -117,10 +123,9 @@ const usersController = {
   deleteUser: (req, res) => {
     let idUser = req.params.idUser;
     let finalUsers = users.filter((user) => user.idUser != idUser);
-    fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " ")
-    );
+    fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
     res.redirect("/usersList/"); //hacia una ruta
-  }
+  },
 };
 
 ////
