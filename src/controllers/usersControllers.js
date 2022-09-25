@@ -18,9 +18,13 @@ const usersController = {
       toThousand,
     });
   },
+  //
+  //
   loginUser: (req, res) => {
     res.render("login.ejs");
   },
+  //
+  //
   processLogin: function (req, res) {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -35,7 +39,6 @@ const usersController = {
         users = JSON.parse(usersJSON);
       }
       //Busco al usuario el usuario ingresado
-      //for (let i = 0; i < users.length; i++) { //Cambio a for in
       for (let user in users) {
         if (user.email == req.body.email) {
           //Cambio de users a user
@@ -47,20 +50,26 @@ const usersController = {
         }
       }
       //Si no se hayó usuarioALoguearse, envío el error
-      if (usuarioALoguearse == undefined) {
+      if (!usuarioALoguearse) {
         return res.render("login", {
           errors: [{ msg: "Credenciales invalidas" }],
         });
       }
       //Session
       req.session.usuarioLogueado = usuarioALoguearse;
+      //Recordame
+      if (req.body.recordame) {
+        //Uso el truty
+        res.cookie("recordame", usuarioALoguearse.email, { maxAge: 60000 });
+      }
       //Provisorio
       res.render("success");
     } else {
       return res.render("login", { errors: errors.errors });
     }
   },
-
+  //
+  //
   detail: (req, res) => {
     let idUser = req.params.idUser;
     let user = users.find((oneUser) => oneUser.idUser == idUser);
@@ -69,11 +78,12 @@ const usersController = {
       toThousand,
     });
   },
-
+  //
+  //
   register: (req, res) => {
     res.render("register");
   },
-
+  //Procesado del Registro
   registerUser: (req, res) => {
     let errors = validationResult(req);
     console.log(errors.mapped());
@@ -90,7 +100,8 @@ const usersController = {
       res.redirect("/users/");
     }
   },
-
+  //
+  //
   editUser: (req, res) => {
     let idUser = req.params.idUser;
     let userToEdit = users.find((oneUser) => oneUser.idUser == idUser);
@@ -99,6 +110,8 @@ const usersController = {
       userToEdit,
     });
   },
+  //
+  //
   updateUser: (req, res) => {
     let idUser = req.params.idUser;
     let userToEdit = users.find((oneUsers) => oneUsers.idUser == idUser);
@@ -107,7 +120,6 @@ const usersController = {
       ...req.body,
       imagen: userToEdit.imagen,
     };
-
     let newUser = users.map((users) => {
       //nueva variable con todos los usuario + el editado
       if (users.idUser == userToEdit.idUser) {
@@ -115,11 +127,11 @@ const usersController = {
       }
       return users;
     });
-
     fs.writeFileSync(usersFilePath, JSON.stringify(newUser, null, " "));
     res.redirect("/users/");
   },
-
+  //
+  //
   deleteUser: (req, res) => {
     let idUser = req.params.idUser;
     let finalUsers = users.filter((user) => user.idUser != idUser);

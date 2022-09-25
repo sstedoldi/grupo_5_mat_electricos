@@ -3,9 +3,9 @@ function guestMiddleware(req, res, next) {
     //uso el falsy como condicional
     next();
   } else {
-    //Completar con un render enviando info del usuarioLogueado
+    //**Completar con un render enviando info del usuarioLogueado
     res.send("Esta páquina es solo para invitados");
   }
 }
 
-module.export = guestMiddleware;
+module.exports = guestMiddleware;

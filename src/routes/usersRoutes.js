@@ -13,8 +13,8 @@ const { check } = require("express-validator");
 const usersController = require("../controllers/usersControllers.js");
 
 //middleWares
-const guestMiddleware = require("../middleware/guestMiddleware");
-const authMiddleware = require("../middleware/authMiddleware");
+const guestMiddleware = require("../middlewares/guestMiddleware.js");
+const authMiddleware = require("../middlewares/authMiddleware.js");
 
 //Multer method
 var multerStorage = multer.diskStorage({

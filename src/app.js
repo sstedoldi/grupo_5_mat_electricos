@@ -1,12 +1,15 @@
 //Primary modules
 const express = require("express");
 const path = require("path");
-
 const methodOverride = require("method-override"); //to use put & delete in html
+const cookieParser = require("cookie-parser");
 
 //App instance
 const app = express();
 const session = require("express-session");
+
+//Global middleWares
+const recordameMiddleware = require("./middlewares/recordameMiddleware.js");
 
 //Settings
 app.use(express.static(path.join(__dirname, "../public")));
@@ -21,6 +24,10 @@ app.use(
     saveUninitialized: true,
   })
 );
+//CookieParter
+app.use(cookieParser());
+//Recordame
+app.use(recordameMiddleware);
 //to use data from forms:
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
