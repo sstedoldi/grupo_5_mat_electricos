@@ -39,10 +39,11 @@ const usersController = {
       } else {
         users = JSON.parse(usersJSON);
       }
+      let usuarioALoguearse;
       for (let user of users) {
         if (user.email == req.body.email) {
           if (bcrypt.compareSync(req.body.password, user.password)) {
-            var usuarioALoguearse = user;
+            usuarioALoguearse = user;
             break;
           }
         }
@@ -57,7 +58,7 @@ const usersController = {
       //Recordame
       if (req.body.recordame) {
         //Uso el truty
-        res.cookie("recordame", usuarioALoguearse.email, { maxAge: 60000 });
+        res.cookie("recordame", usuarioALoguearse.email, { maxAge: 120000 });
       }
       //Provisorio
       res.send("success");

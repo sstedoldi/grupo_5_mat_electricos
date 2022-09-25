@@ -1,19 +1,27 @@
+////Primary modules
+const fs = require("fs");
+const path = require("path");
+
+const usersFilePath = path.join(__dirname, "../data/users.json");
+
 function recordameMiddleware(req, res, next) {
   next();
-  if (req.cookies.recordame && !req.session.usuarioLogueado) {
-    let usersJSON = fs.readFileSync("./src/data/users.json", {
-      errors: errors.errors,
-    });
+  if (
+    req.cookies.recordame != undefined &&
+    req.session.usuarioLogueado == undefined
+  ) {
+    let usersJSON = fs.readFileSync(usersFilePath, "utf-8");
     let users;
     if (usersJSON == "") {
       users = [];
     } else {
       users = JSON.parse(usersJSON);
     }
-    //Busco al usuario el usuario ingresado
-    for (let user in users) {
+    //Busco al usuario ingresado
+    let usuarioALoguearse;
+    for (let user of users) {
       if (user.email == req.cookies.email) {
-        var usuarioALoguearse = user;
+        usuarioALoguearse = user;
         break;
       }
     }
