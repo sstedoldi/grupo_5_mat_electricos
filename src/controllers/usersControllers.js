@@ -61,11 +61,36 @@ const usersController = {
         res.cookie("recordame", usuarioALoguearse.email, { maxAge: 120000 });
       }
       //Provisorio
-      res.send("success");
+      res.redirect("/");
     } else {
       return res.render("login", { errors: errors.errors });
     }
   },
+  //
+  //
+  logout:(req, res)=>{
+		req.session.userLogged = undefined;
+		users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+		res.redirect("/");
+	},
+  //
+  //
+  check:(req, res)=>{
+		if ( req.session.userLogged){
+
+			res.send("el ususario logeado es " + req.session.userLogged.name)
+		} else {
+			res.send("No estas logeado ")
+		}
+	},
+  //
+  //
+  profile: (req, res)=>{
+
+		res.render("profile", {user:req.session.userLogged})
+
+	},
   //
   //
   detail: (req, res) => {

@@ -8,5 +8,24 @@
   "password": "$2b$10$UeoamC.xYJi0MU6aotVS0OjWN7KsAxxYE.K5adjY6FG1iarfodVt6",
   "conditions": "on",
   "userImage": "img-1664140328419.jpg"
+ },
+ {
+  "id": 2,
+  "name": "Juan Cruz",
+  "lastName": "Diaz",
+  "birthDate": "2022-09-27",
+  "email": "mmm@dmdpmd.com",
+  "password": "$2b$10$nZadYGDpzmdBSBJO.bovFu.8BkXEdXQTRTQkD//64zs.KgKC1HgsC",
+  "userImage": "default-image.png"
+ },
+ {
+  "id": 3,
+  "name": "Juan",
+  "lastName": "Diaz",
+  "birthDate": "",
+  "email": "pepito@gmail.com",
+  "password": "$2b$10$W9Brkgtv0DouDc6xICk2feZ8Ksdy7fvIDCWsYJtS73upq0Y4s6BKq",
+  "conditions": "on",
+  "userImage": "default-image.png"
  }
 ]

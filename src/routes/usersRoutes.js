@@ -61,6 +61,8 @@ router.get("/userDetail/:idUser", authMiddleware, usersController.detail);
 router.get("/login", guestMiddleware, usersController.loginUser);
 //Send login
 router.post("/login", loginValidation, usersController.processLogin);
+//Logout
+router.get('/logout', usersController.logout);
 //Register view
 router.get("/register", guestMiddleware, usersController.register);
 //Creating new user

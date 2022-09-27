@@ -10,6 +10,7 @@ const session = require("express-session");
 
 //Global middleWares
 const recordameMiddleware = require("./middlewares/recordameMiddleware.js");
+const userLoggedMiddleware = require ("./middlewares/userLoggedMiddleware");
 
 //Settings
 app.use(express.static(path.join(__dirname, "../public")));
@@ -24,10 +25,12 @@ app.use(
     saveUninitialized: true,
   })
 );
-//CookieParter
+//CookieParser
 app.use(cookieParser());
 //Recordame
 app.use(recordameMiddleware);
+//userLogged
+app.use(userLoggedMiddleware);
 //to use data from forms:
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
