@@ -80,12 +80,6 @@ router.put("/:idUser", authMiddleware, usersController.updateUser);
 router.delete("/delete/:idUser", authMiddleware, usersController.deleteUser);
 ////
 //**Chequeos provisorios:
-router.get("/check", function (req, res) {
-  if (req.session.usuarioLogueado == undefined) {
-    res.send("No estas logueado");
-  } else {
-    res.send("El usuario logueado es" + req.session.usuarioLogueado.email);
-  }
-});
+router.get("/check", usersController.check);
 ////
 module.exports = router;

@@ -1,11 +1,11 @@
 function userLoggedMiddleware (req, res, next){
     res.locals.isAnUserLogged = false;
-    if(req.session.userLogged != undefined){
+    if(req.session.usuarioLogueado != undefined){
         res.locals.isAnUserLogged = true;
-        res.locals.userLogged = req.session.userLogged;
+        res.locals.usuarioLogueado = req.session.usuarioLogueado;
 
     }
-    console.log (res.locals.userLogged);
+    console.log (res.locals.usuarioLogueado);
     next ();
 
 }

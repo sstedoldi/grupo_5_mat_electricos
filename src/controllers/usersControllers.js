@@ -69,26 +69,26 @@ const usersController = {
   //
   //
   logout:(req, res)=>{
-		req.session.userLogged = undefined;
-		users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
+		req.session.usuarioLogueado = undefined;
+    //users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); 
+    //Esta linea la puso el profe en su proyecto pero si la descomento
+    //se rompe el logout. Sin esto funciona bien.
 		res.redirect("/");
 	},
   //
   //
-  check:(req, res)=>{
-		if ( req.session.userLogged){
-
-			res.send("el ususario logeado es " + req.session.userLogged.name)
-		} else {
-			res.send("No estas logeado ")
-		}
-	},
+  check:(req, res) => {
+    if (req.session.usuarioLogueado == undefined) {
+      res.send("No estas logueado");
+    } else {
+      res.send("El usuario logueado es" + req.session.usuarioLogueado.email);
+    }
+  },
   //
   //
   profile: (req, res)=>{
 
-		res.render("profile", {user:req.session.userLogged})
+		res.render("profile", {user:req.session.usuarioLogueado})
 
 	},
   //

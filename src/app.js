@@ -29,7 +29,7 @@ app.use(
 app.use(cookieParser());
 //Recordame
 app.use(recordameMiddleware);
-//userLogged
+//Usuario logeado
 app.use(userLoggedMiddleware);
 //to use data from forms:
 app.use(express.urlencoded({ extended: false }));
