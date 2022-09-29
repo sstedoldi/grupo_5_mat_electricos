@@ -19,13 +19,12 @@
   "userImage": "default-image.png"
  },
  {
-  "id": 3,
-  "name": "Juan",
-  "lastName": "Diaz",
-  "birthDate": "",
+  "id": 5,
+  "name": "Pepito",
+  "lastName": "Flores",
+  "birthDate": "2022-09-30",
   "email": "pepito@gmail.com",
-  "password": "$2b$10$W9Brkgtv0DouDc6xICk2feZ8Ksdy7fvIDCWsYJtS73upq0Y4s6BKq",
-  "conditions": "on",
-  "userImage": "default-image.png"
+  "password": "$2b$10$VriX7S1A7V033z06fIS/aOwDBx4q0Qzb8mor96JrIqhQT.ITIfWtG",
+  "userImage": "img-1664481344947.jpg"
  }
 ]

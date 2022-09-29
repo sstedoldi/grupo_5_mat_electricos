@@ -21,6 +21,42 @@ const usersController = {
   },
   //
   //
+  detail: (req, res) => {
+    let idUser = req.params.idUser;
+    let user = users.find((oneUser) => oneUser.idUser == idUser);
+    res.render("userDetail", {
+      user,
+      toThousand,
+    });
+  },
+  //
+  //
+  register: (req, res) => {
+    res.render("register");
+  },
+  //
+  //
+  registerUser: (req, res) => {
+    let errors = validationResult(req);
+    // console.log(errors.mapped());
+    if (!errors.isEmpty()) {
+      let oldData = req.body;
+      console.log(errors.mapped());
+      return res.render("register", { errors: errors.mapped(), oldData });
+    } else {
+      let newUser = {
+        id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
+        ...req.body,
+        password: bcrypt.hashSync(req.body.password, 10),
+        userImage: req.file ? req.file.filename : "default-image.png",
+      };
+      users.push(newUser);
+      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+      return res.redirect("/users/login/");
+    }
+  },
+  //
+  //
   loginUser: (req, res) => {
     res.render("login.ejs");
   },
@@ -86,49 +122,6 @@ const usersController = {
   },
   //
   //
-  profile: (req, res)=>{
-
-		res.render("profile", {user:req.session.usuarioLogueado})
-
-	},
-  //
-  //
-  detail: (req, res) => {
-    let idUser = req.params.idUser;
-    let user = users.find((oneUser) => oneUser.idUser == idUser);
-    res.render("userDetail", {
-      user,
-      toThousand,
-    });
-  },
-  //
-  //
-  register: (req, res) => {
-    res.render("register");
-  },
-  //
-  //
-  registerUser: (req, res) => {
-    let errors = validationResult(req);
-    // console.log(errors.mapped());
-    if (!errors.isEmpty()) {
-      let oldData = req.body;
-      console.log(errors.mapped());
-      return res.render("register", { errors: errors.mapped(), oldData });
-    } else {
-      let newUser = {
-        id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
-        ...req.body,
-        password: bcrypt.hashSync(req.body.password, 10),
-        userImage: req.file ? req.file.filename : "default-image.png",
-      };
-      users.push(newUser);
-      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-      return res.redirect("/users/login/");
-    }
-  },
-  //
-  //
   editUser: (req, res) => {
     let idUser = req.params.idUser;
     let userToEdit = users.find((oneUser) => oneUser.idUser == idUser);
@@ -137,6 +130,13 @@ const usersController = {
       userToEdit,
     });
   },
+  //
+  //
+  profile: (req, res)=>{
+
+		res.render("profile", {user:req.session.usuarioLogueado})
+
+	},
   //
   //
   updateUser: (req, res) => {
