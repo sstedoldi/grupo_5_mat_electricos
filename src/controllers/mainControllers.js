@@ -17,6 +17,9 @@ const mainController = {
       toThousand,
     });
   },
+  quienes: (req, res) => {
+    res.render("quienesSomos.ejs");
+  }
 };
 
 ////

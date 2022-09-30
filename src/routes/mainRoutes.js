@@ -9,6 +9,6 @@ const router = express.Router();
 
 //Router methods
 router.get("/", mainController.home);
-
+router.get("/quienes", mainController.quienes);
 ////
 module.exports = router;

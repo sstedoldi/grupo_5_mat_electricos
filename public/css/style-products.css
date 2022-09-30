@@ -330,6 +330,33 @@
 .fas.fa-sync-alt {
   padding: 5px;
 }
+.quienes-somos{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+  
+}
+.ubicacion-quienes{
+
+  display: flow-root;
+  justify-content: center ;
+  margin: 10px;
+  align-items: normal;
+}
+.titulo-quienes{
+  display: flex;
+  text-align:center;
+  color: red;
+  align-items: flex-end;
+  
+}
+.parrafo-quienes{
+  display: block;
+  text-align: center;
+  color: rgb(59, 58, 58);
+  margin: 0 20px 30px 20px;
+}
 
 /* MEDIAS */
 
@@ -400,6 +427,7 @@
   .button-update-cart {
     height: 45px;
   }
+
 }
 
 /* PRODUCTS STYLES */
