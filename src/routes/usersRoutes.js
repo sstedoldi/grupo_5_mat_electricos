@@ -55,8 +55,10 @@ var upload = multer({ storage: multerStorage });
 ////////////////
 //Router methods
 router.get("/", usersController.index);
-//Detalla de un usuario
+//Detalle de un usuario
 router.get("/userDetail/:idUser", authMiddleware, usersController.detail);
+//Perfil del usuario logeado
+router.get("/profile", authMiddleware, usersController.profile);
 //View form login
 router.get("/login", guestMiddleware, usersController.loginUser);
 //Send login

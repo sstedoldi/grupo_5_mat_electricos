@@ -16,19 +16,18 @@ const usersController = {
   index: (req, res) => {
     res.render("users", {
       users,
-      toThousand,
+      toThousand
     });
   },
   //
   //
-  detail: (req, res) => {
-    let idUser = req.params.idUser;
-    let user = users.find((oneUser) => oneUser.idUser == idUser);
-    res.render("userDetail", {
-      user,
-      toThousand,
-    });
-  },
+ detail: (req, res) => {
+		let idUser = req.params.id;
+		let user = users.find(oneUser => oneUser.id == idUser );
+		res.render('userDetail', {
+			user
+		})
+	},
   //
   //
   register: (req, res) => {
@@ -135,7 +134,6 @@ const usersController = {
   profile: (req, res)=>{
 
 		res.render("profile", {user:req.session.usuarioLogueado})
-
 	},
   //
   //
