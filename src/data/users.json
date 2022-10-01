@@ -26,5 +26,15 @@
   "email": "pepito@gmail.com",
   "password": "$2b$10$VriX7S1A7V033z06fIS/aOwDBx4q0Qzb8mor96JrIqhQT.ITIfWtG",
   "userImage": "img-1664481344947.jpg"
+ },
+ {
+  "id": 6,
+  "name": "Ruben ",
+  "lastName": "Martin",
+  "birthDate": "1988-01-07",
+  "email": "rumartin@arcor.com",
+  "password": "$2b$10$LxZyW.TaPEmWK1KeGQU/8OFzJ.XQi.UQvFWEEonZzOaTlsgrhu3O.",
+  "conditions": "on",
+  "userImage": "img-1664651840122.jpeg"
  }
 ]

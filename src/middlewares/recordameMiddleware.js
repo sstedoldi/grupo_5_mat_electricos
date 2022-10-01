@@ -19,9 +19,9 @@ function recordameMiddleware(req, res, next) {
     }
     //Busco al usuario ingresado
     let usuarioALoguearse;
-    for (let user of users) {
-      if (user.email == req.cookies.email) {
-        usuarioALoguearse = user;
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].email == req.cookies.recordame) {
+        usuarioALoguearse = users[i];
         break;
       }
     }

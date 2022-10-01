@@ -91,7 +91,7 @@ const usersController = {
       //Session
       req.session.usuarioLogueado = usuarioALoguearse;
       //Recordame
-      if (req.body.recordame) {
+      if (req.body.recordame != undefined) {
         //Uso el truty
         res.cookie("recordame", usuarioALoguearse.email, { maxAge: 120000 });
       }
