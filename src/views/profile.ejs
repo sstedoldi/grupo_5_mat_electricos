@@ -3,7 +3,7 @@
 
 <head>
     <%- include("partials/head") %>
-        <link rel="stylesheet" href="/css/style-products.css">
+        <link rel="stylesheet" href="/css/style-users.css">
         </link>
 </head>
 <!-- <div class="top-header-top">Materiales eléctricos</div> -->
@@ -15,13 +15,13 @@
     </header>
     <!-- &&&& -->
     <!-- MAIN -->
-    <div class="product-figure-info">
-        <div class="product-figure">
-        <div class="div-create-forms">
-            <h3>Detalle de usuario <%= user.id %>
+    <div class="user-form">
+        
+        <div class="detail-user">
+            <h3>Detalle de usuario <%= user.email %>
             </h3>
 
-            <p class="div-create-forms">Foto de perfil: <img src="/images/users/<%= user.userImage %>" width="70">
+            <p class="div-create-img">Foto de perfil: <img src="/images/users/<%= user.userImage %>" width="100%">
             </p>
             <p class="div-create-forms">Nombre: <%= user.name %>
             </p>
@@ -32,8 +32,7 @@
             <p class="div-create-forms">Nacimiento: <%= user.birthDate %>
             </p>
         </div>
-
-        </div>
+    </div>
 
 
     </main>

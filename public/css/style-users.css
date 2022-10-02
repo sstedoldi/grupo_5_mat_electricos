@@ -126,3 +126,40 @@
 .form-register a:hover {
   text-decoration: underline;
 }
+.user-form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.detail-user{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+}
+.div-create-forms{
+  display: inline-block;
+  width: 75%;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: rgb(67, 67, 67);
+  border: 1px solid rgb(67, 67, 67);
+  border-radius: 4px;
+}
+.div-create-img{
+  width: 75%;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: rgb(67, 67, 67);
+  border: 1px solid rgb(67, 67, 67);
+  border-radius: 4px;
+}
