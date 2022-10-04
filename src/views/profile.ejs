@@ -34,8 +34,8 @@
                     <p class="div-create-forms">Nacimiento: <%= user.birthDate %>
                     </p>
                     <div class="div-create-forms">
-                        <form method="POST">
-                            <button class="delete-profile-button">Borrar usuario
+                        <form action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="delete-profile-button">Borrar usuario
                             </button>
                         </form>
                     </div>

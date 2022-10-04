@@ -79,7 +79,7 @@ router.get("/userEdit/:idUser", authMiddleware, usersController.updateUser);
 //Update user
 router.put("/:idUser", authMiddleware, usersController.updateUser);
 //Delete user
-router.delete("/delete/:idUser", authMiddleware, usersController.deleteUser);
+router.delete("/delete/:id", usersController.deleteUser);
 ////
 //**Chequeos provisorios:
 router.get("/check", usersController.check);

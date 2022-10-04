@@ -158,11 +158,12 @@ const usersController = {
   //
   //
   deleteUser: (req, res) => {
-    let idUser = req.params.idUser;
-    let finalUsers = users.filter((user) => user.idUser != idUser);
+    let id = req.params.id;
+    let finalUsers = users.filter((user) => user.id != id);
     fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
-    res.redirect("/usersList/"); //hacia una ruta
-  },
+    req.session.usuarioLogueado = undefined;
+    res.redirect("/users/"); //hacia una ruta
+  }
 };
 
 ////
