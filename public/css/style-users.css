@@ -127,6 +127,8 @@
   text-decoration: underline;
 }
 
+/* PROFILE STYLES */
+/* &&&&&&&&&&& */
 .user-form {
   display: flex;
   flex-direction: column;
@@ -164,14 +166,14 @@
   color: white;
 }
 
-/* REGISTER STYLES */
+/* MEDIA QUERIES*/
 /* &&&&&&&&&&& */
 
 @media (min-width: 520px) {
   .detail-user {
     display: flex;
     width: 85%;
-    max-width: 650px;
+    max-width: 750px;
   }
   .detail-user-img{
     width: 60%;
