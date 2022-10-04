@@ -126,7 +126,8 @@
 .form-register a:hover {
   text-decoration: underline;
 }
-.user-form{
+
+.user-form {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -134,32 +135,54 @@
   justify-content: center;
   align-items: center;
 }
-.detail-user{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
+
+.detail-user {
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.div-create-forms,
+.div-create-img {
+  padding: 5px 10px;
   width: 100%;
-}
-.div-create-forms{
-  display: inline-block;
-  width: 75%;
-  padding: 5px 10px;
   margin-bottom: 5px;
-  text-decoration: none;
   color: rgb(67, 67, 67);
-  border: 1px solid rgb(67, 67, 67);
-  border-radius: 4px;
+  font-size: 14px;
 }
-.div-create-img{
-  width: 75%;
-  display: inline-block;
-  padding: 5px 10px;
-  margin-bottom: 5px;
-  text-decoration: none;
-  color: rgb(67, 67, 67);
-  border: 1px solid rgb(67, 67, 67);
-  border-radius: 4px;
+
+.div-create-img img {
+  border-radius: 15px;
+}
+
+/*provisorio*/
+.delete-profile-button {
+  background-color: red;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+/* REGISTER STYLES */
+/* &&&&&&&&&&& */
+
+@media (min-width: 520px) {
+  .detail-user {
+    display: flex;
+    width: 85%;
+    max-width: 650px;
+  }
+  .detail-user-img{
+    width: 60%;
+  }
+  .detail-user-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .div-create-forms{
+    font-size: 18px;
+  }
 }

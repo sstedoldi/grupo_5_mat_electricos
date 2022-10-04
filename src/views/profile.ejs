@@ -15,26 +15,33 @@
     </header>
     <!-- &&&& -->
     <!-- MAIN -->
-    <div class="user-form">
-        
-        <div class="detail-user">
-            <h3>Detalle de usuario <%= user.email %>
-            </h3>
+    <main>
+        <div class="user-form">
+            <h2>Detalle del usuario <%= user.name %>
+            </h2>
+            <div class="detail-user">
+                <div class="detail-user-img">
+                    <p class="div-create-img"> <img src="/images/users/<%= user.userImage %>" width="100%"></p>
+                </div>
 
-            <p class="div-create-img">Foto de perfil: <img src="/images/users/<%= user.userImage %>" width="100%">
-            </p>
-            <p class="div-create-forms">Nombre: <%= user.name %>
-            </p>
-            <p class="div-create-forms">Apellido: <%= user.lastName %>
-            </p>
-            <p class="div-create-forms">Email: <%= user.email %>
-            </p>
-            <p class="div-create-forms">Nacimiento: <%= user.birthDate %>
-            </p>
+                <div class="detail-user-info">
+                    <p class="div-create-forms">Nombre: <%= user.name %>
+                    </p>
+                    <p class="div-create-forms">Apellido: <%= user.lastName %>
+                    </p>
+                    <p class="div-create-forms">Email: <%= user.email %>
+                    </p>
+                    <p class="div-create-forms">Nacimiento: <%= user.birthDate %>
+                    </p>
+                    <div class="div-create-forms">
+                        <form method="POST">
+                            <button class="delete-profile-button">Borrar usuario
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-
     </main>
     <!-- &&&& -->
     <!-- FOOTER -->
