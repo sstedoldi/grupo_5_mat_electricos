@@ -94,7 +94,7 @@
 /* MEDIA QUERIES */
 /* &&&&&&&&&&& */
 
-@media (min-width: 920px) {
+@media (min-width: 520px) {
   .main-product {
     max-width: 1200px;
   }
