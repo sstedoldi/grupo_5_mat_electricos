@@ -11,31 +11,31 @@
       </button>
     </form>
   </div>
-    <div class="main-header-cart">
+    <div class="main-header-icons">
       <a href="/products/productCart"><i class="fas fa-cart-plus"></i></a>
     </div>
     <!-- íconos según usuario -->
     <% if (locals.isAnUserLogged == true) { %>
       <% if (locals.adminLogged == true) { %>
-        <div class="main-header-cart">
-          <a href="/admin/analitics"><i class="fas fa-analytics"></i></a>
-        </div>
-        <div class="main-header-cart">
-          <a href="/users/list"><i class="fas fa-users"></i></a>
-        </div>
-        <div class="main-header-cart">
+        <div class="main-header-icons">
           <a href="/products/create"><i class="fas fa-plus-circle"></i></a>
         </div>
+        <div class="main-header-icons">
+          <a href="/analytics"><i class="fas fa-chart-bar"></i></a>
+        </div>
+        <div class="main-header-icons">
+          <a href="/users"><i class="fas fa-users"></i></a>
+        </div>
         <% } else { %>
-        <div class="main-header-cart">
+        <div class="main-header-icons">
           <a href="/users/profile"><i class="fas fa-user"></i></a>
         </div>
         <%} %>
-      <div class="main-header-cart">
+      <div class="main-header-icons">
         <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
       </div>
     <% } else { %>
-      <div class="main-header-user">
+      <div class="main-header-icons">
         <a href="/users/login"><i class="fas fa-user-circle"></i></a>
       </div>
       <%} %>

@@ -79,7 +79,7 @@ body {
   width: 10%;
 }
 
-.main-header-cart {
+.main-header-icons {
   width: 10%;
   font-size: 25px;
   text-align: center;
@@ -87,12 +87,12 @@ body {
   color: rgb(67, 67, 67);
 }
 
-.main-header-cart a {
+.main-header-icons a {
   text-decoration: none;
   color: rgb(67, 67, 67);
 }
 
-.main-header-user {
+/* .main-header-user {
   width: 10%;
   font-size: 25px;
   text-align: center;
@@ -103,7 +103,7 @@ body {
 .main-header-user a {
   text-decoration: none;
   color: rgb(67, 67, 67);
-}
+} */
 
 .main-header-nav-categories {
   display: none;

@@ -19,7 +19,11 @@ const mainController = {
   },
   quienes: (req, res) => {
     res.render("quienesSomos.ejs");
-  }
+  },
+  analytics: (req, res) => {
+    res.send("Acá va el dashboard del negocio");
+    //FALTA
+  },
 };
 
 ////
