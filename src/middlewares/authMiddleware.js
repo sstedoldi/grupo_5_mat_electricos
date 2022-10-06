@@ -1,6 +1,6 @@
 function authMiddleware(req, res, next) {
   if (req.session.usuarioLogueado) {
-    //uso el falsy como condicional
+    //uso el truty como condicional
     next();
   } else {
     res.render("login");

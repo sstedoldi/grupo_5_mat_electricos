@@ -36,5 +36,15 @@
   "password": "$2b$10$LxZyW.TaPEmWK1KeGQU/8OFzJ.XQi.UQvFWEEonZzOaTlsgrhu3O.",
   "conditions": "on",
   "userImage": "img-1664651840122.jpeg"
+ },
+ {
+  "id": 7,
+  "name": "Administrador",
+  "lastName": "del sitio",
+  "birthDate": "",
+  "email": "admin@admin.com",
+  "password": "$2b$10$YE7DEa1MCLpjhNFKtnBJ1uJtgIZLzGAYB7JOkwUYYIX1iUiwInpaO",
+  "conditions": "on",
+  "userImage": "default-image.png"
  }
 ]

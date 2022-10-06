@@ -16,18 +16,18 @@ const usersController = {
   index: (req, res) => {
     res.render("users", {
       users,
-      toThousand
+      toThousand,
     });
   },
   //
   //
- detail: (req, res) => {
-		let idUser = req.params.id;
-		let user = users.find(oneUser => oneUser.id == idUser );
-		res.render('userDetail', {
-			user
-		})
-	},
+  detail: (req, res) => {
+    let idUser = req.params.id;
+    let user = users.find((oneUser) => oneUser.id == idUser);
+    res.render("userDetail", {
+      user,
+    });
+  },
   //
   //
   register: (req, res) => {
@@ -92,8 +92,7 @@ const usersController = {
       req.session.usuarioLogueado = usuarioALoguearse;
       //Recordame
       if (req.body.recordame != undefined) {
-        //Uso el truty
-        res.cookie("recordame", usuarioALoguearse.email, { maxAge: 120000 });
+        res.cookie("recordame", usuarioALoguearse.email, { maxAge: 300000 }); //dejo la cookie en 5 minutos
       }
       //Provisorio
       res.redirect("/");
@@ -103,16 +102,16 @@ const usersController = {
   },
   //
   //
-  logout:(req, res)=>{
-		req.session.usuarioLogueado = undefined;
-    //users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); 
-    //Esta linea la puso el profe en su proyecto pero si la descomento
-    //se rompe el logout. Sin esto funciona bien.
-		res.redirect("/");
-	},
+  logout: (req, res) => {
+    req.session.usuarioLogueado = undefined;
+    //Agrego el false de esta variable
+    res.locals.isAnUserLogged = false;
+
+    res.redirect("/");
+  },
   //
   //
-  check:(req, res) => {
+  check: (req, res) => {
     if (req.session.usuarioLogueado == undefined) {
       res.send("No estas logueado");
     } else {
@@ -131,10 +130,9 @@ const usersController = {
   },
   //
   //
-  profile: (req, res)=>{
-
-		res.render("profile", {user:req.session.usuarioLogueado})
-	},
+  profile: (req, res) => {
+    res.render("profile", { user: req.session.usuarioLogueado });
+  },
   //
   //
   updateUser: (req, res) => {
@@ -163,7 +161,7 @@ const usersController = {
     fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
     req.session.usuarioLogueado = undefined;
     res.redirect("/users/"); //hacia una ruta
-  }
+  },
 };
 
 ////
