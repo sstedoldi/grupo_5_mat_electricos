@@ -4,7 +4,7 @@ function guestMiddleware(req, res, next) {
     next();
   } else {
     //**Completar con un render enviando info del usuarioLogueado
-    res.send("Esta páquina es solo para invitados");
+    res.send("Esta página es solo para invitados");
   }
 }
 

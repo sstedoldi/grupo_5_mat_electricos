@@ -22,8 +22,8 @@ const usersController = {
   //
   //
   detail: (req, res) => {
-    let idUser = req.params.id;
-    let user = users.find((oneUser) => oneUser.id == idUser);
+    let userId = req.params.id;
+    let user = users.find((oneUser) => oneUser.id == userId);
     res.render("userDetail", {
       user,
     });
@@ -121,8 +121,8 @@ const usersController = {
   //
   //
   editUser: (req, res) => {
-    let idUser = req.params.idUser;
-    let userToEdit = users.find((oneUser) => oneUser.idUser == idUser);
+    let userId = req.params.userId;
+    let userToEdit = users.find((oneUser) => oneUser.userId == userId);
 
     res.render("/userEdit", {
       userToEdit,
@@ -136,16 +136,16 @@ const usersController = {
   //
   //
   updateUser: (req, res) => {
-    let idUser = req.params.idUser;
-    let userToEdit = users.find((oneUsers) => oneUsers.idUser == idUser);
+    let userId = req.params.userId;
+    let userToEdit = users.find((oneUsers) => oneUsers.userId == userId);
     userToEdit = {
-      idUser: userToEdit.idUser,
+      userId: userToEdit.userId,
       ...req.body,
       imagen: userToEdit.imagen,
     };
     let newUser = users.map((users) => {
       //nueva variable con todos los usuario + el editado
-      if (users.idUser == userToEdit.idUser) {
+      if (users.userId == userToEdit.userId) {
         return (users = { ...userToEdit });
       }
       return users;

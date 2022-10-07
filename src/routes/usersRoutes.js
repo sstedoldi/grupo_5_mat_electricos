@@ -13,6 +13,7 @@ const usersController = require("../controllers/usersControllers.js");
 //middleWares
 const guestMiddleware = require("../middlewares/guestMiddleware.js");
 const authMiddleware = require("../middlewares/authMiddleware.js");
+const adminMiddleware = require("../middlewares/adminMiddleware.js");
 
 //Login validation
 const loginValidation = [
@@ -54,9 +55,9 @@ var upload = multer({ storage: multerStorage });
 
 ////////////////
 //Router methods
-router.get("/", usersController.index);
+router.get("/", adminMiddleware, usersController.index);
 //Detalle de un usuario
-router.get("/userDetail/:idUser", authMiddleware, usersController.detail);
+router.get("/detail/:id", adminMiddleware, usersController.detail);
 //Perfil del usuario logeado
 router.get("/profile", authMiddleware, usersController.profile);
 //View form login
@@ -64,7 +65,7 @@ router.get("/login", guestMiddleware, usersController.loginUser);
 //Send login
 router.post("/login", loginValidation, usersController.processLogin);
 //Logout
-router.get('/logout', usersController.logout);
+router.get("/logout", usersController.logout);
 //Register view
 router.get("/register", guestMiddleware, usersController.register);
 //Creating new user

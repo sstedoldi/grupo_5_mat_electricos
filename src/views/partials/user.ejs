@@ -1,0 +1,22 @@
+<article class="user-article">
+    <div>
+      <a href="/users/userDetail/<%= user.id %>">
+        <img src="/images/users/<%= user.userImage %>">
+      </a>
+    </div>
+    <div class="article-attr">
+        <p class="article-attr">Nombre: <%= user.name %></p> 
+        <p class="article-attr">Apellido: <%= user.lastName %></p>       
+        <p class="article-attr">Email: <%= user.email %></p>          
+        <p class="article-attr">Nacimiento: <%= user.birthDate %></p>
+    </div>
+    <div>
+      <a href="/users/userDetail/<%= user.id %>"><button class="detail-button">Ver detalle</button></a>
+    </div>
+    <div>
+      <form action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
+        <button type="submit" class="delete-button">Borrar usuario</button>
+      </form>
+    </div>
+</article>
+  

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <%- include("partials/head") %>
-    <link rel="stylesheet" href="/css/style-users.css"></link>
+    <link rel="stylesheet" href="/css/style-products.css"></link>
   </head>
   <!-- EN CONSTRUCCION... -->
   <!-- DESDE ACA... hay que armar la vista de usuarios -->
@@ -12,17 +12,17 @@
     <!-- &&&& -->
     <!-- MAIN -->
     <!-- <main class="main-products"> VER SI NO TIENE EFECTOS -->
-    <main class="main-users">
-      <section>
-        <h3 class="users-title">Todos los usuarios</h3>
-        <div class="users-articles">
-          <!-- ############# -->
-          <% users.forEach(user => { %>
-            <%- include("partials/user", {user}) %>
-          <% }) %>      
-          <!-- ############# -->
-        </div>
-      </section>
+        <main class="main-sections">
+          <section>
+            <h3 class="main-section-title">Todos los usuarios</h3>
+            <div class="products-articles">
+              <!-- ############# -->
+              <% users.forEach(user => { %>
+                <%- include("partials/usuarios", {user}) %>
+              <% }) %>      
+              <!-- ############# -->
+            </div>
+          </section>
     </main>
     <!-- &&&& -->
     <!-- FOOTER -->

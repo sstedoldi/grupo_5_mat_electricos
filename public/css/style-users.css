@@ -1,3 +1,96 @@
+/* USERS STYLES */
+/* &&&&&&&&&&& */
+
+/* &&&& */
+/* MAIN */
+
+.main-users {
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+}
+
+.users-title {
+  font-size: 24px;
+}
+
+/* SIN FLEX */
+.users-articles {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.user-article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid #ebebeb;
+  padding: 15px;
+  margin-bottom: 10px;
+  align-content: center;
+  text-align: center;
+}
+
+.user-article img {
+  width: 30% !important;
+  max-width: 140px !important;
+  border-radius: 15px;
+}
+
+.article-attr {
+  font-size: 16px;
+  text-align: left;
+  display: block;
+  margin: 0;
+  /* visibility: hidden; */
+}
+
+.detail-button {
+  background-color: blue;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.delete-button {
+  background-color: red;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+/* MEDIAS */
+/*Tablets cut*/
+
+@media (min-width: 520px) {
+  /* Flex */
+
+  .main-users article:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+
+  /* .main-sections article:hover .article-name {
+    visibility: visible;
+  } */
+
+  /* .main-sections article:hover .fa-truck {
+    transform: rotate(-90deg);
+  } */
+}
+
+/*PC cut*/
+
+@media (min-width: 920px) {
+  .main-users {
+    max-width: 1300px;
+  }
+}
+
 /* LOGIN STYLES */
 /* &&&&&&&&&&& */
 
@@ -158,14 +251,6 @@
   border-radius: 15px;
 }
 
-/*provisorio*/
-.delete-profile-button {
-  background-color: red;
-  border-radius: 5px;
-  border: none;
-  color: white;
-}
-
 /* MEDIA QUERIES*/
 /* &&&&&&&&&&& */
 
@@ -175,16 +260,16 @@
     width: 85%;
     max-width: 750px;
   }
-  .detail-user-img{
+  .detail-user-img {
     width: 60%;
   }
-  .detail-user-info{
+  .detail-user-info {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
   }
 
-  .div-create-forms{
+  .div-create-forms {
     font-size: 18px;
   }
 }
