@@ -111,37 +111,27 @@ const usersController = {
   },
   //
   //
-  check: (req, res) => {
-    if (req.session.usuarioLogueado == undefined) {
-      res.send("No estas logueado");
-    } else {
-      res.send("El usuario logueado es" + req.session.usuarioLogueado.email);
-    }
-  },
-  //
-  //
-  editUser: (req, res) => {
-    let userId = req.params.userId;
-    let userToEdit = users.find((oneUser) => oneUser.userId == userId);
-
-    res.render("/userEdit", {
-      userToEdit,
-    });
-  },
-  //
-  //
   profile: (req, res) => {
     res.render("profile", { user: req.session.usuarioLogueado });
   },
   //
   //
+  editUser: (req, res) => {
+    let userId = req.params.id;
+    let userToEdit = users.find((oneUser) => oneUser.id == userId);
+    res.render("userEdit", {
+      userToEdit,
+    });
+  },
+  //
+  //
   updateUser: (req, res) => {
-    let userId = req.params.userId;
+    let userId = req.params.id;
     let userToEdit = users.find((oneUsers) => oneUsers.userId == userId);
     userToEdit = {
-      userId: userToEdit.userId,
+      userId: userToEdit.id,
       ...req.body,
-      imagen: userToEdit.imagen,
+      image: req.file ? req.file.filename : userToEdit.imagen, //mantengo imagen vieja si no carga una nueva
     };
     let newUser = users.map((users) => {
       //nueva variable con todos los usuario + el editado
@@ -151,7 +141,7 @@ const usersController = {
       return users;
     });
     fs.writeFileSync(usersFilePath, JSON.stringify(newUser, null, " "));
-    res.redirect("/users/");
+    res.redirect("/");
   },
   //
   //
@@ -160,8 +150,19 @@ const usersController = {
     let finalUsers = users.filter((user) => user.id != id);
     fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
     req.session.usuarioLogueado = undefined;
-    res.redirect("/users/"); //hacia una ruta
+    res.redirect("/"); //hacia una ruta
   },
+  //
+  //**Provisorio
+  check: (req, res) => {
+    if (req.session.usuarioLogueado == undefined) {
+      res.send("No estas logueado");
+    } else {
+      res.send("El usuario logueado es" + req.session.usuarioLogueado.email);
+    }
+  },
+  //
+  //
 };
 
 ////

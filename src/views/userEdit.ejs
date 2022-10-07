@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <%- include("partials/head") %>
-        <link rel="stylesheet" href="/css/style-products.css">
-        </link>
+    <link rel="stylesheet" href="/css/style-products.css"></link>
+    <link rel="stylesheet" href="/css/style-users.css"></link>
 </head>
-
 <body>
     <!-- HEADER -->
     <header class="main-header">
@@ -16,42 +14,36 @@
     <!-- MAIN -->
     <main>
         <div class="form-product-create">
-            <h3 class="form-create-title"> Hola: <%= userToEdit.idUser %>
-            </h3>
-            <form action="/usersEdit/<%= userToEdit.idUser %>?_method=PUT" method="POST">
+            <h3 class="form-create-title"> Acá podes actualizar tus datos <%= userToEdit.name %></h3>
+            <form action="users/update/<%= userToEdit.id %>?_method=PUT" method="POST">
                 <div class="div-create-forms">
-                   
                     <div class="formularios-create">
                         <label for="name" class="form-label-create">Nombre:</label>
                         <input class="form-input-create" type="text" name="name" id="name"
-                            value="<%= userToEdit.name%>" />
+                            value="<%= userToEdit.name %>" />
                     </div>
                     <div class="formularios-create">
                         <label for="lastname" class="form-label-create">Apellido:</label>
                         <input class="form-input-create" type="text" name="lastname" id="lastname"
-                            value="<%= userToEdit.lastname%>" />
+                            value="<%= userToEdit.lastName %>" />
                     </div>
-                  
-                  
                     <div class="formularios-create">
                         <label for="password" class="form-label-create">Email:</label>
-                        <input class="form-input-create" value="<%= userToEdit.email%>" type="number"
+                        <input class="form-input-create" value="<%= userToEdit.email %>" type="email"
                             name="email" id="email" />
                     </div>
-                    
                     <div class="formularios-create">
                         <label for="userImage" class="form-label-create">Imagen:</label>
                         <input type="file" id="userImage" name="userImage" class="form-input-create">
                     </div>
-                    
                     <div  class="formularios-create-button">
-                        <input class="button-create" type="submit" value="Editar Usuario" />
+                        <input class="edit-button" type="submit" value="Editar Usuario" />
                     </div>
                 </div>
             </form>
             <div class="div-create-forms" class="formularios-create-button">
-                <form action="/products/delete/<%= userToEdit.idUser %>?_method=DELETE" method="POST">
-                    <button class="button-delete">Borrar Usuario
+                <form action="/users/delete/<%= userToEdit.id %>?_method=DELETE" method="POST">
+                    <button class="delete-button">Borrar Usuario
                     </button>
                 </form>
             </div>

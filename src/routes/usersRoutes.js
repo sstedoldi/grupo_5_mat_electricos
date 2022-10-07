@@ -76,9 +76,9 @@ router.post(
   usersController.registerUser
 );
 //Edit user
-router.get("/userEdit/:idUser", authMiddleware, usersController.updateUser);
+router.get("/edit/:id", usersController.editUser); //le quito el authMiddleware para trabajarlo mas facil
 //Update user
-router.put("/:idUser", authMiddleware, usersController.updateUser);
+router.put("/update/:id", authMiddleware, usersController.updateUser);
 //Delete user
 router.delete("/delete/:id", usersController.deleteUser);
 ////

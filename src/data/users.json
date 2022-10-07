@@ -19,15 +19,6 @@
   "userImage": "default-image.png"
  },
  {
-  "id": 5,
-  "name": "Pepito",
-  "lastName": "Flores",
-  "birthDate": "2022-09-30",
-  "email": "pepito@gmail.com",
-  "password": "$2b$10$VriX7S1A7V033z06fIS/aOwDBx4q0Qzb8mor96JrIqhQT.ITIfWtG",
-  "userImage": "img-1664481344947.jpg"
- },
- {
   "id": 6,
   "name": "Ruben ",
   "lastName": "Martin",

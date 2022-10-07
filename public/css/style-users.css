@@ -60,6 +60,16 @@
   width: 100%;
 }
 
+.edit-button {
+  background-color: green;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
 .delete-button {
   background-color: red;
   border-radius: 5px;
@@ -324,16 +334,6 @@
   width: 100%;
   color: rgb(67, 67, 67);
   /* font-size: 12px; */
-}
-
-.edit-button {
-  background-color: green;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  padding: 5px 5px;
-  margin-bottom: 10px;
-  width: 100%;
 }
 
 .detail-user-activity {
