@@ -11,7 +11,7 @@
         <p class="article-attr">Nacimiento: <%= user.birthDate %></p>
     </div>
     <div>
-      <a href="/users/userDetail/<%= user.id %>"><button class="detail-button">Ver detalle</button></a>
+      <a href="/users/detail/<%= user.id %>"><button class="detail-button">Ver detalle</button></a>
     </div>
     <div>
       <form action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">

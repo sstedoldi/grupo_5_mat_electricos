@@ -3,7 +3,7 @@
 
 <head>
     <%- include("partials/head") %>
-        <link rel="stylesheet" href="/css/style-products.css">
+        <link rel="stylesheet" href="/css/style-users.css">
         </link>
 </head>
 <!-- <div class="top-header-top">Materiales eléctricos</div> -->
@@ -15,27 +15,45 @@
     </header>
     <!-- &&&& -->
     <!-- MAIN -->
-    <main class="main-product">
-
-        <div class="div-create-forms">
-            <h3>Detalle de usuario <%= user.id %>
-            </h3>
-
-            <p class="div-create-forms">Foto de perfil: <img src="/images/users/<%= user.userImage %>" width="70">
-            </p>
-            <p class="div-create-forms">Nombre: <%= user.name %>
-            </p>
-            <p class="div-create-forms">Apellido: <%= user.lastName %>
-            </p>
-            <p class="div-create-forms">Email: <%= user.email %>
-            </p>
-            <p class="div-create-forms">Nacimiento: <%= user.birthDate %>
-            </p>
-
-
+    <main>
+        <h2>Detalle del usuario <%= user.name %></h2>
+        <div class="user-detail-form">
+            <div class="detail-user">
+                <div class="detail-user-img">
+                    <p><img src="/images/users/<%= user.userImage %>" width="100%"></p>
+                </div>
+                <div class="detail-user-info">
+                    <p class="detail-attr"><%= user.name %>
+                    </p>
+                    <p class="detail-attr"><%= user.lastName %>
+                    </p>
+                    <p class="detail-attr"><%= user.email %>
+                    </p>
+                    <p class="detail-attr"><%= user.birthDate %>
+                    </p>
+                    <div class="detail-user-actions">
+                        <div>
+                            <a href="/users/edit/<%= user.id %>"><button class="edit-button">Editar usuario</button></a>
+                        </div>
+                        <form action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="delete-button">Borrar usuario
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-user-activity">
+                <div>
+                    <h2>Presupuestos vigentes</h2>
+                </div>
+                <div>
+                    <h2>Favoritos</h2>
+                </div>
+                <div>
+                    <h2>Compras realizadas</h2>
+                </div>
+            </div>
         </div>
-
-
     </main>
     <!-- &&&& -->
     <!-- FOOTER -->

@@ -43,7 +43,7 @@
 }
 
 .article-attr {
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
   display: block;
   margin: 0;
@@ -55,6 +55,9 @@
   border-radius: 5px;
   border: none;
   color: white;
+  padding: 5px 5px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .delete-button {
@@ -62,6 +65,9 @@
   border-radius: 5px;
   border: none;
   color: white;
+  padding: 5px 5px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 /* MEDIAS */
@@ -231,7 +237,7 @@
   align-items: center;
 }
 
-.detail-user {
+.profile-user {
   width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
@@ -255,21 +261,118 @@
 /* &&&&&&&&&&& */
 
 @media (min-width: 520px) {
-  .detail-user {
+  .profile-user {
     display: flex;
     width: 85%;
     max-width: 750px;
   }
-  .detail-user-img {
+  .profile-user-img {
     width: 60%;
   }
-  .detail-user-info {
+  .profile-user-info {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
   }
 
   .div-create-forms {
+    font-size: 18px;
+  }
+}
+
+/* DETAIL STYLES */
+/* &&&&&&&&&&& */
+
+.detail-user {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.detail-user-img {
+  padding: 5px 5px;
+  width: 45%;
+  max-width: 180px;
+}
+
+.detail-user-img img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 15px;
+}
+
+.detail-user-info {
+  padding: 5px 5px;
+  width: 45%;
+  max-width: 180px;
+}
+
+.detail-attr {
+  font-size: 14px;
+  text-align: left;
+  display: block;
+  margin: 0;
+  padding: 5px 5px;
+  /* visibility: hidden; */
+}
+
+.detail-user-actions {
+  padding: 5px 5px;
+  width: 100%;
+  color: rgb(67, 67, 67);
+  /* font-size: 12px; */
+}
+
+.edit-button {
+  background-color: green;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.detail-user-activity {
+  width: 100%;
+  max-width: 1020px;
+}
+
+/* MEDIA QUERIES*/
+/* &&&&&&&&&&& */
+
+@media (min-width: 520px) {
+  .user-detail-form {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+  }
+
+  .detail-user {
+    display: block;
+    width: 30%;
+    max-width: 280px;
+  }
+
+  .detail-user-img {
+    width: 100%;
+  }
+
+  .detail-user-info {
+    width: 100%;
+  }
+
+  .detail-user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .detail-user-actions {
     font-size: 18px;
   }
 }
