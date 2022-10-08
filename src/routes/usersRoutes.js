@@ -81,6 +81,8 @@ router.get("/edit/:id", usersController.editUser); //le quito el authMiddleware 
 router.put("/update/:id", authMiddleware, usersController.updateUser);
 //Delete user
 router.delete("/delete/:id", usersController.deleteUser);
+//Delete Users as admin
+router.delete("/deleteAdmin/:id", usersController.deleteUsersAdmin);/// PROVISORIO
 ////
 //**Chequeos provisorios:
 router.get("/check", usersController.check);

@@ -153,6 +153,14 @@ const usersController = {
     res.redirect("/"); //hacia una ruta
   },
   //
+  //
+  deleteUsersAdmin: (req, res) => {
+    let id = req.params.id;
+    let finalUsers = users.filter((user) => user.id != id);
+    fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
+    res.redirect("/"); //hacia una ruta
+  },
+  //
   //**Provisorio
   check: (req, res) => {
     if (req.session.usuarioLogueado == undefined) {
