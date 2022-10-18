@@ -126,16 +126,21 @@ const usersController = {
   //
   //
   updateUser: (req, res) => {
-    let userId = req.params.id;
-    let userToEdit = users.find((oneUsers) => oneUsers.userId == userId);
-    userToEdit = {
-      userId: userToEdit.id,
-      ...req.body,
-      image: req.file ? req.file.filename : userToEdit.imagen, //mantengo imagen vieja si no carga una nueva
-    };
+    let id = req.params.id;
+    let userToEdit = users.find((oneUsers) => oneUsers.id == id);
+    userToEdit.name = req.body.name,
+    userToEdit.userImage =  req.file ? req.file.filename : userToEdit.userImage;
+    // userToEdit = {
+    //   id: userToEdit.id,
+    //   password: userToEdit.password,
+    //   ...req.body,
+    //   image: req.file ? req.file.filename : userToEdit.imagen, //mantengo imagen vieja si no carga una nueva
+    // };
     let newUser = users.map((users) => {
       //nueva variable con todos los usuario + el editado
-      if (users.userId == userToEdit.userId) {
+      if (users.id == userToEdit.id) {
+        console.log(users)
+        console.log(userToEdit)
         return (users = { ...userToEdit });
       }
       return users;

@@ -15,7 +15,7 @@
     <main>
         <div class="form-product-create">
             <h3 class="form-create-title"> Acá podes actualizar tus datos <%= userToEdit.name %></h3>
-            <form action="users/update/<%= userToEdit.id %>?_method=PUT" method="POST">
+            <form action="/users/update/<%= userToEdit.id %>?_method=PUT" method="POST">
                 <div class="div-create-forms">
                     <div class="formularios-create">
                         <label for="name" class="form-label-create">Nombre:</label>
