@@ -7,6 +7,8 @@ const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
+let db = require("../database/models");
+
 //REGEX of thousand
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -14,9 +16,16 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const productsController = {
   //lista todos los productos
   index: (req, res) => {
-    res.render("products", {
-      products,
-      toThousand,
+    // res.render("products", {
+    //   products,
+    //   toThousand,
+    // });
+
+    db.Products.findAll().then((products) => {
+      res.render("products", {
+        products,
+        toThousand,
+      });
     });
   },
   //
