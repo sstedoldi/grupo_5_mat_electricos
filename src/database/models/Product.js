@@ -11,7 +11,33 @@ module.exports = (sequelize, dataTypes) => {
     },
     name: {
       allowNull: false,
-      type: dataTypes.STRING,
+      type: dataTypes.STRING(45),
+    },
+    description: {
+      allowNull: false,
+      type: dataTypes.TEXT,
+    },
+    price: {
+      allowNull: false,
+      type: dataTypes.FLOAT,
+    },
+    discount: {
+      type: dataTypes.INTEGER,
+    },
+    subcategory_id: {
+      allowNull: false,
+      type: dataTypes.INTEGER,
+    },
+    brand_id: {
+      allowNull: false,
+      type: dataTypes.INTEGER,
+    },
+    stock: {
+      allowNull: false,
+      type: dataTypes.INTEGER,
+    },
+    stock_min: {
+      type: dataTypes.INTEGER,
     },
   };
 
