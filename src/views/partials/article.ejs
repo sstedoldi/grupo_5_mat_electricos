@@ -1,7 +1,7 @@
 <article>
   <a href="/products/productDetail/<%= product.id %>">
-    <img src=<%= (product.image != undefined) ? "/images/products/"+product.image : "/images/products/img-default-"+product.category.toLowerCase()+".jpg" %>
-       width="360" alt="img-<%= product.category.toLowerCase() %>.jpg" />
+    <img src=<%= (product.image != undefined) ? "/images/products/"+product.image : "/images/products/img-default-"+product.subcategory_id+".jpg" %>
+       width="360" alt="img-<%= product.subcategory_id %>.jpg" />
   </a>
   <div class="main-section-article-info">
     <!-- <i class="fas fa-truck"></i> -->
@@ -10,8 +10,8 @@
       <p style="font-size: 12px">(sin IVA)</p>
       <p class="article-discount">% <%= product.discount %></p>
     </div>
-    <p class="article-name"><%= product.category %></p>
-    <p class="article-name"><%= product.subcategory %></p>
+    <!-- <p class="article-name"><%= product.category %></p> -->
+    <p class="article-name"><%= product.subcategory_id %></p>
     <p class="article-name"><%= product.description %></p>
   </div>
 </article>
