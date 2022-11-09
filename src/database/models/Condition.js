@@ -1,7 +1,8 @@
+const { DataTypes } = require("sequelize");
 const { sequelize } = require(".");
 
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Brand";
+  let alias = "Condition";
 
   let cols = {
     id: {
@@ -9,18 +10,18 @@ module.exports = (sequelize, dataTypes) => {
       primaryKey: true,
       type: dataTypes.INTEGER,
     },
-    name: {
+    condition: {
       allowNull: false,
-      type: dataTypes.STRING(45),
+      type: dataTypes.TINYINT,
     },
   };
 
   let config = {
-    tableName: "brands",
+    tableName: "conditions",
     timestamps: false,
   };
 
-  const Brand = sequelize.define(alias, cols, config);
+  const Condition = sequelize.define(alias, cols, config);
 
-  return Brand;
+  return Condition;
 };

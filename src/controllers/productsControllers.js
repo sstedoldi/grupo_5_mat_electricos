@@ -21,9 +21,10 @@ const productsController = {
     //   toThousand,
     // });
 
-    db.Products.findAll().then((products) => {
-      res.render("products", {
-        products,
+    db.Product.findAll()
+    .then((product) => {
+      res.render("product", {
+        product,
         toThousand,
       });
     });

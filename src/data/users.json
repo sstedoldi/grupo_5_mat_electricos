@@ -37,5 +37,14 @@
   "password": "$2b$10$YE7DEa1MCLpjhNFKtnBJ1uJtgIZLzGAYB7JOkwUYYIX1iUiwInpaO",
   "conditions": "on",
   "userImage": "default-image.png"
+ },
+ {
+  "id": 8,
+  "name": "Juan Cruz",
+  "lastName": "Diaz",
+  "birthDate": "2022-11-10",
+  "email": "juan@gmail.com",
+  "password": "$2b$10$/T.6NeOfa5tiFpvolOldbOrD7Gb48kC4jOl1muCmm8OUBxsgItuSW",
+  "userImage": "img-1668020380389.jpg"
  }
 ]

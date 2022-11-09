@@ -1,7 +1,7 @@
 const { sequelize } = require(".");
 
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Brand";
+  let alias = "Image";
 
   let cols = {
     id: {
@@ -13,14 +13,18 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
       type: dataTypes.STRING(45),
     },
+    url: {
+        allowNull: false,
+        type: dataTypes.TEXT,
+      }
   };
 
   let config = {
-    tableName: "brands",
+    tableName: "images",
     timestamps: false,
   };
 
-  const Brand = sequelize.define(alias, cols, config);
+  const Image = sequelize.define(alias, cols, config);
 
-  return Brand;
+  return Image;
 };

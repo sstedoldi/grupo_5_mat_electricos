@@ -1,7 +1,7 @@
 const { sequelize } = require(".");
 
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Subcategories";
+  let alias = "Subcategory";
 
   let cols = {
     id: {
@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
     },
   };
 
-  config = {
+  let config = {
     tableName: "subcategories",
     timestamps: false,
   };
