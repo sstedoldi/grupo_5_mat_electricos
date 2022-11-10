@@ -8,14 +8,18 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER,
     },
     name: {
-      allowNull: false,
+      allowNull: true,
       type: dataTypes.STRING(45),
     },
     description: {
       allowNull: false,
       type: dataTypes.TEXT,
     },
-    price: {
+    vat: {
+      allowNull: false,
+      type: dataTypes.FLOAT,
+    },
+    nonvatPrice: {
       allowNull: false,
       type: dataTypes.FLOAT,
     },

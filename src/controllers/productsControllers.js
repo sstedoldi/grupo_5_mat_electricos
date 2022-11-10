@@ -4,8 +4,8 @@ const path = require("path");
 
 //Data managing
 // const productsFilePath = path.join(__dirname, "../data/mat_elec_products.json");
-const productsFilePath = path.join(__dirname, "../data/products.json");
-const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+// const productsFilePath = path.join(__dirname, "../data/products.json");
+// const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 let db = require("../database/models");
 
@@ -21,10 +21,9 @@ const productsController = {
     //   toThousand,
     // });
 
-    db.Product.findAll()
-    .then((product) => {
-      res.render("product", {
-        product,
+    db.Product.findAll().then((products) => {
+      res.render("products", {
+        products,
         toThousand,
       });
     });
