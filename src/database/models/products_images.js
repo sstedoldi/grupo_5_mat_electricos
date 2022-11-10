@@ -1,8 +1,8 @@
 const { sequelize } = require(".");
 
-      /*&&&&&&&&&&&&
- REVISAR NOMBRE DEL MODELO.
-        &&&&&&&&&&&*/
+/*&&&&&&&&&&&&
+REVISAR NOMBRE DEL MODELO.
+  &&&&&&&&&&&*/
 
 
 module.exports = (sequelize, dataTypes) => {
@@ -19,9 +19,9 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER,
     },
     images_id: {
-        allowNull: false,
-        type: dataTypes.INTEGER,
-      }
+      allowNull: false,
+      type: dataTypes.INTEGER,
+    }
   };
 
   let config = {

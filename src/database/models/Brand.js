@@ -22,5 +22,12 @@ module.exports = (sequelize, dataTypes) => {
 
   const Brand = sequelize.define(alias, cols, config);
 
+  Brand.associate = function (models) {
+    Brand.hasMany(models.Product, {
+      as: "products",
+      foreingKey: "brand_id"
+    })
+  }
+
   return Brand;
 };

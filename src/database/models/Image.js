@@ -14,9 +14,9 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING(45),
     },
     url: {
-        allowNull: false,
-        type: dataTypes.TEXT,
-      }
+      allowNull: false,
+      type: dataTypes.TEXT,
+    }
   };
 
   let config = {
@@ -25,6 +25,16 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   const Image = sequelize.define(alias, cols, config);
+
+  Image.associate = function (models) {
+    Image.belongsToMany(models.Product, {
+      as: "products",
+      through: "products_images",
+      foreingKey: "images_id",
+      otherKey: "products_id",
+      timeStamps: false
+    })
+  }
 
   return Image;
 };
