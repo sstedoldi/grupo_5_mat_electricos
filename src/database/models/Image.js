@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 971ce2513001922ba9c185bc026a21fd074a0f67
 module.exports = (sequelize, dataTypes) => {
   let alias = "Image";
 
