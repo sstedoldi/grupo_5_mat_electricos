@@ -1,5 +1,3 @@
-const { DataTypes } = require("sequelize");
-
 module.exports = (sequelize, dataTypes) => {
   let alias = "User";
 
@@ -42,7 +40,7 @@ module.exports = (sequelize, dataTypes) => {
     condition_id: {
       allowNull: false,
       type: dataTypes.INTEGER,
-    }
+    },
   };
 
   let config = {
@@ -55,13 +53,13 @@ module.exports = (sequelize, dataTypes) => {
   User.associate = function (models) {
     User.hasMany(models.Order, {
       as: "orders",
-      foreingKey: "order_id"
+      foreingKey: "order_id",
     });
     User.belongsTo(models.Condition, {
       as: "condition",
-      foreingKey: "condition_id"
-    })
-  }
+      foreingKey: "condition_id",
+    });
+  };
 
   return User;
 };

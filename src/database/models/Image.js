@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 971ce2513001922ba9c185bc026a21fd074a0f67
 module.exports = (sequelize, dataTypes) => {
   let alias = "Image";
 
@@ -16,7 +19,7 @@ module.exports = (sequelize, dataTypes) => {
     url: {
       allowNull: false,
       type: dataTypes.TEXT,
-    }
+    },
   };
 
   let config = {
@@ -32,9 +35,9 @@ module.exports = (sequelize, dataTypes) => {
       through: "products_images",
       foreingKey: "images_id",
       otherKey: "products_id",
-      timeStamps: false
-    })
-  }
+      timeStamps: false,
+    });
+  };
 
   return Image;
 };

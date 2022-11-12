@@ -53,27 +53,36 @@ module.exports = (sequelize, dataTypes) => {
   Product.associate = function (models) {
    /* Product.belongsTo(models.Brand, {
       as: "brand",
+<<<<<<< HEAD
       foreingKey: "brand_id"
     });*/
    /* Product.belongsTo(models.Subcategory, {
       as: "subcategory",
       foreingKey: "subcategory_id"
     });*/
+=======
+      foreingKey: "brand_id",
+    });
+    Product.belongsTo(models.Subcategory, {
+      as: "subcategory",
+      foreingKey: "subcategory_id",
+    });
+>>>>>>> 971ce2513001922ba9c185bc026a21fd074a0f67
     Product.belongsToMany(models.Image, {
       as: "images",
       through: "products_images",
       foreingKey: "products_id",
       otherKey: "images_id",
-      timeStamps: false
+      timeStamps: false,
     });
     Product.belongsToMany(models.Order, {
       as: "orders",
       through: "products_images",
       foreingKey: "products_id",
       otherKey: "orders_id",
-      timeStamps: false
-    })
-  }
+      timeStamps: false,
+    });
+  };
 
   return Product;
 };

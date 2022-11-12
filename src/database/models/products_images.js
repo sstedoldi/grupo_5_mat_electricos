@@ -1,9 +1,6 @@
-const { sequelize } = require(".");
-
 /*&&&&&&&&&&&&
 REVISAR NOMBRE DEL MODELO.
   &&&&&&&&&&&*/
-
 
 module.exports = (sequelize, dataTypes) => {
   let alias = "products_images";
@@ -21,7 +18,7 @@ module.exports = (sequelize, dataTypes) => {
     images_id: {
       allowNull: false,
       type: dataTypes.INTEGER,
-    }
+    },
   };
 
   let config = {

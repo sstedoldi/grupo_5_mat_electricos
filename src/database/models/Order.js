@@ -1,5 +1,3 @@
-const { DataTypes } = require("sequelize");
-
 module.exports = (sequelize, dataTypes) => {
   let alias = "Order";
 
@@ -31,7 +29,7 @@ module.exports = (sequelize, dataTypes) => {
     billing: {
       allowNull: false,
       type: dataTypes.TINYINT,
-    }
+    },
   };
 
   let config = {
@@ -44,16 +42,16 @@ module.exports = (sequelize, dataTypes) => {
   Order.associate = function (models) {
     Order.belongsTo(models.User, {
       as: "user",
-      foreingKey: "user_id"
+      foreingKey: "user_id",
     });
     Order.belongsToMany(models.Product, {
       as: "products",
       through: "products_images",
       foreingKey: "orders_id",
       otherKey: "products_id",
-      timeStamps: false
-    })
-  }
+      timeStamps: false,
+    });
+  };
 
   return Order;
 };
