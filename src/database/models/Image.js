@@ -1,4 +1,4 @@
-const { sequelize } = require(".");
+
 
 module.exports = (sequelize, dataTypes) => {
   let alias = "Image";

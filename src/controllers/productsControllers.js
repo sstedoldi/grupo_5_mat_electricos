@@ -33,11 +33,13 @@ const productsController = {
   detail: (req, res) => {
     //muestra el detalle de un producto
     let id = req.params.id;
-    let product = products.find((oneProduct) => oneProduct.id == id);
+    let product = //products.find((oneProduct) => oneProduct.id == id);
+    db.Product.findAll().then((products) => {
     res.render("productDetail", {
       product,
       toThousand,
     });
+  });
   },
   //
   //

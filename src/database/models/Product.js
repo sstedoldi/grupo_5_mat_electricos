@@ -51,14 +51,14 @@ module.exports = (sequelize, dataTypes) => {
   const Product = sequelize.define(alias, cols, config);
 
   Product.associate = function (models) {
-    Product.belongsTo(models.Brand, {
+   /* Product.belongsTo(models.Brand, {
       as: "brand",
       foreingKey: "brand_id"
-    });
-    Product.belongsTo(models.Subcategory, {
+    });*/
+   /* Product.belongsTo(models.Subcategory, {
       as: "subcategory",
       foreingKey: "subcategory_id"
-    });
+    });*/
     Product.belongsToMany(models.Image, {
       as: "images",
       through: "products_images",

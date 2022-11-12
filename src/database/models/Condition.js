@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require(".");
+
 
 module.exports = (sequelize, dataTypes) => {
   let alias = "Condition";
