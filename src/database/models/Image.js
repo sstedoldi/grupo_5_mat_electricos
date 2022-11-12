@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
   let alias = "Image";
 
@@ -16,7 +14,7 @@ module.exports = (sequelize, dataTypes) => {
     url: {
       allowNull: false,
       type: dataTypes.TEXT,
-    }
+    },
   };
 
   let config = {
@@ -32,9 +30,9 @@ module.exports = (sequelize, dataTypes) => {
       through: "products_images",
       foreingKey: "images_id",
       otherKey: "products_id",
-      timeStamps: false
-    })
-  }
+      timeStamps: false,
+    });
+  };
 
   return Image;
 };

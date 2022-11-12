@@ -1,6 +1,3 @@
-const { DataTypes } = require("sequelize");
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
   let alias = "Condition";
 
@@ -26,9 +23,9 @@ module.exports = (sequelize, dataTypes) => {
   Condition.associate = function (models) {
     Condition.hasMany(models.User, {
       as: "users",
-      foreingKey: "condition_id"
-    })
-  }
+      foreingKey: "condition_id",
+    });
+  };
 
   return Condition;
 };

@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
   let alias = "Category";
 
@@ -25,9 +23,9 @@ module.exports = (sequelize, dataTypes) => {
   Category.associate = function (models) {
     Category.hasMany(models.Subcategory, {
       as: "subcategories",
-      foreingKey: "category_id"
-    })
-  }
+      foreingKey: "category_id",
+    });
+  };
 
   return Category;
 };

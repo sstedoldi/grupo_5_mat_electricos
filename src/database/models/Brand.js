@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
   let alias = "Brand";
 
@@ -25,9 +23,9 @@ module.exports = (sequelize, dataTypes) => {
   Brand.associate = function (models) {
     Brand.hasMany(models.Product, {
       as: "products",
-      foreingKey: "brand_id"
-    })
-  }
+      foreingKey: "brand_id",
+    });
+  };
 
   return Brand;
 };

@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
   let alias = "Subcategory";
 
@@ -25,13 +23,13 @@ module.exports = (sequelize, dataTypes) => {
   Subcategory.associate = function (models) {
     Subcategory.hasMany(models.Product, {
       as: "products",
-      foreingKey: "subcategory_id"
+      foreingKey: "subcategory_id",
     });
     Subcategory.belongsTo(models.Category, {
       as: "category",
-      foreingKey: "category_id"
-    })
-  }
+      foreingKey: "category_id",
+    });
+  };
 
   return Subcategory;
 };
