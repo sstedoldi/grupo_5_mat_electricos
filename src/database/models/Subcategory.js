@@ -20,16 +20,16 @@ module.exports = (sequelize, dataTypes) => {
 
   const Subcategory = sequelize.define(alias, cols, config);
 
-  // Subcategory.associate = function (models) {
-  //   Subcategory.hasMany(models.Product, {
-  //     as: "products",
-  //     foreingKey: "subcategory_id"
-  //   });
-  //   Subcategory.belongsTo(models.Category, {
-  //     as: "category",
-  //     foreingKey: "category_id"
-  //   })
-  // }
+   Subcategory.associate = function (models) {
+     Subcategory.hasMany(models.Product, {
+       as: "products",
+       foreignKey: "subcategory_id"
+     });
+     Subcategory.belongsTo(models.Category, {
+       as: "category",
+       foreignKey: "category_id"
+     })
+   }
 
   return Subcategory;
 };

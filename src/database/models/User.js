@@ -53,11 +53,11 @@ module.exports = (sequelize, dataTypes) => {
   User.associate = function (models) {
     User.hasMany(models.Order, {
       as: "orders",
-      foreingKey: "order_id",
+      foreignKey: "order_id",
     });
     User.belongsTo(models.Condition, {
       as: "condition",
-      foreingKey: "condition_id",
+      foreignKey: "condition_id",
     });
   };
 
