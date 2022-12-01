@@ -3,6 +3,16 @@ const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+
+//Llamo al modelo User
+const Users = db.User;
+const Orders = db.Order;
+const Conditions = db.Condition;
+
+
 
 //Data managing
 const usersFilePath = path.join(__dirname, "../data/users.json");
@@ -14,19 +24,32 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 //Controller definition
 const usersController = {
   index: (req, res) => {
-    res.render("users", {
-      users,
-      toThousand,
-    });
+    // res.render("users", {
+    //   users,
+    //   toThousand,
+    // });
+    db.User.findAll({
+      include: ['orders']
+    })
+      .then(users => {
+        res.render('users.ejs', { users })
+      })
   },
   //
   //
   detail: (req, res) => {
-    let userId = req.params.id;
-    let user = users.find((oneUser) => oneUser.id == userId);
-    res.render("userDetail", {
-      user,
-    });
+    // let userId = req.params.id;
+    // let user = users.find((oneUser) => oneUser.id == userId);
+    // res.render("userDetail", {
+    //   user,
+    // });
+    db.User.findByPk(req.params.id,
+      {
+        include: ['orders']
+      })
+      .then(user => {
+        res.render('userEdit.ejs', { user });
+      });
   },
   //
   //
@@ -43,15 +66,27 @@ const usersController = {
       console.log(errors.mapped());
       return res.render("register", { errors: errors.mapped(), oldData });
     } else {
-      let newUser = {
-        id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
-        ...req.body,
-        password: bcrypt.hashSync(req.body.password, 10),
-        userImage: req.file ? req.file.filename : "default-image.png",
-      };
-      users.push(newUser);
-      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-      return res.redirect("/users/login/");
+      // let newUser = {
+      //   id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
+      //   ...req.body,
+      //   password: bcrypt.hashSync(req.body.password, 10),
+      //   userImage: req.file ? req.file.filename : "default-image.png",
+      // };
+      // users.push(newUser);
+      // fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+      // return res.redirect("/users/login/");
+      Users.create(
+        {
+          id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
+          ...req.body,
+          password: bcrypt.hashSync(req.body.password, 10),
+          userImage: req.file ? req.file.filename : "default-image.png",
+        }
+      )
+        .then(() => {
+          return res.redirect('/users/login/')
+        })
+        .catch(error => res.send(error))
     }
   },
   //
@@ -117,53 +152,95 @@ const usersController = {
   //
   //
   editUser: (req, res) => {
+    // let userId = req.params.id;
+    // let userToEdit = users.find((oneUser) => oneUser.id == userId);
+    // res.render("userEdit", {
+    //   userToEdit,
+    // });
     let userId = req.params.id;
-    let userToEdit = users.find((oneUser) => oneUser.id == userId);
-    res.render("userEdit", {
-      userToEdit,
-    });
+    let promUsers = Users.findByPk(userId, { include: ['orders', 'condition'] });
+    let promOrders = Orders.findAll();
+    let promConditions = Conditions.findAll();
+    Promise
+      .all([promUsers, promOrders, promConditions])
+      .then(([User, allOrders, allConditions]) => {
+        return res.render(path.resolve(__dirname, '..', 'views', 'usersEdit'), { User, allOrders, allConditions })
+      })
+      .catch(error => res.send(error))
   },
   //
   //
   updateUser: (req, res) => {
+    // let id = req.params.id;
+    // let userToEdit = users.find((oneUsers) => oneUsers.id == id);
+    // userToEdit.name = req.body.name,
+    // userToEdit.userImage =  req.file ? req.file.filename : userToEdit.userImage;
+    //        // // userToEdit = {
+    //        // //   id: userToEdit.id,
+    //        // //   password: userToEdit.password,
+    //        // //   ...req.body,
+    //        // //   image: req.file ? req.file.filename : userToEdit.imagen, //mantengo imagen vieja si no carga una nueva
+    //        // // };
+    // let newUser = users.map((users) => {
+    //   //nueva variable con todos los usuario + el editado
+    //   if (users.id == userToEdit.id) {
+    //     console.log(users)
+    //     console.log(userToEdit)
+    //     return (users = { ...userToEdit });
+    //   }
+    //   return users;
+    // });
+    // fs.writeFileSync(usersFilePath, JSON.stringify(newUser, null, " "));
+    // res.redirect("/");
     let id = req.params.id;
-    let userToEdit = users.find((oneUsers) => oneUsers.id == id);
-    userToEdit.name = req.body.name,
-    userToEdit.userImage =  req.file ? req.file.filename : userToEdit.userImage;
-    // userToEdit = {
-    //   id: userToEdit.id,
-    //   password: userToEdit.password,
-    //   ...req.body,
-    //   image: req.file ? req.file.filename : userToEdit.imagen, //mantengo imagen vieja si no carga una nueva
-    // };
-    let newUser = users.map((users) => {
-      //nueva variable con todos los usuario + el editado
-      if (users.id == userToEdit.id) {
-        console.log(users)
-        console.log(userToEdit)
-        return (users = { ...userToEdit });
-      }
-      return users;
-    });
-    fs.writeFileSync(usersFilePath, JSON.stringify(newUser, null, " "));
-    res.redirect("/");
+    Users.update(
+      {
+        name: req.body.name,
+        userImage: req.file ? req.file.filename : userToEdit.userImage,
+        lastName: req.body.lastName,
+        birthDate: req.body.birthDate,
+        email: req.body.email,
+        password: req.body.password,
+        conditions: req.body.conditions
+      },
+      {
+        where: { id: id }
+      })
+      .then(() => {
+        return res.redirect('/')
+      })
+      .catch(error => res.send(error))
+
   },
   //
   //
   deleteUser: (req, res) => {
+    // let id = req.params.id;
+    // let finalUsers = users.filter((user) => user.id != id);
+    // fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
+    // req.session.usuarioLogueado = undefined;
+    // res.redirect("/"); //hacia una ruta
     let id = req.params.id;
-    let finalUsers = users.filter((user) => user.id != id);
-    fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
-    req.session.usuarioLogueado = undefined;
-    res.redirect("/"); //hacia una ruta
+    Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
+      .then(() => {
+        req.session.usuarioLogueado = undefined;
+        return res.redirect('/')
+      })
+      .catch(error => res.send(error))
   },
   //
   //
   deleteUsersAdmin: (req, res) => {
+    // let id = req.params.id;
+    // let finalUsers = users.filter((user) => user.id != id);
+    // fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
+    // res.redirect("/"); //hacia una ruta
     let id = req.params.id;
-    let finalUsers = users.filter((user) => user.id != id);
-    fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
-    res.redirect("/"); //hacia una ruta
+    Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
+      .then(() => {
+        return res.redirect('/')
+      })
+      .catch(error => res.send(error))
   },
   //
   //**Provisorio
