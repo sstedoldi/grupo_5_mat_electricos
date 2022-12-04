@@ -16,12 +16,13 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const productsController = {
   //lista todos los productos
   index: (req, res) => {
-    // res.render("products", {
-    //   products,
-    //   toThousand,
-    // });
-
-    db.Product.findAll().then((products) => {
+    db.Products.findAll({
+      //[{ association: ["brand","subcategory","images"] }],
+      include: ["brand", "subcategory", "images"],
+      raw: true,
+      nest: true,
+      limit: 20, //provisorio, hasta agregar el offset
+    }).then((products) => {
       res.render("products", {
         products,
         toThousand,
@@ -31,15 +32,22 @@ const productsController = {
   //
   //
   detail: (req, res) => {
-    //muestra el detalle de un producto
     let id = req.params.id;
-    let product = //products.find((oneProduct) => oneProduct.id == id);
-    db.Product.findAll().then((products) => {
-    res.render("productDetail", {
-      product,
-      toThousand,
-    });
-  });
+    db.Products.findByPk(id, {
+      include: ["brand", "subcategory", "images"],
+    })
+      //.then((product) => {
+      //   db.Subategories.findByPk(product.subcategory.category_id, {
+      //     include: ["category"],
+      //   }).then((subcategory) => {
+
+      .then((product) => {
+        res.render("productDetail", {
+          product,
+          // subcategory,
+          toThousand,
+        });
+      });
   },
   //
   //

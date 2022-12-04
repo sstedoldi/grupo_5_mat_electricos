@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Product";
+  let alias = "Products"; //cambio a plural
 
   let cols = {
     id: {
@@ -51,25 +51,27 @@ module.exports = (sequelize, dataTypes) => {
   const Product = sequelize.define(alias, cols, config);
 
   Product.associate = function (models) {
-    Product.belongsTo(models.Brand, {
+    Product.belongsTo(models.Brands, {
+      foreignKey: "brand_id",
       as: "brand",
-      foreignKey: "brand_id"
-    });
-    Product.belongsTo(models.Subcategory, {
-      as: "subcategory",
-      foreignKey: "subcategory_id"
     });
 
-    Product.belongsToMany(models.Image, {
+    Product.belongsTo(models.Subcategories, {
+      as: "subcategory",
+      foreignKey: "subcategory_id",
+    });
+
+    Product.belongsToMany(models.Images, {
       as: "images",
       through: "products_images",
       foreignKey: "products_id",
       otherKey: "images_id",
       timeStamps: false,
     });
-    Product.belongsToMany(models.Order, {
+
+    Product.belongsToMany(models.Orders, {
       as: "orders",
-      through: "products_images",
+      through: "products_orders",
       foreignKey: "products_id",
       otherKey: "orders_id",
       timeStamps: false,

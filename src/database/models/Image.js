@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Image";
+  let alias = "Images"; //cambio a plural
 
   let cols = {
     id: {
@@ -25,10 +25,10 @@ module.exports = (sequelize, dataTypes) => {
   const Image = sequelize.define(alias, cols, config);
 
   Image.associate = function (models) {
-    Image.belongsToMany(models.Product, {
+    Image.belongsToMany(models.Products, {
       as: "products",
       through: "products_images",
-      foreingKey: "images_id",
+      foreignKey: "images_id",
       otherKey: "products_id",
       timeStamps: false,
     });

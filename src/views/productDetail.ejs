@@ -18,16 +18,22 @@
     <main class="main-product">
         <div class="product-figure-info">
             <div class="product-figure">
-                <img src=<%= (product.image == undefined) ? "/images/products/img-default-"+product.category.toLowerCase()+".jpg" : "/images/products/"+product.image %>
-                width="360" alt="img-<%= product.category.toLowerCase() %>.jpg" />
+                <img src=<%= (product.image != undefined) ? "/images/products/"+product.image : "/images/products/img-default-"+product.subcategory_id+".jpg" %>
+                width="360" alt="img-<%= product.subcategory.name %>.jpg" />
             </div>
             <div class="product-info">
                 <div class="product-info-title">
                     <p class="product-info-name">
-                        <%= product.subcategory %>
+                        <%= product.description %>
                     </p>
                     <p class="product-info-brand">
-                        <%= product.description %>
+                        <%= product.brand.name %>
+                    </p>
+                    <p class="product-info-brand">
+                        <!-- FALTA GATEGORY -->
+                    </p>
+                    <p class="product-info-brand">
+                        <%= product.subcategory.name %>
                     </p>
                 </div>
                 <p class="product-info-price"><b class="product-info-price-number">&#x24 <%= product.nonvatPrice %></b>
@@ -67,12 +73,12 @@
                     </form>
                 </div> -->
                 <br>
-                <div>
+                <!-- <div>
                     <p class="product-info-uses">Información sobre los posibles usos del producto y sus ventajas</p>
-                </div>
+                </div> -->
             </div>
         </div>
-        <div class="product-description">
+        <!-- <div class="product-description">
             <p class="product-full-description">
                 <%= product.description %>
             </p>
@@ -110,7 +116,7 @@
                     <td class="att-5">Valor del atributo 5</td>
                 </tr>
             </table>
-        </div>
+        </div> -->
     </main>
     <!-- &&&& -->
     <!-- FOOTER -->

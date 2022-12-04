@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Subcategory";
+  let alias = "Subcategories"; //cambio a plural
 
   let cols = {
     id: {
@@ -11,6 +11,10 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
       type: dataTypes.STRING(45),
     },
+    category_id: {
+      allowNull: false,
+      type: dataTypes.INTEGER,
+    },
   };
 
   let config = {
@@ -20,16 +24,16 @@ module.exports = (sequelize, dataTypes) => {
 
   const Subcategory = sequelize.define(alias, cols, config);
 
-   Subcategory.associate = function (models) {
-     Subcategory.hasMany(models.Product, {
-       as: "products",
-       foreignKey: "subcategory_id"
-     });
-     Subcategory.belongsTo(models.Category, {
-       as: "category",
-       foreignKey: "category_id"
-     })
-   }
+  Subcategory.associate = function (models) {
+    Subcategory.hasMany(models.Products, {
+      as: "products",
+      foreignKey: "subcategory_id",
+    });
+    Subcategory.belongsTo(models.Categories, {
+      as: "category",
+      foreignKey: "category_id",
+    });
+  };
 
   return Subcategory;
 };

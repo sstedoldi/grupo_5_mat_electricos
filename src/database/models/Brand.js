@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Brand";
+  let alias = "Brands"; //cambio a plural
 
   let cols = {
     id: {
@@ -20,14 +20,12 @@ module.exports = (sequelize, dataTypes) => {
 
   const Brand = sequelize.define(alias, cols, config);
 
-
   Brand.associate = function (models) {
-    Brand.hasMany(models.Product, {
+    Brand.hasMany(models.Products, {
+      foreignKey: "brand_id",
       as: "products",
-      foreignKey: "brand_id"
-    })
-  }
-
+    });
+  };
 
   return Brand;
 };

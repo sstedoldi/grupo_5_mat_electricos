@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Order";
+  let alias = "Orders"; //cambio a plural
 
   let cols = {
     id: {
@@ -44,9 +44,9 @@ module.exports = (sequelize, dataTypes) => {
       as: "user",
       foreignKey: "user_id",
     });
-    Order.belongsToMany(models.Product, {
+    Order.belongsToMany(models.Products, {
       as: "products",
-      through: "products_images",
+      through: "products_orders",
       foreignKey: "orders_id",
       otherKey: "products_id",
       timeStamps: false,
