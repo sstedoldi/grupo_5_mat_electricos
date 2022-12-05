@@ -17,8 +17,7 @@ const productsController = {
   //lista todos los productos
   index: (req, res) => {
     db.Products.findAll({
-      //[{ association: ["brand","subcategory","images"] }],
-      include: ["brand", "subcategory", "images"],
+      include: ["brand", "subcategory", "images"], //FALTA VINCULAR CATEGORIES
       raw: true,
       nest: true,
       limit: 20, //provisorio, hasta agregar el offset
@@ -34,25 +33,25 @@ const productsController = {
   detail: (req, res) => {
     let id = req.params.id;
     db.Products.findByPk(id, {
-      include: ["brand", "subcategory", "images"],
-    })
-      //.then((product) => {
-      //   db.Subategories.findByPk(product.subcategory.category_id, {
-      //     include: ["category"],
-      //   }).then((subcategory) => {
-
-      .then((product) => {
-        res.render("productDetail", {
-          product,
-          // subcategory,
-          toThousand,
-        });
+      include: ["brand", "subcategory", "images"], //FALTA VINCULAR CATEGORIES
+      raw: true,
+      nest: true,
+    }).then((product) => {
+      res.render("productDetail", {
+        product,
+        toThousand,
       });
+    });
   },
   //
   //
   create: (req, res) => {
-    res.render("productCreate");
+    //llevo categories, subcategories y brands al formulario de create
+    db.Subcategories.findAll({ include: ["category"], raw: true, nest: true });
+    db.Brands.findAll().thenAll((subcategories, brands) => {
+      //VER ESTE THEN ALL
+      res.render("productCreate", { subcategories, brands });
+    });
   },
   //
   //
