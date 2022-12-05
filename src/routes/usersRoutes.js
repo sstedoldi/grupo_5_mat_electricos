@@ -55,7 +55,7 @@ var upload = multer({ storage: multerStorage });
 
 ////////////////
 //Router methods
-router.get("/", adminMiddleware, usersController.index);
+router.get("/", usersController.index); //quito adminMiddleware
 //Detalle de un usuario
 router.get("/detail/:id", adminMiddleware, usersController.detail);
 //Perfil del usuario logeado
@@ -82,7 +82,7 @@ router.put("/update/:id", authMiddleware, usersController.updateUser);
 //Delete user
 router.delete("/delete/:id", usersController.deleteUser);
 //Delete Users as admin
-router.delete("/deleteAdmin/:id", usersController.deleteUsersAdmin);/// PROVISORIO
+router.delete("/deleteAdmin/:id", usersController.deleteUsersAdmin); /// PROVISORIO
 ////
 //**Chequeos provisorios:
 router.get("/check", usersController.check);

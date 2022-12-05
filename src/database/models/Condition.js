@@ -23,9 +23,9 @@ module.exports = (sequelize, dataTypes) => {
   const Condition = sequelize.define(alias, cols, config);
 
   Condition.associate = function (models) {
-    Condition.hasMany(models.User, {
+    Condition.hasMany(models.Users, {
       as: "users",
-      foreingKey: "condition_id",
+      foreignKey: "condition_id",
     });
   };
 

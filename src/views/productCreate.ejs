@@ -20,10 +20,29 @@
             <form action="/products/" method="POST" enctype="multipart/form-data">
                 <div class="div-create-forms">
                     <div class="formularios-create">
-                        <label for="brand" class="form-label-create">Marca del producto:</label>
-                        <input class="form-input-create" type="text" name="brand" id="brand"
-                            placeholder="Ej: 'Schneider" />
-                    </div>
+                        <!-- Category -->
+                        <label for="category" class="form-label-create"></label>
+                        <select id="category" name="category" class="form-input-create">
+                        <option value="" disabled selected>- Seleccione la categoria -</option>
+                          <% categories.forEach(category => { %>
+                          <option value="<%= category.id %>"><%= category.name %></option>
+                          <% }); %></select>
+                        <!-- Subcategory -->
+                        <label for="subcategory" class="form-label-create"></label>
+                        <select id="subcategory" name="subcategory" class="form-input-create">
+                        <option value="" disabled selected>- Seleccione la subcategoria -</option>
+                          <% subcategories.forEach(subcategory => { %>
+                          <option value="<%= subcategory.id %>"><%= subcategory.name %></option>
+                          <% }); %></select>
+                        <!-- Brand -->
+                        <label for="brand" class="form-label-create">Marca</label>
+                        <select id="brand" name="brand" class="form-input-create">
+                        <option value="" disabled selected>- Seleccione la marca -</option>
+                          <% brands.forEach(brand => { %>
+                          <option value="<%= brand.id %>"><%= brand.name %></option>
+                          <% }); %></select> 
+
+                   </div>
                     <div class="formularios-create">
                         <label for="model" class="form-label-create">Modelo del producto:</label>
                         <input class="form-input-create" type="text" name="model" id="model"

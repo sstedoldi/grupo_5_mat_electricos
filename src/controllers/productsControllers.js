@@ -47,11 +47,14 @@ const productsController = {
   //
   create: (req, res) => {
     //llevo categories, subcategories y brands al formulario de create
-    db.Subcategories.findAll({ include: ["category"], raw: true, nest: true });
-    db.Brands.findAll().thenAll((subcategories, brands) => {
-      //VER ESTE THEN ALL
-      res.render("productCreate", { subcategories, brands });
-    });
+    let categories = db.Categories.findAll();
+    let subcategories = db.Subcategories.findAll();
+    let brands = db.Brands.findAll();
+    Promise.all([categories, subcategories, brands]).then(
+      ([categories, subcategories, brands]) => {
+        res.render("productCreate", { categories, subcategories, brands });
+      }
+    );
   },
   //
   //

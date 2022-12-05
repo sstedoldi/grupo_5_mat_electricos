@@ -3,16 +3,14 @@ const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
-const db = require('../database/models');
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
+const db = require("../database/models");
+// const sequelize = db.sequelize;
+// const { Op } = require("sequelize");
 
 //Llamo al modelo User
 const Users = db.User;
 const Orders = db.Order;
 const Conditions = db.Condition;
-
-
 
 //Data managing
 const usersFilePath = path.join(__dirname, "../data/users.json");
@@ -28,12 +26,9 @@ const usersController = {
     //   users,
     //   toThousand,
     // });
-    db.User.findAll({
-      include: ['orders']
-    })
-      .then(users => {
-        res.render('users.ejs', { users })
-      })
+    db.Users.findAll().then((users) => {
+      res.render("users", { users });
+    });
   },
   //
   //
@@ -43,13 +38,11 @@ const usersController = {
     // res.render("userDetail", {
     //   user,
     // });
-    db.User.findByPk(req.params.id,
-      {
-        include: ['orders']
-      })
-      .then(user => {
-        res.render('userEdit.ejs', { user });
-      });
+    db.User.findByPk(req.params.id, {
+      include: ["orders"],
+    }).then((user) => {
+      res.render("userEdit.ejs", { user });
+    });
   },
   //
   //
@@ -75,18 +68,16 @@ const usersController = {
       // users.push(newUser);
       // fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
       // return res.redirect("/users/login/");
-      Users.create(
-        {
-          id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
-          ...req.body,
-          password: bcrypt.hashSync(req.body.password, 10),
-          userImage: req.file ? req.file.filename : "default-image.png",
-        }
-      )
+      Users.create({
+        id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
+        ...req.body,
+        password: bcrypt.hashSync(req.body.password, 10),
+        userImage: req.file ? req.file.filename : "default-image.png",
+      })
         .then(() => {
-          return res.redirect('/users/login/')
+          return res.redirect("/users/login/");
         })
-        .catch(error => res.send(error))
+        .catch((error) => res.send(error));
     }
   },
   //
@@ -158,15 +149,20 @@ const usersController = {
     //   userToEdit,
     // });
     let userId = req.params.id;
-    let promUsers = Users.findByPk(userId, { include: ['orders', 'condition'] });
+    let promUsers = Users.findByPk(userId, {
+      include: ["orders", "condition"],
+    });
     let promOrders = Orders.findAll();
     let promConditions = Conditions.findAll();
-    Promise
-      .all([promUsers, promOrders, promConditions])
+    Promise.all([promUsers, promOrders, promConditions])
       .then(([User, allOrders, allConditions]) => {
-        return res.render(path.resolve(__dirname, '..', 'views', 'usersEdit'), { User, allOrders, allConditions })
+        return res.render(path.resolve(__dirname, "..", "views", "usersEdit"), {
+          User,
+          allOrders,
+          allConditions,
+        });
       })
-      .catch(error => res.send(error))
+      .catch((error) => res.send(error));
   },
   //
   //
@@ -201,16 +197,16 @@ const usersController = {
         birthDate: req.body.birthDate,
         email: req.body.email,
         password: req.body.password,
-        conditions: req.body.conditions
+        conditions: req.body.conditions,
       },
       {
-        where: { id: id }
-      })
+        where: { id: id },
+      }
+    )
       .then(() => {
-        return res.redirect('/')
+        return res.redirect("/");
       })
-      .catch(error => res.send(error))
-
+      .catch((error) => res.send(error));
   },
   //
   //
@@ -224,9 +220,9 @@ const usersController = {
     Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
       .then(() => {
         req.session.usuarioLogueado = undefined;
-        return res.redirect('/')
+        return res.redirect("/");
       })
-      .catch(error => res.send(error))
+      .catch((error) => res.send(error));
   },
   //
   //
@@ -238,9 +234,9 @@ const usersController = {
     let id = req.params.id;
     Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
       .then(() => {
-        return res.redirect('/')
+        return res.redirect("/");
       })
-      .catch(error => res.send(error))
+      .catch((error) => res.send(error));
   },
   //
   //**Provisorio
