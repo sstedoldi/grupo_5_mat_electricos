@@ -38,10 +38,10 @@ const usersController = {
     // res.render("userDetail", {
     //   user,
     // });
-    db.User.findByPk(req.params.id, {
-      include: ["orders"],
-    }).then((user) => {
-      res.render("userEdit.ejs", { user });
+    db.Users.findByPk(req.params.id, {
+    })
+    .then((user) => {
+      res.render("userDetail.ejs", { user });
     });
   },
   //
@@ -163,17 +163,16 @@ const usersController = {
     //   userToEdit,
     // });
     let userId = req.params.id;
-    let promUsers = Users.findByPk(userId, {
+    let promUsers = db.Users.findByPk(userId, {
       include: ["orders", "condition"],
     });
-    let promOrders = Orders.findAll();
-    let promConditions = Conditions.findAll();
-    Promise.all([promUsers, promOrders, promConditions])
-      .then(([User, allOrders, allConditions]) => {
+    let promOrders = db.Orders.findAll();
+    // let promConditions = db.Conditions.findAll();
+    Promise.all([promUsers, promOrders])
+      .then(([User, allOrders]) => {
         return res.render(path.resolve(__dirname, "..", "views", "usersEdit"), {
           User,
-          allOrders,
-          allConditions,
+          allOrders
         });
       })
       .catch((error) => res.send(error));
@@ -203,7 +202,7 @@ const usersController = {
     // fs.writeFileSync(usersFilePath, JSON.stringify(newUser, null, " "));
     // res.redirect("/");
     let id = req.params.id;
-    Users.update(
+    db.Users.update(
       {
         name: req.body.name,
         userImage: req.file ? req.file.filename : userToEdit.userImage,
@@ -231,7 +230,7 @@ const usersController = {
     // req.session.usuarioLogueado = undefined;
     // res.redirect("/"); //hacia una ruta
     let id = req.params.id;
-    Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
+    db.Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
       .then(() => {
         req.session.usuarioLogueado = undefined;
         return res.redirect("/");
@@ -246,7 +245,7 @@ const usersController = {
     // fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
     // res.redirect("/"); //hacia una ruta
     let id = req.params.id;
-    Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
+    db.Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
       .then(() => {
         return res.redirect("/");
       })
