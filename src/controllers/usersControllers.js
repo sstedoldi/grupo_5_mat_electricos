@@ -13,8 +13,8 @@ const Orders = db.Order;
 const Conditions = db.Condition;
 
 //Data managing
-const usersFilePath = path.join(__dirname, "../data/users.json");
-const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+//const usersFilePath = path.join(__dirname, "../data/users.json");
+//const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 //REGEX of thousand
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -52,13 +52,16 @@ const usersController = {
   //
   //
   registerUser: (req, res) => {
-    let errors = validationResult(req);
-    // console.log(errors.mapped());
-    if (!errors.isEmpty()) {
-      let oldData = req.body;
-      console.log(errors.mapped());
-      return res.render("register", { errors: errors.mapped(), oldData });
-    } else {
+    // let errors = validationResult(req);
+    // // console.log(errors.mapped());
+    // if (!errors.isEmpty()) {
+    //   let oldData = req.body;
+    //   console.log(errors.mapped());
+    //   return res.render("register", { errors: errors.mapped(), oldData });
+    // } else {
+
+
+
       // let newUser = {
       //   id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
       //   ...req.body,
@@ -68,17 +71,18 @@ const usersController = {
       // users.push(newUser);
       // fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
       // return res.redirect("/users/login/");
-      Users.create({
-        id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
-        ...req.body,
-        password: bcrypt.hashSync(req.body.password, 10),
-        userImage: req.file ? req.file.filename : "default-image.png",
+      req.image = req.file ? req.file.filename : "default-image.png",
+      req.password = bcrypt.hashSync(req.body.password, 10),
+      db.Users.create({
+        //id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
+        ...req.body
       })
-        .then(() => {
+      .then(() => {
+          console.log("pase por aca")
           return res.redirect("/users/login/");
         })
         .catch((error) => res.send(error));
-    }
+    // }
   },
   //
   //

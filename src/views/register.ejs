@@ -28,7 +28,7 @@
             value="<%= locals.oldData && oldData.name ? oldData.name : "" %>">
 
         <!-- lastname -->
-        <label for="lastname">Apellido</label>
+        <label for="lastName">Apellido</label>
         <div class="errors">
           <%= locals.errors && errors.lastName ? errors.lastName.msg : "" %>
         </div>
@@ -37,6 +37,19 @@
             type="text" 
             name="lastName"
             value="<%= locals.oldData && oldData.lastName ? oldData.lastName : "" %>">
+
+            <!-- Address -->
+            <label for="address">Address</label>
+        <div class="errors">
+          <%= locals.errors && errors.address ? errors.address.msg : "" %>
+        </div> 
+          <input 
+            class="controls" 
+            type="text" 
+            address="address" 
+            value="<%= locals.oldData && oldData.address ? oldData.address : "" %>">
+
+
         <!-- birthDate -->
         <label for="birthDate">Nacimiento</label>
         <div class="errors">

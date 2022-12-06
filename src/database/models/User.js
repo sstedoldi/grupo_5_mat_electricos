@@ -9,15 +9,15 @@ module.exports = (sequelize, dataTypes) => {
     },
     name: {
       allowNull: false,
-      type: dataTypes.STRING(45),
+      type: dataTypes.STRING,
     },
     lastName: {
       allowNull: false,
-      type: dataTypes.STRING(75),
+      type: dataTypes.STRING,
     },
     email: {
       allowNull: false,
-      type: dataTypes.STRING(75),
+      type: dataTypes.STRING,
     },
     birthDate: {
       allowNull: false,
@@ -25,20 +25,20 @@ module.exports = (sequelize, dataTypes) => {
     },
     password: {
       allowNull: false,
-      type: dataTypes.CHAR(45),
+      type: dataTypes.STRING,
     },
     address: {
-      allowNull: false,
-      type: dataTypes.TEXT,
+      allowNull: true,
+      type: dataTypes.STRING,
     },
     image: {
-      type: dataTypes.TEXT,
+      type: dataTypes.STRING,
     },
     tax_id: {
-      type: dataTypes.STRING(45),
+      type: dataTypes.STRING,
     },
     condition_id: {
-      allowNull: false,
+      allowNull: true,
       type: dataTypes.INTEGER,
     },
   };
