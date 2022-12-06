@@ -50,30 +50,30 @@ const productsController = {
     let categories = db.Categories.findAll();
     let subcategories = db.Subcategories.findAll();
     let brands = db.Brands.findAll();
-    Promise.all([categories, subcategories, brands]).then(
-      ([categories, subcategories, brands]) => {
+    Promise.all([categories, subcategories, brands])
+      .then(([categories, subcategories, brands]) => {
         res.render("productCreate", { categories, subcategories, brands });
-      }
-    );
+      })
+      .catch((error) => res.send(error));
   },
   //
   //
   store: (req, res) => {
-    console.log(req.file);
-    console.log(req.body);
-    let newProduct = {
-      id: products.length == 0 ? 1 : products[products.length - 1].id + 1,
+    db.Products.create({
       ...req.body,
       image: req.file
         ? req.file.filename
-        : "img-default-" + req.body.category.toLowerCase() + ".jpg", //Revisar para que elimine los espacios
-    };
-    products.push(newProduct);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-    res.redirect("/products/");
+        : "img-default-" + req.body.category_id.toLowerCase() + ".jpg",
+    })
+      .then(() => {
+        console.log("producto creado");
+        return res.redirect("/products/");
+      })
+      .catch((error) => res.send(error));
   },
   //
   //
+  //HASTA ACÁ
   edit: (req, res) => {
     let id = req.params.id;
     let productToEdit = products.find((oneProduct) => oneProduct.id == id);

@@ -19,95 +19,72 @@
             <h3 class="form-create-title"> Cargá un nuevo producto!</h3>
             <form action="/products/" method="POST" enctype="multipart/form-data">
                 <div class="div-create-forms">
+                    <!-- Category -->
                     <div class="formularios-create">
-                        <!-- Category -->
-                        <label for="category" class="form-label-create"></label>
-                        <select id="category" name="category" class="form-input-create">
+                        <label for="category" class="form-label-create">Categoria</label>
+                        <select id="category" name="category_id" class="form-input-create">
                         <option value="" disabled selected>- Seleccione la categoria -</option>
                           <% categories.forEach(category => { %>
                           <option value="<%= category.id %>"><%= category.name %></option>
                           <% }); %></select>
-                        <!-- Subcategory -->
-                        <label for="subcategory" class="form-label-create"></label>
-                        <select id="subcategory" name="subcategory" class="form-input-create">
+                    </div>
+                    <!-- Subcategory -->
+                    <div class="formularios-create">
+                        <label for="subcategory" class="form-label-create">Subcategoria</label>
+                        <select id="subcategory" name="subcategory_id" class="form-input-create">
                         <option value="" disabled selected>- Seleccione la subcategoria -</option>
                           <% subcategories.forEach(subcategory => { %>
                           <option value="<%= subcategory.id %>"><%= subcategory.name %></option>
                           <% }); %></select>
-                        <!-- Brand -->
+                    </div>
+                    <!-- Brand -->
+                    <div class="formularios-create">
                         <label for="brand" class="form-label-create">Marca</label>
-                        <select id="brand" name="brand" class="form-input-create">
+                        <select id="brand" name="brand_id" class="form-input-create">
                         <option value="" disabled selected>- Seleccione la marca -</option>
                           <% brands.forEach(brand => { %>
                           <option value="<%= brand.id %>"><%= brand.name %></option>
                           <% }); %></select> 
-
-                   </div>
-                    <div class="formularios-create">
-                        <label for="model" class="form-label-create">Modelo del producto:</label>
-                        <input class="form-input-create" type="text" name="model" id="model"
-                            placeholder="Ej: 'SKD-81" />
                     </div>
+                    <!-- Price -->
                     <div class="formularios-create">
-                        <label for="category" class="form-label-create">Elija una categoria:</label>
-                        <select id="category" name="category" class="form-input-create">
-                            <option value="Cables">Cables</option>
-                            <option value="Elect. Domiciliaria">Elect. Domiciliaria</option>
-                            <option value="Energía Solar">Energía Solar</option>
-                            <option value="Herramientas">Herramientas</option>
-                            <option value="Hogar">Hogar</option>
-                            <option value="Iluminacion">Iluminación</option>
-                            <option value="Industria">Industria</option>
-                            <option value="Lámparas">Lámparas</option>
-                            <option value="Redes">Redes</option>
-                            <option value="Seguridad">Seguridad</option>
-                            <option value="Telefonía y porteros">Telefonía y porteros</option>
-                            <option value="Vía Pública">Vía Pública</option>
-                            <option value="Otra">Otra</option>
-                        </select>
-                    </div>
-                    <div class="formularios-create">
-                        <label for="subcategory" class="form-label-create">Elija una subcategoria:</label>
-                        <select id="subcategory" name="subcategory" class="form-input-create">
-                            <option value="Cables">Cables</option>
-                            <option value="Elect. Domiciliaria">Elect. Domiciliaria</option>
-                            <option value="Energía Solar">Energía Solar</option>
-                            <option value="Herramientas">Herramientas</option>
-                            <option value="Hogar">Hogar</option>
-                            <option value="Iluminacion">Iluminación</option>
-                            <option value="Industria">Industria</option>
-                            <option value="Lámparas">Lámparas</option>
-                            <option value="Redes">Redes</option>
-                            <option value="Seguridad">Seguridad</option>
-                            <option value="Telefonía y porteros">Telefonía y porteros</option>
-                            <option value="Vía Pública">Vía Pública</option>
-                            <option value="Otra">Otra</option>
-                        </select>
-                    </div>
-                    <div class="formularios-create">
-                        <label for="nonvatPrice" class="form-label-create">Precio del producto:</label>
+                        <label for="nonvatPrice" class="form-label-create">Precio</label>
                         <input class="form-input-create" type="number" name="nonvatPrice" id="nonvatPrice"
-                            placeholder="Ej: 27778" />
+                            placeholder="Ej: 2.785" />
                     </div>
+                    <!-- vat -->
                     <div class="formularios-create">
-                        <label for="discount" class="form-label-create">Descuento:</label>
+                        <label for="vat" class="form-label-create">IVA</label>
+                        <input class="form-input-create" type="number" name="vat" id="vat"
+                            placeholder="Ej: 21.0" />
+                    </div>
+                    <!-- Discount -->
+                    <div class="formularios-create">
+                        <label for="discount" class="form-label-create">Descuento</label>
                         <input class="form-input-create" type="number" name="discount" id="discount"
                             placeholder="Ej: 15" />
                     </div>
+                    <!-- Stock -->
                     <div class="formularios-create">
-                        <label for="status" class="form-label-create">Elija un estado:</label>
-                        <select id="status" name="status" class="form-input-create">
-                            <option value="new">Nuevo ingreso</option>
-                            <option value="hot-sale">En oferta</option>
-                        </select>
+                        <label for="stock" class="form-label-create">Stock inicial</label>
+                        <input class="form-input-create" type="number" name="stock" id="stock"
+                            placeholder="Ej: 100" />
                     </div>
+                    <!-- Stock minimo -->
                     <div class="formularios-create">
-                        <label for="productImage" class="form-label-create">Imagen:</label>
+                        <label for="stock_min" class="form-label-create">Stock minimo</label>
+                        <input class="form-input-create" type="number" name="stock_min" id="stock_min"
+                            placeholder="Ej: 20" />
+                    </div>
+                    <!-- Image -->
+                    <div class="formularios-create">
+                        <label for="productImage" class="form-label-create">Imagen</label>
                         <input type="file" id="productImage" name="productImage"
                             class="form-input-create">
                     </div>
+                    <!-- Description -->
                     <div class="formularios-create-description">
-                        <label for="description" class="form-label-create">Describa su producto:</label>
+                        <label for="description" class="form-label-create">Descripción</label>
                         <textarea name="description" id="description" class="form-input-create-description"></textarea>
                     </div>
                     <div class="formularios-create-button">
@@ -117,8 +94,6 @@
                 </div>
             </form>
         </div>
-
-
     </main>
     <!-- &&&& -->
     <!-- FOOTER -->
