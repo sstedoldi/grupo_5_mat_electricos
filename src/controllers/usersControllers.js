@@ -75,10 +75,20 @@ const usersController = {
       req.password = bcrypt.hashSync(req.body.password, 10),
       db.Users.create({
         //id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
+
+//COLOQUE TAL CUAL DEBEN IR LOS DATOS DESDE ACA HASTA LA BD Y FUNCIONA LA CREACION DE USERS
+
+        name: req.body.name,
+        lastName: req.body.lastName,
+        email: req.body.email, 
+        birthDate: req.body.birthDate, 
+        password: req.body.password,
+        address: req.body.address,
+        image: req.body.userImage, 
+        condition_id: 2,
         ...req.body
       })
       .then(() => {
-          console.log("pase por aca")
           return res.redirect("/users/login/");
         })
         .catch((error) => res.send(error));
