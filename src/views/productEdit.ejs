@@ -20,71 +20,68 @@
             </h3>
             <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST">
                 <div class="div-create-forms">
+                    <!-- Category -->
+                    <!-- <div class="formularios-create">
+                        <label for="category" class="form-label-create">Categoria</label>
+                        <select id="category" name="category_id" class="form-input-create">
+                        <option value="" disabled selected>- Seleccione la categoria -</option>
+                          <% categories.forEach(category => { %>
+                          <option value="<%= category.id %>"><%= category.name %></option>
+                          <% }); %></select>
+                    </div> -->
+                    <!-- Subcategory, aunque figure como Category -->
                     <div class="formularios-create">
-                        <label for="brand" class="form-label-create">Marca del producto:</label>
-                        <input class="form-input-create" type="text" name="brand" id="brand"
-                            value="<%= productToEdit.brand%>" />
+                        <label for="subcategory" class="form-label-create">Categoria</label>
+                        <select id="subcategory" name="subcategory_id" class="form-input-create">
+                        <option value="<%= productToEdit.subcategory_id %>"><%= productToEdit.subcategory.name %></option>
+                          <% subcategories.forEach(subcategory => { %>
+                          <option value="<%= subcategory.id %>"><%= subcategory.name %></option>
+                          <% }); %></select>
                     </div>
+                    <!-- Brand -->
                     <div class="formularios-create">
-                        <label for="model" class="form-label-create">Modelo del producto:</label>
-                        <input class="form-input-create" type="text" name="model" id="model"
-                            value="<%= productToEdit.model%>" />
+                        <label for="brand" class="form-label-create">Marca</label>
+                        <select id="brand" name="brand_id" class="form-input-create">
+                        <option value="<%= productToEdit.brand_id %>"><%= productToEdit.brand.name %></option>
+                          <% brands.forEach(brand => { %>
+                          <option value="<%= brand.id %>"><%= brand.name %></option>
+                          <% }); %></select> 
                     </div>
+                    <!-- Price -->
                     <div class="formularios-create">
-                        <label for="category" class="form-label-create">Elija una categoria:</label>
-                        <select id="category" name="category" class="form-input-create">
-                            <option value="">
-                                <%= productToEdit.category%>
-                            </option>
-                            <option value="Lámaparas">Lámaparas</option>
-                            <option value="Iluminacion">Iluminacion</option>
-                            <option value="Interruptores">Interruptores</option>
-                            <option value="Cables">Cables</option>
-                            <option value="Canalizaciones">Canalizaciones</option>
-                            <option value="Otra">Otra</option>
-                        </select>
+                        <label for="nonvatPrice" class="form-label-create">Precio (sin IVA)</label>
+                        <input value="<%= productToEdit.nonvatPrice %>" class="form-input-create" type="number" name="nonvatPrice" id="nonvatPrice"/>
                     </div>
+                    <!-- vat -->
                     <div class="formularios-create">
-                        <label for="subcategory" class="form-label-create">Elija una subcategoria:</label>
-                        <select id="subcategory" name="subcategory" class="form-input-create">
-                            <option value="">
-                                <%= productToEdit.subcategory%>
-                            </option>
-                            <option value="Lámparas">Lámparas</option>
-                            <option value="Iluminacion">Iluminacion</option>
-                            <option value="Interruptores">Interruptores</option>
-                            <option value="Cables">Cables</option>
-                            <option value="Canalizaciones">Canalizaciones</option>
-                            <option value="Otra">Otra</option>
-                        </select>
+                        <label for="vat" class="form-label-create">IVA</label>
+                        <input value="<%= productToEdit.vat %>" class="form-input-create" type="number" name="vat" id="vat"/>
                     </div>
+                    <!-- Discount -->
                     <div class="formularios-create">
-                        <label for="nonvatPrice" class="form-label-create">Precio del producto:</label>
-                        <input class="form-input-create" value="<%= productToEdit.nonvatPrice%>" type="number"
-                            name="nonvatPrice" id="nonvatPrice" placeholder="Ej: 27778" />
+                        <label for="discount" class="form-label-create">Descuento</label>
+                        <input value="<%= productToEdit.discount %>" class="form-input-create" type="number" name="discount" id="discount"/>
                     </div>
+                    <!-- Stock -->
                     <div class="formularios-create">
-                        <label for="discount" class="form-label-create">Descuento:</label>
-                        <input class="form-input-create" value="<%= productToEdit.discount%>" type="number"
-                            name="discount" id="discount" placeholder="Ej: 15" />
+                        <label for="stock" class="form-label-create">Stock inicial</label>
+                        <input value="<%= productToEdit.stock %>" class="form-input-create" type="number" name="stock" id="stock"/>
                     </div>
+                    <!-- Stock minimo -->
                     <div class="formularios-create">
-                        <label for="status" class="form-label-create">Elija un estado:</label>
-                        <select id="status" value="<% (productToEdit.discount > 0)?" hot-sale": "new" %>"
-
-                            name="status" class="form-input-create">
-                            <option value="new">Nuevo ingreso</option>
-                            <option value="hot-sale">En oferta</option>
-                        </select>
+                        <label for="stock_min" class="form-label-create">Stock minimo</label>
+                        <input value="<%= productToEdit.stock_min %>" class="form-input-create" type="number" name="stock_min" id="stock_min"/>
                     </div>
+                    <!-- Image -->
                     <div class="formularios-create">
-                        <label for="productImage" class="form-label-create">Imagen:</label>
-                        <input type="file" id="productImage" name="productImage" class="form-input-create">
+                        <label for="productImage" class="form-label-create">Imagen</label>
+                        <input type="file" id="productImage" name="productImage"
+                            class="form-input-create">
                     </div>
+                    <!-- Description -->
                     <div class="formularios-create-description">
-                        <label for="description" class="form-label-create">Describa su producto:</label>
-                        <textarea name="description" id="description"
-                            class="form-input-create-description"><%= productToEdit.description %></textarea>
+                        <label for="description" class="form-label-create">Descripción</label>
+                        <textarea name="description" id="description" class="form-input-create-description"><%= productToEdit.description %></textarea>
                     </div>
                     <div class="formularios-create-button">
                         <input class="button-create" type="submit" value="Editar producto" />

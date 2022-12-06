@@ -61,9 +61,9 @@ const productsController = {
   store: (req, res) => {
     db.Products.create({
       ...req.body,
-      image: req.file
-        ? req.file.filename
-        : "img-default-" + req.body.category_id.toLowerCase() + ".jpg",
+      // image: req.file
+      //   ? req.file.filename
+      //   : "img-default-" + req.body.category_id.toLowerCase() + ".jpg",
     })
       .then(() => {
         console.log("producto creado");
@@ -73,46 +73,59 @@ const productsController = {
   },
   //
   //
-  //HASTA ACÁ
   edit: (req, res) => {
-    let id = req.params.id;
-    let productToEdit = products.find((oneProduct) => oneProduct.id == id);
-
-    res.render("productEdit", {
-      productToEdit,
+    //busco el producto a editar
+    let idProduct = req.params.id;
+    let productToEdit = db.Products.findByPk(idProduct, {
+      include: ["brand", "subcategory", "images"], //FALTA VINCULAR CATEGORIES
+      raw: true,
+      nest: true,
     });
+    //llevo categories, subcategories y brands al formulario del edit
+    let categories = db.Categories.findAll();
+    let subcategories = db.Subcategories.findAll();
+    let brands = db.Brands.findAll();
+
+    Promise.all([productToEdit, categories, subcategories, brands])
+      .then(([productToEdit, categories, subcategories, brands]) => {
+        res.render("productEdit", {
+          productToEdit,
+          categories,
+          subcategories,
+          brands,
+        });
+      })
+      .catch((error) => res.send(error));
   },
   //
   //
   update: (req, res) => {
-    let id = req.params.id;
-    let productToEdit = products.find((product) => product.id == id);
-    productToEdit = {
-      id: productToEdit.id,
-      ...req.body,
-      image: productToEdit.image,
-    };
-
-    let newProducts = products.map((product) => {
-      //nueva variable con todos los productos + el editado
-      if (product.id == productToEdit.id) {
-        return (product = { ...productToEdit });
-      }
-      return product;
-    });
-    fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, " "));
-    res.redirect("/products/");
+    let idProduct = req.params.id;
+    db.Products.update(
+      {
+        ...req.body,
+        // image: req.file
+        //   ? req.file.filename
+        //   : "img-default-" + req.body.category_id.toLowerCase() + ".jpg",
+      },
+      { where: { id: idProduct } }
+    )
+      .then(() => {
+        console.log("producto editado");
+        return res.redirect("/products/");
+      })
+      .catch((error) => res.send(error));
   },
   //
   //
   delete: (req, res) => {
-    let id = req.params.id;
-    let finalProducts = products.filter((product) => product.id != id);
-    fs.writeFileSync(
-      productsFilePath,
-      JSON.stringify(finalProducts, null, " ")
-    );
-    res.redirect("/products/"); //hacia una ruta
+    let idProduct = req.params.id;
+    db.Products.destroy({ where: { id: idProduct } })
+      .then(() => {
+        console.log("producto eliminado");
+        return res.redirect("/products/");
+      })
+      .catch((error) => res.send(error));
   },
   //
   //

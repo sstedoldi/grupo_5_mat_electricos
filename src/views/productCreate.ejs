@@ -20,19 +20,19 @@
             <form action="/products/" method="POST" enctype="multipart/form-data">
                 <div class="div-create-forms">
                     <!-- Category -->
-                    <div class="formularios-create">
+                    <!-- <div class="formularios-create">
                         <label for="category" class="form-label-create">Categoria</label>
                         <select id="category" name="category_id" class="form-input-create">
                         <option value="" disabled selected>- Seleccione la categoria -</option>
                           <% categories.forEach(category => { %>
                           <option value="<%= category.id %>"><%= category.name %></option>
                           <% }); %></select>
-                    </div>
-                    <!-- Subcategory -->
+                    </div> -->
+                    <!-- Subcategory, aunque figure como Category -->
                     <div class="formularios-create">
-                        <label for="subcategory" class="form-label-create">Subcategoria</label>
+                        <label for="subcategory" class="form-label-create">Categoria</label>
                         <select id="subcategory" name="subcategory_id" class="form-input-create">
-                        <option value="" disabled selected>- Seleccione la subcategoria -</option>
+                        <option value="" disabled selected>- Seleccione la categoria -</option>
                           <% subcategories.forEach(subcategory => { %>
                           <option value="<%= subcategory.id %>"><%= subcategory.name %></option>
                           <% }); %></select>
@@ -48,7 +48,7 @@
                     </div>
                     <!-- Price -->
                     <div class="formularios-create">
-                        <label for="nonvatPrice" class="form-label-create">Precio</label>
+                        <label for="nonvatPrice" class="form-label-create">Precio (sin IVA)</label>
                         <input class="form-input-create" type="number" name="nonvatPrice" id="nonvatPrice"
                             placeholder="Ej: 2.785" />
                     </div>
@@ -89,7 +89,6 @@
                     </div>
                     <div class="formularios-create-button">
                         <input class="button-create" type="submit" value="Crear producto" />
-                    </div>
                     </div>
                 </div>
             </form>
