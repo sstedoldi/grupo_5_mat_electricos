@@ -159,22 +159,40 @@ const usersController = {
   //
   //
   editUser: (req, res) => {
+    // // let userId = req.params.id;
+    // // let userToEdit = users.find((oneUser) => oneUser.id == userId);
+    // // res.render("userEdit", {
+    // //   userToEdit,
+    // // });
     // let userId = req.params.id;
-    // let userToEdit = users.find((oneUser) => oneUser.id == userId);
-    // res.render("userEdit", {
-    //   userToEdit,
+    // let promUsers = db.Users.findByPk(userId, {
+    //   include: ["orders", "condition"],
     // });
+    // let promOrders = db.Orders.findAll();
+    // // let promConditions = db.Conditions.findAll();
+    // Promise.all([promUsers, promOrders])
+    //   .then(([User, allOrders]) => {
+    //     return res.render(path.resolve(__dirname, "..", "views", "usersEdit"), {
+    //       User,
+    //       allOrders
+    //     });
+    //   })
+    //   .catch((error) => res.send(error));
+      
     let userId = req.params.id;
-    let promUsers = db.Users.findByPk(userId, {
-      include: ["orders", "condition"],
+    let userToEdit = db.Users.findByPk(userId, {
+      // include: ["orders"], 
+      // raw: true,
+      // nest: true,
     });
-    let promOrders = db.Orders.findAll();
-    // let promConditions = db.Conditions.findAll();
-    Promise.all([promUsers, promOrders])
-      .then(([User, allOrders]) => {
-        return res.render(path.resolve(__dirname, "..", "views", "usersEdit"), {
-          User,
-          allOrders
+    
+    // let promOrders = db.Orders.findAll();
+
+    Promise.all([userToEdit])
+      .then(([userToEdit]) => {
+        res.render("userEdit", {
+          userToEdit,
+          // promOrders
         });
       })
       .catch((error) => res.send(error));
@@ -206,13 +224,14 @@ const usersController = {
     let id = req.params.id;
     db.Users.update(
       {
-        name: req.body.name,
-        userImage: req.file ? req.file.filename : userToEdit.userImage,
-        lastName: req.body.lastName,
-        birthDate: req.body.birthDate,
-        email: req.body.email,
-        password: req.body.password,
-        conditions: req.body.conditions,
+        // name: req.body.name,
+        // userImage: req.file ? req.file.filename : userToEdit.userImage,
+        // lastName: req.body.lastName,
+        // birthDate: req.body.birthDate,
+        // email: req.body.email,
+        // password: req.body.password,
+        // conditions: req.body.conditions,
+        ...req.body
       },
       {
         where: { id: id },
