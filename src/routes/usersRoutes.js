@@ -46,7 +46,7 @@ var multerStorage = multer.diskStorage({
     cb(null, "public/images/users");
   },
   filename: (req, file, cb) => {
-    cb(null, "img-" + Date.now() + path.extname(file.originalname));
+    cb(null, "img-" + req.body.name + req.body.lastName +".jpg"); //CAMBIE EL NOMBRE DE COMO SE GUARDA LA IMAGEN DENTRO DE IMAGES
   },
 });
 

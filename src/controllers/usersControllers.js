@@ -1,5 +1,7 @@
 ////Primary modules
 const fs = require("fs");
+const express = require("express");
+const multer = require("multer");
 const path = require("path");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
@@ -84,7 +86,7 @@ const usersController = {
         birthDate: req.body.birthDate, 
         password: req.body.password,
         address: req.body.address,
-        image: req.body.userImage, 
+        image: "img-" + req.body.name + req.body.lastName +".jpg", //CAMBIE EL NOMBRE DE COMO SE GUARDA LA IMAGEN EN LA BD.
         condition_id: 2,
         ...req.body
       })
