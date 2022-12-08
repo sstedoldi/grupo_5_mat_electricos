@@ -41,9 +41,9 @@ module.exports = (sequelize, dataTypes) => {
     stock_min: {
       type: dataTypes.INTEGER,
     },
-    img: {
+    image: {
       type: dataTypes.STRING(300),
-    }
+    },
   };
 
   let config = {

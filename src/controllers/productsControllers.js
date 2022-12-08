@@ -17,7 +17,7 @@ const productsController = {
   //lista todos los productos
   index: (req, res) => {
     db.Products.findAll({
-      include: ["brand", "subcategory", "image"], //FALTA VINCULAR CATEGORIES
+      include: ["brand", "subcategory"], //FALTA VINCULAR CATEGORIES
       raw: true,
       nest: true,
       limit: 20, //provisorio, hasta agregar el offset
@@ -33,7 +33,7 @@ const productsController = {
   detail: (req, res) => {
     let id = req.params.id;
     db.Products.findByPk(id, {
-      include: ["brand", "subcategory", "image"], //FALTA VINCULAR CATEGORIES
+      include: ["brand", "subcategory"], //FALTA VINCULAR CATEGORIES
       raw: true,
       nest: true,
     }).then((product) => {
@@ -59,24 +59,24 @@ const productsController = {
   //
   //
   store: (req, res) => {
-    req.img = req.file ? req.file.filename : "default-image.png",
-    db.Products.create({
-      name: req.body.name,
-      description: req.body.description,
-      vat: req.body.vat,
-      nonvatPrice: req.body.nonvatPrice,
-      discount:  req.body.discount,
-      subcategory_id:  req.body.subcategory_id, 
-      brand_id:  req.body.brand_id,
-      stock:  req.body.stock,
-      stock_min:  req.body.stock_min,
-      img: req.img,
-    })
-      .then(() => {
-        console.log("producto creado");
-        return res.redirect("/products/");
+    (req.image = req.file ? req.file.filename : "default-image.png"),
+      db.Products.create({
+        name: req.body.name,
+        description: req.body.description,
+        vat: req.body.vat,
+        nonvatPrice: req.body.nonvatPrice,
+        discount: req.body.discount,
+        subcategory_id: req.body.subcategory_id,
+        brand_id: req.body.brand_id,
+        stock: req.body.stock,
+        stock_min: req.body.stock_min,
+        image: req.image,
       })
-      .catch((error) => res.send(error));
+        .then(() => {
+          console.log("producto creado");
+          return res.redirect("/products/");
+        })
+        .catch((error) => res.send(error));
   },
   //
   //
@@ -84,7 +84,7 @@ const productsController = {
     //busco el producto a editar
     let idProduct = req.params.id;
     let productToEdit = db.Products.findByPk(idProduct, {
-      include: ["brand", "subcategory", "image"], //FALTA VINCULAR CATEGORIES
+      include: ["brand", "subcategory"], //FALTA VINCULAR CATEGORIES
       raw: true,
       nest: true,
     });
@@ -100,7 +100,6 @@ const productsController = {
           categories,
           subcategories,
           brands,
-        
         });
       })
       .catch((error) => res.send(error));
@@ -109,37 +108,34 @@ const productsController = {
   //
   update: (req, res) => {
     let idProduct = req.params.id;
-    let productToEdit = db.Products.findByPk(idProduct, {
-
-    })
-
-    Promise.all([productToEdit])
-    .then(([productToEdit]) => {
-      res.render("productEdit", {
-        productToEdit,
-      });
-      })
-        .catch((error) => res.send(error));
-        //req.img = req.file ? req.file.filename : productToEdit.img,
-    db.Products.update({
-          name: req.body.name,
-          description: req.body.description,
-          vat: req.body.vat,
-          nonvatPrice: req.body.nonvatPrice,
-          discount:  req.body.discount,
-          subcategory_id:  req.body.subcategory_id, 
-          brand_id:  req.body.brand_id,
-          stock:  req.body.stock,
-          stock_min:  req.body.stock_min,
-          //img: req.img,
+    //provisorio, para cambiar imagen
+    // db.Products.findByPk(idProduct, {})
+    //   .then((productToEdit) => {
+    //     req.image = req.file ? req.file.filename : productToEdit.image;
+    //   })
+    //   .catch((error) => res.send(error));
+    // //
+    // console.log(req.image);
+    db.Products.update(
+      {
+        name: req.body.name,
+        description: req.body.description,
+        vat: req.body.vat,
+        nonvatPrice: req.body.nonvatPrice,
+        discount: req.body.discount,
+        subcategory_id: req.body.subcategory_id,
+        brand_id: req.body.brand_id,
+        stock: req.body.stock,
+        stock_min: req.body.stock_min,
+        image: req.image, //no está editando la imagen
       },
-      { 
-        where: { id: idProduct }, 
+      {
+        where: { id: idProduct },
       }
     )
       .then(() => {
         console.log("producto editado");
-        return res.redirect("/products/productDetail/" + idProduct );
+        return res.redirect("/products/productDetail/" + idProduct);
       })
       .catch((error) => res.send(error));
   },
@@ -163,12 +159,12 @@ const productsController = {
   //
   search: (req, res) => {
     let query = req.query.search;
-    let productsFiltered = db.Products.filter(({product}) => {
+    let productsFiltered = db.Products.filter(({ product }) => {
       [
         product.category.includes(query) ||
-        product.subcategory.includes(query) ||
-        product.description.includes(query) ||
-        product.brand.includes(query)
+          product.subcategory.includes(query) ||
+          product.description.includes(query) ||
+          product.brand.includes(query),
       ];
     });
     res.render("productSearch", {
