@@ -123,10 +123,12 @@ const usersController = {
   //
   logout: (req, res) => {
     req.session.usuarioLogueado = undefined;
+    res.clearCookie('recordame');
+    req.session.destroy();
     //Agrego el false de esta variable
     res.locals.isAnUserLogged = false;
 
-    res.redirect("/");
+   return res.redirect("/");
   },
   //
   //
