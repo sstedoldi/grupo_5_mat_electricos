@@ -69,7 +69,7 @@ router.get("/logout", usersController.logout);
 //Register view
 router.get("/register", guestMiddleware, usersController.register);
 //Creating new user
-router.post("/", upload.single("userImage"), registerValidation, usersController.registerUser);
+router.post("/", upload.single("image"), registerValidation, usersController.registerUser);
 //Edit user
 router.get("/edit/:id", usersController.editUser); //le quito el authMiddleware para trabajarlo mas facil
 //Update user

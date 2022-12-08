@@ -155,26 +155,20 @@ const usersController = {
   //
   updateUser: (req, res) => {
     let userId = req.params.id;
-    let userToEdit = db.Users.findByPk(userId, {
-    
-    });
+    let userToEdit = db.Users.findByPk(userId)
 
-    Promise.all([userToEdit])
-      .then(([userToEdit]) => {
+    // Promise.all([userToEdit])
+      .then((userToEdit) => {
         res.render("userEdit", {
           userToEdit,
          
         });
       })
       .catch((error) => res.send(error));
-      req.image = req.file ? req.file.filename : userToEdit.image,
-    db.Users.update(
+      db.Users.update(
       {
-        name: req.body.name,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        image: req.image, 
-        
+        ...req.body,
+        image: req.file ? req.file.filename : userToEdit.image,  
       },
       {
         where: { id: userId },
@@ -182,7 +176,7 @@ const usersController = {
     )
       .then(() => {
         console.log("Pase por aca")
-        return res.redirect("/")
+        return res.redirect("/users/detail/" + userId)
       })
       .catch((error) => res.send(error));
   },

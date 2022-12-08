@@ -17,7 +17,7 @@ const productsController = {
   //lista todos los productos
   index: (req, res) => {
     db.Products.findAll({
-      include: ["brand", "subcategory", "images"], //FALTA VINCULAR CATEGORIES
+      include: ["brand", "subcategory", "image"], //FALTA VINCULAR CATEGORIES
       raw: true,
       nest: true,
       limit: 20, //provisorio, hasta agregar el offset
@@ -33,7 +33,7 @@ const productsController = {
   detail: (req, res) => {
     let id = req.params.id;
     db.Products.findByPk(id, {
-      include: ["brand", "subcategory", "images"], //FALTA VINCULAR CATEGORIES
+      include: ["brand", "subcategory", "image"], //FALTA VINCULAR CATEGORIES
       raw: true,
       nest: true,
     }).then((product) => {
@@ -84,7 +84,7 @@ const productsController = {
     //busco el producto a editar
     let idProduct = req.params.id;
     let productToEdit = db.Products.findByPk(idProduct, {
-      include: ["brand", "subcategory", "images"], //FALTA VINCULAR CATEGORIES
+      include: ["brand", "subcategory", "image"], //FALTA VINCULAR CATEGORIES
       raw: true,
       nest: true,
     });
@@ -120,7 +120,7 @@ const productsController = {
       });
       })
         .catch((error) => res.send(error));
-        req.img = req.file ? req.file.filename : productToEdit.img,
+        //req.img = req.file ? req.file.filename : productToEdit.img,
     db.Products.update({
           name: req.body.name,
           description: req.body.description,
@@ -131,7 +131,7 @@ const productsController = {
           brand_id:  req.body.brand_id,
           stock:  req.body.stock,
           stock_min:  req.body.stock_min,
-          img: req.img,
+          //img: req.img,
       },
       { 
         where: { id: idProduct }, 
@@ -139,7 +139,7 @@ const productsController = {
     )
       .then(() => {
         console.log("producto editado");
-        return res.redirect("/products/");
+        return res.redirect("/products/productDetail/" + idProduct );
       })
       .catch((error) => res.send(error));
   },
