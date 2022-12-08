@@ -15,7 +15,7 @@
     <main>
         <div class="form-product-create">
             <h3 class="form-create-title"> Acá podes actualizar tus datos <%= userToEdit.name %></h3>
-            <form action="/users/update/<%= userToEdit.id %>?_method=PUT" method="POST">
+            <form action="/users/update/<%= userToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="div-create-forms">
                     <div class="formularios-create">
                         <label for="name" class="form-label-create">Nombre:</label>
@@ -33,8 +33,8 @@
                             name="email" id="email" />
                     </div>
                     <div class="formularios-create">
-                        <label for="image" class="form-label-create">Imagen:</label>
-                        <input type="file" id="image" name="image" class="form-input-create">
+                        <label for="userImage" class="form-label-create">Imagen:</label>
+                        <input type="file" id="userImage" name="userImage" class="form-input-create">
                     </div>
                     <div  class="formularios-create-button">
                         <input class="edit-button" type="submit" value="Editar Usuario" />

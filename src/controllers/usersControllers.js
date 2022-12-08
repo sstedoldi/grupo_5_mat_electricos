@@ -54,41 +54,18 @@ const usersController = {
   //
   //
   registerUser: (req, res) => {
-    // let errors = validationResult(req);
-    // // console.log(errors.mapped());
-    // if (!errors.isEmpty()) {
-    //   let oldData = req.body;
-    //   console.log(errors.mapped());
-    //   return res.render("register", { errors: errors.mapped(), oldData });
-    // } else {
-
-
-
-      // let newUser = {
-      //   id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
-      //   ...req.body,
-      //   password: bcrypt.hashSync(req.body.password, 10),
-      //   userImage: req.file ? req.file.filename : "default-image.png",
-      // };
-      // users.push(newUser);
-      // fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-      // return res.redirect("/users/login/");
       req.image = req.file ? req.file.filename : "default-image.png",
       req.password = bcrypt.hashSync(req.body.password, 10),
       db.Users.create({
-        //id: users.length == 0 ? 1 : users[users.length - 1].id + 1,
-
-//COLOQUE TAL CUAL DEBEN IR LOS DATOS DESDE ACA HASTA LA BD Y FUNCIONA LA CREACION DE USERS
-
         name: req.body.name,
         lastName: req.body.lastName,
         email: req.body.email, 
         birthDate: req.body.birthDate, 
         password: req.body.password,
         address: req.body.address,
-        image: "img-" + req.body.name + req.body.lastName +".jpg", //CAMBIE EL NOMBRE DE COMO SE GUARDA LA IMAGEN EN LA BD.
+        image: req.image, 
         condition_id: 2,
-        ...req.body
+        
       })
       .then(() => {
           return res.redirect("/users/login/");
@@ -159,40 +136,17 @@ const usersController = {
   //
   //
   editUser: (req, res) => {
-    // // let userId = req.params.id;
-    // // let userToEdit = users.find((oneUser) => oneUser.id == userId);
-    // // res.render("userEdit", {
-    // //   userToEdit,
-    // // });
-    // let userId = req.params.id;
-    // let promUsers = db.Users.findByPk(userId, {
-    //   include: ["orders", "condition"],
-    // });
-    // let promOrders = db.Orders.findAll();
-    // // let promConditions = db.Conditions.findAll();
-    // Promise.all([promUsers, promOrders])
-    //   .then(([User, allOrders]) => {
-    //     return res.render(path.resolve(__dirname, "..", "views", "usersEdit"), {
-    //       User,
-    //       allOrders
-    //     });
-    //   })
-    //   .catch((error) => res.send(error));
       
     let userId = req.params.id;
     let userToEdit = db.Users.findByPk(userId, {
-      // include: ["orders"], 
-      // raw: true,
-      // nest: true,
-    });
     
-    // let promOrders = db.Orders.findAll();
+    });
 
     Promise.all([userToEdit])
       .then(([userToEdit]) => {
         res.render("userEdit", {
           userToEdit,
-          // promOrders
+        
         });
       })
       .catch((error) => res.send(error));
@@ -200,56 +154,42 @@ const usersController = {
   //
   //
   updateUser: (req, res) => {
-    // let id = req.params.id;
-    // let userToEdit = users.find((oneUsers) => oneUsers.id == id);
-    // userToEdit.name = req.body.name,
-    // userToEdit.userImage =  req.file ? req.file.filename : userToEdit.userImage;
-    //        // // userToEdit = {
-    //        // //   id: userToEdit.id,
-    //        // //   password: userToEdit.password,
-    //        // //   ...req.body,
-    //        // //   image: req.file ? req.file.filename : userToEdit.imagen, //mantengo imagen vieja si no carga una nueva
-    //        // // };
-    // let newUser = users.map((users) => {
-    //   //nueva variable con todos los usuario + el editado
-    //   if (users.id == userToEdit.id) {
-    //     console.log(users)
-    //     console.log(userToEdit)
-    //     return (users = { ...userToEdit });
-    //   }
-    //   return users;
-    // });
-    // fs.writeFileSync(usersFilePath, JSON.stringify(newUser, null, " "));
-    // res.redirect("/");
-    let id = req.params.id;
+    let userId = req.params.id;
+    let userToEdit = db.Users.findByPk(userId, {
+    
+    });
+
+    Promise.all([userToEdit])
+      .then(([userToEdit]) => {
+        res.render("userEdit", {
+          userToEdit,
+         
+        });
+      })
+      .catch((error) => res.send(error));
+      req.image = req.file ? req.file.filename : userToEdit.image,
     db.Users.update(
       {
-        // name: req.body.name,
-        // userImage: req.file ? req.file.filename : userToEdit.userImage,
-        // lastName: req.body.lastName,
-        // birthDate: req.body.birthDate,
-        // email: req.body.email,
-        // password: req.body.password,
-        // conditions: req.body.conditions,
-        ...req.body
+        name: req.body.name,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        image: req.image, 
+        
       },
       {
-        where: { id: id },
+        where: { id: userId },
       }
     )
       .then(() => {
-        return res.redirect("/");
+        console.log("Pase por aca")
+        return res.redirect("/")
       })
       .catch((error) => res.send(error));
   },
   //
   //
   deleteUser: (req, res) => {
-    // let id = req.params.id;
-    // let finalUsers = users.filter((user) => user.id != id);
-    // fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
-    // req.session.usuarioLogueado = undefined;
-    // res.redirect("/"); //hacia una ruta
+  
     let id = req.params.id;
     db.Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
       .then(() => {

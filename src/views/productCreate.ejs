@@ -28,11 +28,19 @@
                           <option value="<%= category.id %>"><%= category.name %></option>
                           <% }); %></select>
                     </div> -->
-                    <!-- Subcategory, aunque figure como Category -->
+                    <!--  Category -->
                     <div class="formularios-create">
-                        <label for="subcategory" class="form-label-create">Categoria</label>
-                        <select id="subcategory" name="subcategory_id" class="form-input-create">
+                        <label for="category" class="form-label-create">Categoria</label>
+                        <select id="category" name="category_id" class="form-input-create">
                         <option value="" disabled selected>- Seleccione la categoria -</option>
+                          <% categories.forEach(category => { %>
+                          <option value="<%= category.id %>"><%= category.name %></option>
+                          <% }); %></select>
+                    </div>
+                    <div class="formularios-create">
+                        <label for="subcategory" class="form-label-create">Subcategoria</label>
+                        <select id="subcategory" name="subcategory_id" class="form-input-create">
+                        <option value="" disabled selected>- Seleccione la Subcategoria -</option>
                           <% subcategories.forEach(subcategory => { %>
                           <option value="<%= subcategory.id %>"><%= subcategory.name %></option>
                           <% }); %></select>

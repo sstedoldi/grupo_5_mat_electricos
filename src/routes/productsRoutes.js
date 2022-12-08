@@ -26,7 +26,7 @@ var multerStorage = multer.diskStorage({
     cb(null, "public/images/products");
   },
   filename: (req, file, cb) => {
-    cb(null, "img-" + Date.now() + path.extname(file.originalname));
+    cb(null, "img-" + Date.now() +".jpg"); //CAMBIE EL NOMBRE DE COMO SE GUARDA LA IMAGEN DENTRO DE IMAGES
   },
 });
 
@@ -45,12 +45,7 @@ router.get("/productDetail/:id", productsController.detail);
 //Monstrar form para crear un producto
 router.get("/create", productsController.create);
 //Recibir datos del form para producto nuevo
-router.post(
-  "/",
-  upload.single("productImage"),
-  productValidation,
-  productsController.store
-);
+router.post( "/", upload.single("productImage"), productValidation, productsController.store);
 //Form para modificar un producto, con boton "editar"
 router.get("/edit/:id", productsController.edit);
 //Recibir datos del form para producto editado

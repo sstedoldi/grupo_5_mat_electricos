@@ -59,11 +59,18 @@ const productsController = {
   //
   //
   store: (req, res) => {
+    req.img = req.file ? req.file.filename : "default-image.png",
     db.Products.create({
-      ...req.body,
-      // image: req.file
-      //   ? req.file.filename
-      //   : "img-default-" + req.body.category_id.toLowerCase() + ".jpg",
+      name: req.body.name,
+      description: req.body.description,
+      vat: req.body.vat,
+      nonvatPrice: req.body.nonvatPrice,
+      discount:  req.body.discount,
+      subcategory_id:  req.body.subcategory_id, 
+      brand_id:  req.body.brand_id,
+      stock:  req.body.stock,
+      stock_min:  req.body.stock_min,
+      img: req.img,
     })
       .then(() => {
         console.log("producto creado");
@@ -93,6 +100,7 @@ const productsController = {
           categories,
           subcategories,
           brands,
+        
         });
       })
       .catch((error) => res.send(error));
@@ -101,14 +109,33 @@ const productsController = {
   //
   update: (req, res) => {
     let idProduct = req.params.id;
-    db.Products.update(
-      {
-        ...req.body,
-        // image: req.file
-        //   ? req.file.filename
-        //   : "img-default-" + req.body.category_id.toLowerCase() + ".jpg",
+    let productToEdit = db.Products.findByPk(idProduct, {
+
+    })
+
+    Promise.all([productToEdit])
+    .then(([productToEdit]) => {
+      res.render("productEdit", {
+        productToEdit,
+      });
+      })
+        .catch((error) => res.send(error));
+        req.img = req.file ? req.file.filename : productToEdit.img,
+    db.Products.update({
+          name: req.body.name,
+          description: req.body.description,
+          vat: req.body.vat,
+          nonvatPrice: req.body.nonvatPrice,
+          discount:  req.body.discount,
+          subcategory_id:  req.body.subcategory_id, 
+          brand_id:  req.body.brand_id,
+          stock:  req.body.stock,
+          stock_min:  req.body.stock_min,
+          img: req.img,
       },
-      { where: { id: idProduct } }
+      { 
+        where: { id: idProduct }, 
+      }
     )
       .then(() => {
         console.log("producto editado");
@@ -136,13 +163,13 @@ const productsController = {
   //
   search: (req, res) => {
     let query = req.query.search;
-    let productsFiltered = products.filter((product) => {
-      return (
+    let productsFiltered = db.Products.filter(({product}) => {
+      [
         product.category.includes(query) ||
         product.subcategory.includes(query) ||
         product.description.includes(query) ||
         product.brand.includes(query)
-      );
+      ];
     });
     res.render("productSearch", {
       query,
