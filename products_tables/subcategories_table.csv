@@ -1,136 +1,136 @@
 subcategory_id,subcategory,category_id
-1,Cables subterráneos,1
-2,ERPLA/ KALOP/ UPERCAB eléctricos,1
-3,Automáticos de tanque,2
-4,Cablecanal,2
-5,Cajas plásticas,2
-6,Canalización,2
-7,Detectores,2
-8,Extractores y mot domiciliarios,2
-9,Fichas,2
-10,Fotocelulas,2
-11,Fuentes de alimentación,2
-12,Jabalinas y pararrayos,2
-13,Llaves de luz,2
-14,Manguera electrica,2
-15,Pilar luz,2
-16,Portalámparas y zócalos,2
-17,Resistencias,2
-18,Sensor de movimiento,2
-19,Timbres /pulsadores,2
-20,Tornillos,2
-21,Transformadores,2
-22,Zapatillas y alargues,2
-23,Energía Solar,3
-24,Aislantes,4
-25,Carros y Plataformas,4
-26,Escaleras,4
-27,Ferretería,4
-28,Grupos electrógenos,4
-29,Herramientas,4
-30,Herramientas de mano,4
-31,Herramientas eléctricas,4
-32,Identificaciones,4
-33,Linternas,4
-34,Pilas,4
-35,Portátiles,4
-36,Aires y calefacción,5
-37,Automatizacion de portones,5
-38,Automotores,5
-39,Cocina,5
-40,Decoración,5
-41,Hogar,5
-42,Pequeños electrodomésticos,5
-43,Termotanques y calefones,5
-44,TV,5
-45,Balastos e Ignitores,6
-46,De Seguridad,6
-47,Estanco,6
-48,Iluminación,6
-49,Industria,6
-50,Infantil,6
-51,Jardín y Exterior,6
-52,Pared,6
-53,Piso y Escritorio,6
-54,Repuestos y Accesorios,6
-55,Secc portafusibles,6
-56,Solar,6
-57,Techo,6
-58,Tiras de led y bañadores,6
-59,Vial,6
-60,ZZ Ofertas,6
-61,Antiexplosivo estanco,7
-62,Aparamenta din,7
-63,Arranques para motores,7
-64,Balizas y sirenas,7
-65,Bandejas portacables,7
-66,Barras De Cobre,7
-67,Baterías,7
-68,Bornes,7
-69,Botoneras/ lentes /selectoras,7
-70,Cajas metálicas,7
-71,Caños,7
-72,Capacitores ilum mot,7
-73,Cargadores,7
-74,Conectores/ Prensacables/ Prensacaños/ Boquillas/ Tuercas,7
-75,Contactores,7
-76,Control de temperatura y presión,7
-77,Convertidores,7
-78,Corrección facor de potencia,7
-79,Electrificación rural,7
-80,Electrobombas,7
-81,Fichas industriales,7
-82,Fuentes switching,7
-83,Fusibles y bases,7
-84,Gabinetes de medición,7
-85,GENERAL,7
-86,Guardamotores,7
-87,Inst medición portátiles,7
-88,Inst medición tableros,7
-89,Interruptores a levas,7
-90,Interruptores de potencia,7
-91,Interruptores diferenciales,7
-92,Interruptores termomagnéticos,7
-93,Límites de carrera/ sensores,7
-94,Medidores,7
-95,Microswitchs,7
-96,Motores,7
-97,PLC/ Reles programables,7
-98,Reles térmicos,7
-99,Reles/ reles de seguridad,7
-100,Seccionadores y conmutadoras,7
-101,Sistemas de Sujeción,7
-102,Temporizadores,7
-103,Terminales,7
-104,Variadores de velocidad motores,7
-105,ZZ Administrativo,7
-106,ZZ Licencias,7
-107,ZZ Varios,7
-108,Lámparas,8
-109,Tubos,8
-110,Cableado estructurado,9
-111,Conectividad Wireless,9
-112,Conectividad,9
-113,Conectores comunicaciones,9
-114,Conexionado,9
-115,Estabilizadores,9
-116,Racks,9
-117,Telecomunicaciones,9
-118,Turbinas,9
-119,UPS / protectores,9
-120,UPS,9
+,Cables subterráneos,
+,ERPLA/ KALOP/ UPERCAB eléctricos,
+,Automáticos de tanque,
+,Cablecanal,
+,Cajas plásticas,
+,Canalización,
+,Detectores,
+,Extractores y mot domiciliarios,
+,Fichas,
+,Fotocelulas,
+,Fuentes de alimentación,
+,Jabalinas y pararrayos,
+,Llaves de luz,
+,Manguera electrica,
+,Pilar luz,
+,Portalámparas y zócalos,
+,Resistencias,
+,Sensor de movimiento,
+,Timbres /pulsadores,
+,Tornillos,
+,Transformadores,
+,Zapatillas y alargues,
+,Energía Solar,
+,Aislantes,
+,Carros y Plataformas,
+,Escaleras,
+,Ferretería,
+,Grupos electrógenos,
+,Herramientas,
+,Herramientas de mano,
+,Herramientas eléctricas,
+,Identificaciones,
+,Linternas,
+,Pilas,
+,Portátiles,
+,Aires y calefacción,
+,Automatizacion de portones,
+,Automotores,
+,Cocina,
+,Decoración,
+,Hogar,
+,Pequeños electrodomésticos,
+,Termotanques y calefones,
+44,TV,
+,Balastos e Ignitores,
+,De Seguridad,
+,Estanco,
+,Iluminación,
+,Industria,
+,Infantil,
+,Jardín y Exterior,
+,Pared,
+,Piso y Escritorio,
+,Repuestos y Accesorios,
+,Secc portafusibles,
+,Solar,
+,Techo,
+,Tiras de led y bañadores,
+,Vial,
+,ZZ Ofertas,
+,Antiexplosivo estanco,
+,Aparamenta din,
+,Arranques para motores,
+,Balizas y sirenas,
+,Bandejas portacables,
+,Barras De Cobre,
+,Baterías,
+,Bornes,
+,Botoneras/ lentes /selectoras,
+,Cajas metálicas,
+,Caños,
+,Capacitores ilum mot,
+,Cargadores,
+,Conectores/ Prensacables/ Prensacaños/ Boquillas/ Tuercas,
+,Contactores,
+,Control de temperatura y presión,
+,Convertidores,
+,Corrección facor de potencia,
+,Electrificación rural,
+,Electrobombas,
+,Fichas industriales,
+,Fuentes switching,
+,Fusibles y bases,
+,Gabinetes de medición,
+85,GENERAL,
+,Guardamotores,
+,Inst medición portátiles,
+,Inst medición tableros,
+,Interruptores a levas,
+,Interruptores de potencia,
+,Interruptores diferenciales,
+,Interruptores termomagnéticos,
+,Límites de carrera/ sensores,
+,Medidores,
+,Microswitchs,
+,Motores,
+,PLC/ Reles programables,
+,Reles térmicos,
+,Reles/ reles de seguridad,
+,Seccionadores y conmutadoras,
+,Sistemas de Sujeción,
+,Temporizadores,
+,Terminales,
+,Variadores de velocidad motores,
+,ZZ Administrativo,
+,ZZ Licencias,
+,ZZ Varios,
+,Lámparas,
+,Tubos,
+,Cableado estructurado,
+,Conectividad Wireless,
+,Conectividad,
+,Conectores comunicaciones,
+,Conexionado,
+,Estabilizadores,
+,Racks,
+,Telecomunicaciones,
+,Turbinas,
+,UPS / protectores,
+120,UPS,
 121,SALDOS,10
-122,Alarmas,11
-123,Cámaras,11
-124,Cerraduras,11
-125,Control de acceso,11
-126,Equipos de grabación,11
-127,Incendio,11
-128,Seguridad,11
-129,Centrales telefónicas,12
-130,Porteros,12
-131,Porteros y buzones,12
-132,Telefonia y Porteros,12
-133,Teléfonos,12
-134,Alarmas y semáforos,13
-135,Material normalizado,13
+,Alarmas,
+,Cámaras,
+,Cerraduras,
+,Control de acceso,
+,Equipos de grabación,
+,Incendio,
+,Seguridad,
+,Centrales telefónicas,
+,Porteros,
+,Porteros y buzones,
+,Telefonia y Porteros,
+,Teléfonos,
+,Alarmas y semáforos,
+,Material normalizado,

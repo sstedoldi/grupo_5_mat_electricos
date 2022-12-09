@@ -21,17 +21,17 @@
             <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST">
                 <div class="div-create-forms">
                     <!-- Category -->
-                    <!-- <div class="formularios-create">
+                    <div class="formularios-create">
                         <label for="category" class="form-label-create">Categoria</label>
                         <select id="category" name="category_id" class="form-input-create">
-                        <option value="" disabled selected>- Seleccione la categoria -</option>
+                        <option value=""><%= productToEdit.category.name %></option>
                           <% categories.forEach(category => { %>
                           <option value="<%= category.id %>"><%= category.name %></option>
                           <% }); %></select>
-                    </div> -->
+                    </div>
                     <!-- Subcategory, aunque figure como Category -->
                     <div class="formularios-create">
-                        <label for="subcategory" class="form-label-create">Categoria</label>
+                        <label for="subcategory" class="form-label-create">Subcategoria</label>
                         <select id="subcategory" name="subcategory_id" class="form-input-create">
                         <option value="<%= productToEdit.subcategory_id %>"><%= productToEdit.subcategory.name %></option>
                           <% subcategories.forEach(subcategory => { %>

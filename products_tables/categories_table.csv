@@ -1,14 +1,14 @@
 id,category
-1,Cables
-2,Elect Domiciliaria
-3,Energía Solar
-4,Herramientas
-5,Hogar
-6,Iluminación
-7,Industria
-8,Lámparas
-9,Redes
+1,CABLES
+2,ELECT DOMICILIARIA
+3,ENERGÍA SOLAR
+4,HERRAMIENTAS
+5,HOGAR
+6,ILUMINACIÓN
+7,INDUSTRIA
+8,LÁMPARAS
+9,REDES
 10,SALDOS
-11,Seguridad
-12,Telefonía y Porteros
-13,Vía Pública
+11,SEGURIDAD
+12,TELEFONÍA Y PORTEROS
+13,VÍA PÚBLICA
