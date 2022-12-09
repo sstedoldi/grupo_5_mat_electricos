@@ -85,7 +85,7 @@ const productsController = {
     //busco el producto a editar
     let idProduct = req.params.id;
     let productToEdit = db.Products.findByPk(idProduct, {
-      include: ["brand", "category", "subcategory"], //FALTA VINCULAR CATEGORIES
+      include: ["brand", "category", "subcategory"],
       raw: true,
       nest: true,
     });
