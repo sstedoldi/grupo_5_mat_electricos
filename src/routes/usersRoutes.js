@@ -46,7 +46,7 @@ var multerStorage = multer.diskStorage({
     cb(null, "public/images/users");
   },
   filename: (req, file, cb) => {
-    cb(null, "img-" + Date.now() +".jpg"); //CAMBIE EL NOMBRE DE COMO SE GUARDA LA IMAGEN DENTRO DE IMAGES
+    cb(null, "img-" + Date.now() +".jpg"); 
   },
 });
 
@@ -73,7 +73,7 @@ router.post("/", upload.single("image"), registerValidation, usersController.reg
 //Edit user
 router.get("/edit/:id", usersController.editUser); //le quito el authMiddleware para trabajarlo mas facil
 //Update user
-router.put("/update/:id", upload.single("userImage"), authMiddleware, usersController.updateUser);
+router.put("/update/:id", upload.single("image"), authMiddleware, usersController.updateUser);
 //Delete user
 router.delete("/delete/:id", usersController.deleteUser);
 //Delete Users as admin

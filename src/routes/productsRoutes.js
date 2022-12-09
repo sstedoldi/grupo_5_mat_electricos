@@ -45,16 +45,11 @@ router.get("/productDetail/:id", productsController.detail);
 //Monstrar form para crear un producto
 router.get("/create", productsController.create);
 //Recibir datos del form para producto nuevo
-router.post(
-  "/",
-  upload.single("image"),
-  productValidation,
-  productsController.store
-);
+router.post("/", upload.single("image"), productValidation, productsController.store);
 //Form para modificar un producto, con boton "editar"
 router.get("/edit/:id", productsController.edit);
 //Recibir datos del form para producto editado
-router.put("/:id", productsController.update); //FALTA EL MULTER ACA??? upload.single("image"),
+router.put("/:id", upload.single("image"), productsController.update); //FALTA EL MULTER ACA??? upload.single("image"),
 //Eliminar un producto
 router.delete("/delete/:id", productsController.delete);
 

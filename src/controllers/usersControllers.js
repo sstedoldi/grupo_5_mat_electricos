@@ -176,11 +176,9 @@ const usersController = {
         where: { id: userId },
       }
     )
-      .then(() => {
-        console.log("Pase por aca")
+    
         return res.redirect("/users/detail/" + userId)
-      })
-      .catch((error) => res.send(error));
+    
   },
   //
   //
