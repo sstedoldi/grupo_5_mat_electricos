@@ -18,8 +18,8 @@
     <main class="main-product">
         <div class="product-figure-info">
             <div class="product-figure">
-                <img src=<%= (product.image != undefined) ? "/images/products/"+ product.image : "/images/products/default-image.jpg" %>
-                width="360" alt="img-<%= product.subcategory.name %>.jpg" />
+                <img src=<%= (product.image != undefined) ? "/images/products/"+ product.image+"" : "/images/products/img-default-"+product.category.name+".jpg" %>
+                width="360" alt="img-<%= product.category.name %>.jpg" />
             </div>
             <div class="product-info">
                 <div class="product-info-title">
@@ -30,8 +30,8 @@
                         <%= product.brand.name %>
                     </p>
                     <p class="product-info-brand">
-                        <!-- FALTA GATEGORY -->
-                    </p>
+                        <%= product.category.name %>
+                    </p>                    
                     <p class="product-info-brand">
                         <%= product.subcategory.name %>
                     </p>

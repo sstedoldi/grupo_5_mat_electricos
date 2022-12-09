@@ -30,16 +30,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Electricidad_Belgrano`.`brands`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Electricidad_Belgrano`.`brands` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `Electricidad_Belgrano`.`subcategories`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Electricidad_Belgrano`.`subcategories` (
@@ -53,6 +43,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `Electricidad_Belgrano`.`brands`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Electricidad_Belgrano`.`brands` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `Electricidad_Belgrano`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Electricidad_Belgrano`.`products` (
@@ -62,12 +62,15 @@ CREATE TABLE IF NOT EXISTS `Electricidad_Belgrano`.`products` (
   `vat` FLOAT NOT NULL DEFAULT 21.0,
   `nonvatPrice` FLOAT NOT NULL,
   `discount` INT NULL,
+  `category_id` INT NOT NULL, /*provisorio, directo al producto*/
   `subcategory_id` INT NOT NULL,
   `brand_id` INT NOT NULL,
   `stock` INT NOT NULL DEFAULT 0,
   `stock_min` INT NULL,
+  `image` TEXT NOT NULL, /*provisorio, para un única imagen por producto*/
   PRIMARY KEY (`id`),
   FOREIGN KEY (`brand_id`) REFERENCES `Electricidad_Belgrano`.`brands` (`id`),
+  FOREIGN KEY (`category_id`) REFERENCES `Electricidad_Belgrano`.`categories` (`id`), /*provisorio, directo al producto*/
   FOREIGN KEY (`subcategory_id`) REFERENCES `Electricidad_Belgrano`.`subcategories` (`id`)
 )
 ENGINE = InnoDB;
@@ -121,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `Electricidad_Belgrano`.`orders` (
 )
 ENGINE = InnoDB;
 
-
+/*
 -- -----------------------------------------------------
 -- Table `Electricidad_Belgrano`.`images`
 -- -----------------------------------------------------
@@ -145,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `Electricidad_Belgrano`.`products_images` (
   FOREIGN KEY (`images_id`) REFERENCES `Electricidad_Belgrano`.`images` (`id`)
 )
 ENGINE = InnoDB;
-
+*/
 
 -- -----------------------------------------------------
 -- Table `Electricidad_Belgrano`.`products_orders`

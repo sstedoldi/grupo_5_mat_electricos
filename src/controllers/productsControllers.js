@@ -17,7 +17,7 @@ const productsController = {
   //lista todos los productos
   index: (req, res) => {
     db.Products.findAll({
-      include: ["brand", "subcategory"], //FALTA VINCULAR CATEGORIES
+      include: ["category", "subcategory", "brand"],
       raw: true,
       nest: true,
       limit: 20, //provisorio, hasta agregar el offset
@@ -33,10 +33,11 @@ const productsController = {
   detail: (req, res) => {
     let id = req.params.id;
     db.Products.findByPk(id, {
-      include: ["brand", "subcategory"], //FALTA VINCULAR CATEGORIES
+      include: ["category", "subcategory", "brand"],
       raw: true,
       nest: true,
     }).then((product) => {
+      console.log(product.image);
       res.render("productDetail", {
         product,
         toThousand,
