@@ -8,6 +8,7 @@ const path = require("path");
 // const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 let db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 //REGEX of thousand
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -160,19 +161,38 @@ const productsController = {
   //
   search: (req, res) => {
     let query = req.query.search;
-    let productsFiltered = db.Products.filter(({ product }) => {
-      [
-        product.category.includes(query) ||
-          product.subcategory.includes(query) ||
-          product.description.includes(query) ||
-          product.brand.includes(query),
-      ];
-    });
-    res.render("productSearch", {
-      query,
-      productsFiltered,
-      toThousand,
-    });
+    console.log(query);
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+      //filtro solo por description, provisoriamente
+      where: { description: { [Op.like]: "%" + query.toUpperCase() + "%" } },
+      order: [["id", "ASC"]],
+      limit: 20, //provisorio, hasta agregar el offset
+    })
+      .then((productsFound) => {
+        res.render("productSearch", {
+          query,
+          productsFound,
+          toThousand,
+        });
+      })
+      .catch((error) => res.send(error));
+
+    // let productsFiltered = db.Products.filter(({ product }) => {
+    //   [
+    //     product.category.includes(query) ||
+    //       product.subcategory.includes(query) ||
+    //       product.description.includes(query) ||
+    //       product.brand.includes(query),
+    //   ];
+    // });
+    // res.render("productSearch", {
+    //   query,
+    //   productsFiltered,
+    //   toThousand,
+    // });
   },
 };
 
