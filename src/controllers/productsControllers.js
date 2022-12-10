@@ -108,7 +108,7 @@ const productsController = {
   },
   //
   //
-  update: (req, res) => {
+  update: async (req, res) => {
     let idProduct = req.params.id;
     //provisorio, para cambiar imagen
     // db.Products.findByPk(idProduct, {})
@@ -118,6 +118,10 @@ const productsController = {
     //   .catch((error) => res.send(error));
     // //
     // console.log(req.image);
+    let category = await db.Categories.findByPk(req.body.category_id);
+    // console.log(category);
+    // console.log(req.body.category_id);
+    console.log(req.file.filename);
     db.Products.update(
       {
         name: req.body.name,
@@ -125,11 +129,14 @@ const productsController = {
         vat: req.body.vat,
         nonvatPrice: req.body.nonvatPrice,
         discount: req.body.discount,
+        category_id: req.body.category_id,
         subcategory_id: req.body.subcategory_id,
         brand_id: req.body.brand_id,
         stock: req.body.stock,
         stock_min: req.body.stock_min,
-        image: req.image, //no está editando la imagen
+        image: req.file
+          ? req.file.filename
+          : `img-default-${category.name.toLowerCase().replace(" ", "_")}.jpg`,
       },
       {
         where: { id: idProduct },

@@ -18,13 +18,13 @@
         <div class="form-product-create">
             <h3 class="form-create-title"> Edita el producto: <%= productToEdit.id %>
             </h3>
-            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST">
+            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="div-create-forms">
                     <!-- Category -->
                     <div class="formularios-create">
                         <label for="category" class="form-label-create">Categoria</label>
                         <select id="category" name="category_id" class="form-input-create">
-                        <option value=""><%= productToEdit.category.name %></option>
+                        <option value="<%= productToEdit.category.id %>"><%= productToEdit.category.name %></option>
                           <% categories.forEach(category => { %>
                           <option value="<%= category.id %>"><%= category.name %></option>
                           <% }); %></select>
