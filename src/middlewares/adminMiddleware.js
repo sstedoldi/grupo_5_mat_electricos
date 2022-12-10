@@ -1,7 +1,7 @@
 function adminMiddleware(req, res, next) {
   if (
     res.locals.isAnUserLogged &&
-    res.locals.usuarioLogueado.email == "admin@admin.com"
+    res.locals.user.email == "admin@admin.com"
   ) {
     next();
   } else {

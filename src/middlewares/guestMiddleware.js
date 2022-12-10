@@ -1,9 +1,9 @@
 function guestMiddleware(req, res, next) {
-  if (!req.session.usuarioLogueado) {
+  if (!req.session.user) {
     //uso el falsy como condicional
     next();
   } else {
-    //**Completar con un render enviando info del usuarioLogueado
+    //**Completar con un render enviando info del user
     res.send("Esta página es solo para invitados");
   }
 }

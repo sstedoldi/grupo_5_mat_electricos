@@ -8,7 +8,7 @@ function recordameMiddleware(req, res, next) {
   next();
   if (
     req.cookies.recordame != undefined &&
-    req.session.usuarioLogueado == undefined
+    req.session.user == undefined
   ) {
     let usersJSON = fs.readFileSync(usersFilePath, "utf-8");
     let users;
@@ -26,7 +26,7 @@ function recordameMiddleware(req, res, next) {
       }
     }
     //Session
-    req.session.usuarioLogueado = usuarioALoguearse;
+    req.session.user = usuarioALoguearse;
   }
 }
 

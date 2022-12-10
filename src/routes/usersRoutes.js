@@ -71,13 +71,11 @@ router.get("/register", guestMiddleware, usersController.register);
 //Creating new user
 router.post("/", upload.single("image"), registerValidation, usersController.registerUser);
 //Edit user
-router.get("/edit/:id", usersController.editUser); //le quito el authMiddleware para trabajarlo mas facil
+router.get("/edit/:id",authMiddleware, usersController.editUser); //le quito el authMiddleware para trabajarlo mas facil
 //Update user
 router.put("/update/:id", upload.single("image"), authMiddleware, usersController.updateUser);
 //Delete user
 router.delete("/delete/:id", usersController.deleteUser);
-//Delete Users as admin
-router.delete("/deleteAdmin/:id", usersController.deleteUsersAdmin); /// PROVISORIO
 ////
 //**Chequeos provisorios:
 router.get("/check", usersController.check);
