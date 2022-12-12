@@ -31,13 +31,11 @@ const registerValidation = [
   check("birthDate")
     .exists()
     .withMessage("Debe ingresar su fecha de nacimiento"),
+    check("address").isLength({ min: 2 }).withMessage("Debe ingresar direccion"),
   check("email").isEmail().withMessage("Debe ingresar un e-mail valido"),
   check("password")
     .isLength({ min: 8 })
     .withMessage("Debe ingresar una clave de mas de 8 caracteres"),
-  // check("pass_confirm")
-  //   .isLength({ min: 8 })
-  //   .withMessage("Debe ingresar una clave de mas de 8 caracteres")
 ];
 
 //Multer method

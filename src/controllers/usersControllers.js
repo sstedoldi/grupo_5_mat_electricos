@@ -6,17 +6,11 @@ const path = require("path");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const db = require("../database/models");
-// const sequelize = db.sequelize;
-// const { Op } = require("sequelize");
 
 //Llamo al modelo User
 const Users = db.User;
 const Orders = db.Order;
 const Conditions = db.Condition;
-
-//Data managing
-//const usersFilePath = path.join(__dirname, "../data/users.json");
-//const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 //REGEX of thousand
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -45,24 +39,25 @@ const usersController = {
   //
   //
   registerUser: (req, res) => {
-    req.image = req.file ? req.file.filename : "default-image.png";
-    let password = bcrypt.hashSync(req.body.password, 10);
-
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
     db.Users.create({
       name: req.body.name,
       lastName: req.body.lastName,
       email: req.body.email,
       birthDate: req.body.birthDate,
-      password: password,
+      password: bcrypt.hashSync(req.body.password, 10),
       address: req.body.address,
-      image: req.image,
+      image: req.file ? req.file.filename : "default-image.png",
       condition_id: 2,
     })
       .then(() => {
         return res.redirect("/users/login/");
       })
       .catch((error) => res.send(error));
-
+    } else {
+      res.render("register", { errors: errors.mapped(), oldData: req.body });
+    }
   },
   //
   //
@@ -89,58 +84,17 @@ const usersController = {
               }
               res.redirect("/");
             } else {
-              res.render("login", { errors: errors, oldData: req.body });
+              res.render("login", { errors: errors.mapped(), oldData: req.body });
             }
           }
           else {
-            res.render("login", { errors: errors, oldData: req.body });
+            res.render("login", { errors: errors.mapped(), oldData: req.body });
           }
         });
     } else {
-      res.render("login", { errors: errors, oldData: req.body });
+      res.render("login", { errors: errors.mapped(), oldData: req.body });
     }
   },
-
-  // function (req, res) {
-  //    let errors = validationResult(req);
-  //    if (errors.isEmpty()) {
-  //      let usersJSON = fs.readFileSync("./src/data/users.json", {
-  //       // Traigo a todos los usuarios registrados
-  //        errors: errors.errors,
-  //      });
-  //      let users;
-  //      if (usersJSON == "") {
-  //        users = [];
-  //      } else {
-  //        users = JSON.parse(usersJSON);
-  //      }
-  //      let usuarioALoguearse;
-  //      for (let user of users) {
-  //        if (user.email == req.body.email) {
-  //          if (bcrypt.compareSync(req.body.password, user.password)) {
-  //            usuarioALoguearse = user;
-  //            break;
-  //          }
-  //        }
-  //      }
-  //      if (usuarioALoguearse == undefined) {
-  //        return res.render("login", {
-  //          errors: [{ msg: "Credenciales invalidas" }],
-  //        });
-  //      }
-  //      //Session
-  //      req.session.user = usuarioALoguearse;
-  //      //Recordame
-  //      if (req.body.recordame != undefined) {
-  //        res.cookie("recordame", usuarioALoguearse.email, { maxAge: 300000 }); //dejo la cookie en 5 minutos
-  //      }
-  //      //Provisorio
-  //      res.redirect("/");
-  //    } else {
-  //      return res.render("login", { errors: errors.errors });
-  //    }
-  //  },
-
 
   logout: (req, res) => {
     req.session.user = undefined;
@@ -205,8 +159,8 @@ const usersController = {
     if (
       res.locals.isAnUserLogged &&
       res.locals.user.email == "admin@admin.com"
-    ){
-    return res.redirect("/users/detail/" + userId)
+    ) {
+      return res.redirect("/users/detail/" + userId)
     } else {
       return res.redirect("/users/profile")
     }
@@ -217,17 +171,17 @@ const usersController = {
 
     let id = req.params.id;
     db.Users.destroy({ where: { id: id }, force: true }) // force: true es para asegurar que se ejecute la acción
-      .then(() => { 
+      .then(() => {
         if (
-        res.locals.isAnUserLogged &&
-        res.locals.user.email == "admin@admin.com"
-      ){
-      return res.redirect("/users/")
-      } else {
-        req.session.user = undefined
-        return res.redirect("/")
-      }
-        
+          res.locals.isAnUserLogged &&
+          res.locals.user.email == "admin@admin.com"
+        ) {
+          return res.redirect("/users/")
+        } else {
+          req.session.user = undefined
+          return res.redirect("/")
+        }
+
       })
       .catch((error) => res.send(error));
   },

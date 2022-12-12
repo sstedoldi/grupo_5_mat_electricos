@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("partials/head") %>
-    <link rel="stylesheet" href="/css/style-users.css"></link>
-  </head>
-  <!-- <div class="top-header-top">Materiales eléctricos</div> -->
-  <body>
-    <!-- HEADER -->
-    <header class="main-header"><%- include("partials/header") %></header>
-    <!-- &&&& -->
-    <!-- MAIN -->
-    <!-- ERRORES -->
-    <div class="errors">
-      <% if (typeof errors != "undefined"){ %>
-        <!-- <p style="color: red">ERROR</p> -->
-        <ul>
-          <%for (let i = 0; i < errors.length; i++){%>
-            <li><i class="fas fa-exclamation-triangle"></i>
-              <%=errors[i].msg%>
-            </li>
-            <%}%>
-        </ul>
+
+<head>
+  <%- include("partials/head") %>
+    <link rel="stylesheet" href="/css/style-users.css">
+    </link>
+</head>
+<!-- <div class="top-header-top">Materiales eléctricos</div> -->
+
+<body>
+  <!-- HEADER -->
+  <header class="main-header"><%- include("partials/header") %></header>
+  <!-- &&&& -->
+  <!-- MAIN -->
+  <!-- ERRORES -->
+  <div class="errors">
+    <% if (typeof errors !="undefined" ){ %>
+      <p style="color: red">En uno o mas campos hay un error</p>
+      <ul>
+        <%for (let i=0; i < errors.length; i++){%>
+          <li><i class="fas fa-exclamation-triangle"></i>
+            <%=errors[i].msg%>
+          </li>
+          <%}%>
+      </ul>
       <%}%>
+  </div>
+  <main class="main-login">
+    <!-- LOGIN FORM -->
+    <div class="form-login">
+      <form action="/users/login" method="POST">
+        <h3>Inicia sesión</h3>
+        <label for="email">Email</label>
+        <input class="controls" type="email" name="email" placeholder="ej@ejemplo.com"
+          value=" <%= locals.oldData && oldData.email ? oldData.email : "" %>">
+        <div class="errors">
+          <%= locals.errors && errors.email ? errors.email.msg : "" %>
+        </div>
+        <label for="">Contraseña</label>
+        <input class="controls" type="password" name="password" placeholder="contraseña"><br />
+        <div class="errors">
+          <%= locals.errors && errors.password ? errors.password.msg : "" %>
+        </div>
+        <input type="checkbox" name="recordame">
+        <label for="recordame">Recordame</label>
+        <br>
+        <br>
+        <input class="buttons" type="submit" name="login" value="Ingresar" />
+      </form>
+      <br>
+      <p><a href="#">Olvidaste tu contraseña?</a></p>
+      <p><a href="/users/register">Registrate acá</a></p>
     </div>
-    <main class="main-login">
-      <!-- LOGIN FORM -->
-      <div class="form-login">
-        <form action="/users/login" method="POST">
-          <h3>Inicia sesión</h3>
-          <label for="">Email</label>
-          <input
-            class="controls"
-            type="email"
-            name="email"
-            placeholder="ej@ejemplo.com"><br />
-          <label for="">Contraseña</label>
-          <input
-            class="controls"
-            type="password"
-            name="password"
-            placeholder="contraseña"><br />
-          <input type="checkbox" name="recordame">
-          <label for="recordame">Recordame</label>
-          <br>
-          <br>
-          <input class="buttons" type="submit" name="login" value="Ingresar" />
-        </form>
-          <br>
-          <p><a href="#">Olvidaste tu contraseña?</a></p>
-          <p><a href="/users/register">Registrate acá</a></p>
-      </div>
-    </main>
-    <!-- &&&& -->
-    <!-- FOOTER -->
-    <footer class="main-footer"><%- include("partials/footer") %></footer>
-    <!-- &&&& -->
-  </body>
+  </main>
+  <!-- &&&& -->
+  <!-- FOOTER -->
+  <footer class="main-footer"><%- include("partials/footer") %></footer>
+  <!-- &&&& -->
+</body>
+
 </html>

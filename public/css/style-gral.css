@@ -218,14 +218,13 @@ body {
 /* ERRORS STYLES */
 /* &&&&&&&&&&& */
 
-.errors {
-  background-color: darksalmon;
-  color: rgb(79, 0, 19);
+ .errors {
+  color: rgb(216, 6, 6);
   width: 100%;
-  border: 1px solid rgb(79, 0, 19);
-  text-align: center;
-}
+  text-align: center; 
+  margin-bottom: 10px;
+} 
 
-.errors ul {
+ .errors ul {
   list-style: none;
-}
+} 
