@@ -38,7 +38,7 @@ const productsController = {
       raw: true,
       nest: true,
     }).then((product) => {
-      console.log(product.image);
+     
       res.render("productDetail", {
         product,
         toThousand,
@@ -68,6 +68,7 @@ const productsController = {
         vat: req.body.vat,
         nonvatPrice: req.body.nonvatPrice,
         discount: req.body.discount,
+        category_id: req.body.category_id,
         subcategory_id: req.body.subcategory_id,
         brand_id: req.body.brand_id,
         stock: req.body.stock,
@@ -121,7 +122,7 @@ const productsController = {
     let category = await db.Categories.findByPk(req.body.category_id);
     // console.log(category);
     // console.log(req.body.category_id);
-    console.log(req.file.filename);
+    
     db.Products.update(
       {
         name: req.body.name,
