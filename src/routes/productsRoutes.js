@@ -9,17 +9,27 @@ const multer = require("multer");
 
 //Product validation - Todavia falta terminar
 const productValidation = [
-  check("brand").notEmpty().withMessage("Ingresar la marca"),
-  check("vat")
-    .notEmpty()
-    .withMessage("Ingresar el IVA"),
-  check("discount").isNumeric().notEmpty().withMessage("Ingresar el descuento"),
-  check("stock").isNumeric().notEmpty().withMessage("Ingresar el Stock inicial"),
-  check("stock_min").isNumeric().notEmpty().withMessage("Ingresar el Stock"),
-  check("categories").isNumeric().notEmpty().withMessage("Ingresar la categoria"),
-  check("subcategories").notEmpty().withMessage("Ingresar la subcategoria"),
-  check("nonvatPrice").isNumeric().notEmpty().withMessage("Ingresar el precio"),
+  check("brand_id").notEmpty().withMessage("Ingresar la marca"),
+  check("vat").notEmpty().withMessage("Ingresar el IVA"),
+  check("discount").isLength({min:1}).withMessage("Ingresar el descuento"),
+  check("stock").notEmpty().withMessage("Ingresar el Stock inicial"),
+  check("stock_min").notEmpty().withMessage("Ingresar el Stock minimo"),
+  check("category_id").notEmpty().withMessage("Ingresar la categoria"),
+  check("subcategory_id").notEmpty().withMessage("Ingresar la subcategoria"),
+  check("nonvatPrice").notEmpty().withMessage("Ingresar el precio"),
   check("description").notEmpty().withMessage("Ingresar la descripción"),
+  check("image").custom((value, {req}) => {
+    let file = req.file;
+    let acceptedExtensions = [".jpg", ".jpeg",".png", ".gif"];
+    
+    if (file){
+        let fileExtension = path.extname(file.originalname);
+        if(!acceptedExtensions.includes(fileExtension)){
+            throw new Error(`Las extensiones de archivos permitidas son: ${acceptedExtensions.join(", ")}`)
+        }
+    } 
+    return true;
+}),
 ];
 
 //Multer method
@@ -57,7 +67,7 @@ router.post(
 //Form para modificar un producto, con boton "editar"
 router.get("/edit/:id", productsController.edit);
 //Recibir datos del form para producto editado
-router.put("/:id", productValidation, upload.single("image"), productsController.update); //FALTA EL MULTER ACA??? upload.single("image"),
+router.put("/:id", productValidation, upload.single("image"), productsController.update); 
 //Eliminar un producto
 router.delete("/delete/:id", productsController.delete);
 

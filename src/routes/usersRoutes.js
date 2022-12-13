@@ -25,16 +25,13 @@ const loginValidation = [
 //Register validation
 const registerValidation = [
   check("name").isLength({ min: 2 }).withMessage("Debe ingresar un nombre"),
-  check("lastName")
-    .isLength({ min: 2 })
+  check("lastName").isLength({ min: 2 })
     .withMessage("Debe ingresar un apellido"),
-  check("birthDate")
-    .exists()
+  check("birthDate").exists()
     .withMessage("Debe ingresar su fecha de nacimiento"),
-    check("address").isLength({ min: 2 }).withMessage("Debe ingresar direccion"),
+  check("address").isLength({ min: 2 }).withMessage("Debe ingresar direccion"),
   check("email").isEmail().withMessage("Debe ingresar un e-mail valido"),
-  check("password")
-    .isLength({ min: 8 })
+  check("password").isLength({ min: 8 })
     .withMessage("Debe ingresar una clave de mas de 8 caracteres"),
 ];
 

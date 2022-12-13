@@ -122,7 +122,6 @@ const productsController = {
   //
   update: async (req, res) => {
     let errors = validationResult(req);
-    if (errors.isEmpty()) {
     let idProduct = req.params.id;
     let category = await db.Categories.findByPk(req.body.category_id);
     
@@ -151,9 +150,7 @@ const productsController = {
         return res.redirect("/products/productDetail/" + idProduct);
       })
       .catch((error) => res.send(error));
-    } else {
-      res.render("productEdit", { errors: errors.mapped(), oldData: req.body });
-    }
+    
   },
   //
   //
