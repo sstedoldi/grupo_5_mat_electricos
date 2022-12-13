@@ -10,13 +10,15 @@ const multer = require("multer");
 //Product validation - Todavia falta terminar
 const productValidation = [
   check("brand").notEmpty().withMessage("Ingresar la marca"),
-  check("model")
+  check("vat")
     .notEmpty()
-    .withMessage("Ingresar el modelo o indicar 'sin modelo'"),
-  check("category").notEmpty().withMessage("Ingresar la categoria"),
-  check("subcategory").notEmpty().withMessage("Ingresar la subcategoria"),
-  check("precio").notEmpty().withMessage("Ingresar el precio"),
-  check("status").notEmpty().withMessage("Ingresar el estado"),
+    .withMessage("Ingresar el IVA"),
+  check("discount").isNumeric().notEmpty().withMessage("Ingresar el descuento"),
+  check("stock").isNumeric().notEmpty().withMessage("Ingresar el Stock inicial"),
+  check("stock_min").isNumeric().notEmpty().withMessage("Ingresar el Stock"),
+  check("categories").isNumeric().notEmpty().withMessage("Ingresar la categoria"),
+  check("subcategories").notEmpty().withMessage("Ingresar la subcategoria"),
+  check("nonvatPrice").isNumeric().notEmpty().withMessage("Ingresar el precio"),
   check("description").notEmpty().withMessage("Ingresar la descripción"),
 ];
 
@@ -55,7 +57,7 @@ router.post(
 //Form para modificar un producto, con boton "editar"
 router.get("/edit/:id", productsController.edit);
 //Recibir datos del form para producto editado
-router.put("/:id", upload.single("image"), productsController.update); //FALTA EL MULTER ACA??? upload.single("image"),
+router.put("/:id", productValidation, upload.single("image"), productsController.update); //FALTA EL MULTER ACA??? upload.single("image"),
 //Eliminar un producto
 router.delete("/delete/:id", productsController.delete);
 

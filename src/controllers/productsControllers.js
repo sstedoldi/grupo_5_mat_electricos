@@ -1,12 +1,9 @@
 ////Primary modules
 const fs = require("fs");
+const express = require("express");
+const multer = require("multer");
 const path = require("path");
-
-//Data managing
-// const productsFilePath = path.join(__dirname, "../data/mat_elec_products.json");
-// const productsFilePath = path.join(__dirname, "../data/products.json");
-// const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-
+const { validationResult } = require("express-validator");
 let db = require("../database/models");
 const Op = db.Sequelize.Op;
 
@@ -61,6 +58,8 @@ const productsController = {
   //
   //
   store: (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
     (req.image = req.file ? req.file.filename : "default-image.png"),
       db.Products.create({
         name: req.body.name,
@@ -80,6 +79,18 @@ const productsController = {
           return res.redirect("/products/");
         })
         .catch((error) => res.send(error));
+      } else {
+        let categories = db.Categories.findAll();
+        let subcategories = db.Subcategories.findAll();
+        let brands = db.Brands.findAll();
+        Promise.all([categories, subcategories, brands])
+          .then(([categories, subcategories, brands]) => {
+            const oldData = req.body
+            res.render("productCreate", { errors: errors.mapped(), oldData: oldData, categories, subcategories, brands });
+          })
+          .catch((error) => res.send(error));
+        
+      }
   },
   //
   //
@@ -110,18 +121,10 @@ const productsController = {
   //
   //
   update: async (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
     let idProduct = req.params.id;
-    //provisorio, para cambiar imagen
-    // db.Products.findByPk(idProduct, {})
-    //   .then((productToEdit) => {
-    //     req.image = req.file ? req.file.filename : productToEdit.image;
-    //   })
-    //   .catch((error) => res.send(error));
-    // //
-    // console.log(req.image);
     let category = await db.Categories.findByPk(req.body.category_id);
-    // console.log(category);
-    // console.log(req.body.category_id);
     
     db.Products.update(
       {
@@ -148,6 +151,9 @@ const productsController = {
         return res.redirect("/products/productDetail/" + idProduct);
       })
       .catch((error) => res.send(error));
+    } else {
+      res.render("productEdit", { errors: errors.mapped(), oldData: req.body });
+    }
   },
   //
   //
