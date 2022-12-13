@@ -53,6 +53,12 @@ const productsController = require("../controllers/productsControllers.js");
 //Router methods
 //Listado completo de productos
 router.get("/", productsController.index);
+//Listado de productos por categorias
+router.get("/cables", productsController.cables)
+router.get("/lamparas", productsController.lamparas)
+router.get("/iluminacion", productsController.iluminacion)
+router.get("/hogar", productsController.hogar)
+router.get("/seguridad", productsController.seguridad)
 //Detalla de un producto
 router.get("/productDetail/:id", productsController.detail);
 //Monstrar form para crear un producto

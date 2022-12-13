@@ -26,6 +26,67 @@ const productsController = {
       });
     });
   },
+  cables: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+      limit: 20, //provisorio, hasta agregar el offset
+    }).then((products) => {
+      res.render("cables", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  lamparas: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("lamparas", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  iluminacion: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("iluminacion", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  hogar: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("hogar", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  seguridad: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("seguridad", {
+        products,
+        toThousand,
+      });
+    });
+  },
   //
   //
   detail: (req, res) => {
