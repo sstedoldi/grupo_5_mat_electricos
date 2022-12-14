@@ -54,11 +54,21 @@ const productsController = require("../controllers/productsControllers.js");
 //Listado completo de productos
 router.get("/", productsController.index);
 //Listado de productos por categorias
+//router.get("/categorias/:id", productsController.categorias)
+//CATEGORIAS
 router.get("/cables", productsController.cables)
 router.get("/lamparas", productsController.lamparas)
 router.get("/iluminacion", productsController.iluminacion)
 router.get("/hogar", productsController.hogar)
 router.get("/seguridad", productsController.seguridad)
+router.get("/domiciliaria", productsController.domiciliaria)
+router.get("/solar", productsController.solar)
+router.get("/herramientas", productsController.herramientas)
+router.get("/industria", productsController.industria)
+router.get("/redes", productsController.redes)
+router.get("/saldos", productsController.saldos)
+router.get("/porteros", productsController.porteros)
+router.get("/via", productsController.via)
 //Detalla de un producto
 router.get("/productDetail/:id", productsController.detail);
 //Monstrar form para crear un producto

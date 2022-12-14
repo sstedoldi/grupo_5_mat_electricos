@@ -26,12 +26,19 @@ const productsController = {
       });
     });
   },
+
+  //categorias: (req, res) => {
+    //db.Products.findAll()
+    //.then((product) => { 
+       // res.render("categorias", {product})
+ // });
+ // },
+
   cables: (req, res)=> {
     db.Products.findAll({
       include: ["category", "subcategory", "brand"],
       raw: true,
       nest: true,
-      limit: 20, //provisorio, hasta agregar el offset
     }).then((products) => {
       res.render("cables", {
         products,
@@ -87,18 +94,114 @@ const productsController = {
       });
     });
   },
+  domiciliaria: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("domiciliaria", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  solar: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("solar", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  herramientas: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("herramientas", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  industria: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("industria", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  redes: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("redes", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  saldos: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("saldos", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  porteros: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("porteros", {
+        products,
+        toThousand,
+      });
+    });
+  },
+  via: (req, res)=> {
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
+    }).then((products) => {
+      res.render("via", {
+        products,
+        toThousand,
+      });
+    });
+  },
   //
   //
   detail: (req, res) => {
     let id = req.params.id;
+    console.log(id);
     db.Products.findByPk(id, {
       include: ["category", "subcategory", "brand"],
       raw: true,
       nest: true,
-    }).then((product) => {
-     
+    }).then((products) => { 
       res.render("productDetail", {
-        product,
+        products,
         toThousand,
       });
     });

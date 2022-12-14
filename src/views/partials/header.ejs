@@ -41,12 +41,26 @@
       <%} %>
 </div>
 <nav class="main-header-nav-categories">
-  <li><a href="/products/cables">MÁS CATEGORIAS</i></a></li>
-  <li><a href="/products/lamparas">LÁMPARAS</a></li>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      MÁS CATEGORIAS
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="/products/domiciliaria">ELECT DOMICILIARIA</a></li>
+      <li><a class="dropdown-item" href="/products/solar">ENERGÍA SOLAR</a></li>
+      <li><a class="dropdown-item" href="/products/herramientas">HERRAMIENTAS</a></li>
+      <li><a class="dropdown-item" href="/products/industria">INDUSTRIA</a></li>
+      <li><a class="dropdown-item" href="/products/redes">REDES</a></li>
+      <li><a class="dropdown-item" href="/products/saldos">SALDOS</a></li>
+      <li><a class="dropdown-item" href="/products/porteros">TELEFONÍA Y PORTEROS</a></li>
+      <li><a class="dropdown-item" href="/products/via">VÍA PÚBLICA</a></li>
+    </ul>
+  </div>
+  <li><a href="/products/lamparas" >LÁMPARAS</a></li>
   <li><a href="/products/iluminacion">ILUMINACIÓN</a></li>
   <li><a href="/products/hogar">HOGAR</a></li>
   <li><a href="/products/seguridad">SEGURIDAD</a></li>
-  <li><a href="">CANALIZACIONES</a></li>
+  <li><a href="/products/cables">CABLES</a></li>
 </nav>
 <div class="main-header-burger-menu">
   <a href="#"><i class="fas fa-bars"></i></a>

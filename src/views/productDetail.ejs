@@ -18,25 +18,25 @@
     <main class="main-product">
         <div class="product-figure-info">
             <div class="product-figure">
-                <img src=<%= (product.image != undefined) ? "/images/products/"+ product.image+"" : "/images/products/img-default-"+product.category.name+".jpg" %>
-                width="360" alt="img-<%= product.category.name %>.jpg" />
+                <img src=<%= (products.image != undefined) ? "/images/products/"+ products.image+"" : "/images/products/img-default-"+products.category.name+".jpg" %>
+                width="360" alt="img-<%= products.category.name %>.jpg" />
             </div>
             <div class="product-info">
                 <div class="product-info-title">
                     <p class="product-info-name">
-                        <%= product.description %>
+                        <%= products.description %>
                     </p>
                     <p class="product-info-brand"> 
-                        <%= product.brand.name %>
+                        <%= products.brand.name %>
                     </p>
                     <p class="product-info-brand">
-                        <%= product.category.name %>
+                        <%= products.category.name %>
                     </p>                    
                     <p class="product-info-brand">
-                        <%= product.subcategory.name %>
+                        <%= products.subcategory.name %>
                     </p>
                 </div>
-                <p class="product-info-price"><b class="product-info-price-number">&#x24 <%= product.nonvatPrice %></b>
+                <p class="product-info-price"><b class="product-info-price-number">&#x24 <%= products.nonvatPrice %></b>
                     c/u</p>
                 <div class="product-quantity">
                     <label for="quantity">Cantidad:</label>
@@ -56,7 +56,7 @@
                 </div>
                 <br>
                 <div>
-                    <form action="/products/edit/<%= product.id %>" method="GET">
+                    <form action="/products/edit/<%= products.id %>" method="GET">
                         <button class="product-payment-options">Editar producto
                         </button>
                 </div>
@@ -67,7 +67,7 @@
                     </a>
                 </div>
                 <!-- <div class="product-payment-options">
-                    <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                    <form action="/products/delete/<%= products.id %>?_method=DELETE" method="POST">
                         <button style="width:75%" heigth="25px">Borrar producto
                         </button>
                     </form>
@@ -80,7 +80,7 @@
         </div>
         <!-- <div class="product-description">
             <p class="product-full-description">
-                <%= product.description %>
+                <%= products.description %>
             </p>
             <table class="product-description-atributes">
                 <tr>
@@ -124,6 +124,7 @@
         <%- include("partials/footer") %>
     </footer>
     <!-- &&&& -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,19 +1,19 @@
 <article>
-  <a href="/products/productDetail/<%= product.id %>">
-    <img src=<%= (product.image != undefined) ? "/images/products/"+product.image : "/images/products/img-default-"+product.category.name+".jpg" %>
-       width="360" alt="img-<%= product.category.name %>.jpg" />
+  <a href="/products/productDetail/<%= products.id %>">
+    <img src=<%= (products.image != undefined) ? "/images/products/"+products.image : "/images/products/img-default-"+products.category.name+".jpg" %>
+       width="360" alt="img-<%= products.category.name %>.jpg" />
   </a>
   <div class="main-section-article-info">
     <!-- <i class="fas fa-truck"></i> -->
     <div class="main-section-article-info-price">
-      <p class="article-price">$ <%= product.nonvatPrice %></p>
+      <p class="article-price">$ <%= products.nonvatPrice %></p>
       <p style="font-size: 12px">(sin IVA)</p>
-      <p class="article-discount">% <%= product.discount %></p>
+      <p class="article-discount">% <%= products.discount %></p>
     </div>
-    <p class="article-name"><%= product.category.name %></p>
-    <p class="article-name"><%= product.subcategory.name %></p>
-    <p class="article-name"><%= product.description %></p>
-    <p class="article-name"><%= product.brand.name %></p>
+    <p class="article-name"><%= products.category.name %></p>
+    <p class="article-name"><%= products.subcategory.name %></p>
+    <p class="article-name"><%= products.description %></p>
+    <p class="article-name"><%= products.brand.name %></p>
   </div>
 </article>
 

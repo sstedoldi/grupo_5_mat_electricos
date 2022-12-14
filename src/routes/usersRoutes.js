@@ -71,6 +71,7 @@ router.get("/edit/:id",authMiddleware, usersController.editUser); //le quito el 
 router.put("/update/:id", upload.single("image"), authMiddleware, usersController.updateUser);
 //Delete user
 router.delete("/delete/:id", usersController.deleteUser);
+router.delete("/deleteAdmin/:id", usersController.deleteUser);
 ////
 //**Chequeos provisorios:
 router.get("/check", usersController.check);

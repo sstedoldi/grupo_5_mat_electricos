@@ -11,14 +11,18 @@
     <header class="main-header"><%- include("partials/header") %></header>
     <!-- &&&& -->
     <!-- MAIN -->
-    <main class="main-products">
+    <!-- <main class="main-products"> VER SI NO TIENE EFECTOS -->
         <main class="main-sections">
             <section>
-              <h3 class="main-section-title">Productos encontrados para: <%= query %> </h3>
+              <h3 class="main-section-title">Solo Vía Pública</h3>
               <div class="products-articles">
                 <!-- ############# -->
-                <% productsFound.forEach(product => { %>
-                  <%- include("partials/article", {product}) %>
+                <% products.forEach(products => { %>
+                    <% let i=1; %>
+                    <% if ((products.category_id==13 ) && (i<20)) { %>
+                    <% i++; %>
+                  <%- include("partials/article", {products}) %>
+                  <% } %>
                 <% }) %>      
                 <!-- ############# -->
               </div>
