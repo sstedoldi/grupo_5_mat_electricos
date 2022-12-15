@@ -48,6 +48,8 @@ app.listen(port, () => console.log("Servidor corriendo en puerto ", 3000));
 const mainRoutes = require("./routes/mainRoutes.js");
 const usersRoutes = require("./routes/usersRoutes.js");
 const productsRoutes = require("./routes/productsRoutes.js");
+const apiProductsRoute = require("./routes/api/apiProductsRoute.js");
+const apiCategoriesRoute = require("./routes/api/apiCategoriesRoute.js");
 // const categoriesRoutes = require("./routes/categoriesRoutes.js");
 // const brandsRoutes = require("./routes/brandsRoutes.js");
 
@@ -55,5 +57,8 @@ const productsRoutes = require("./routes/productsRoutes.js");
 app.use("/", mainRoutes);
 app.use("/users", usersRoutes);
 app.use("/products", productsRoutes);
+app.use("/products", apiProductsRoute);
+app.use("/categories", apiCategoriesRoute);
+
 // app.use("/categories", categoriesRoutes);
 // app.use("/brands", brandsRoutes);
