@@ -50,6 +50,7 @@ const usersRoutes = require("./routes/usersRoutes.js");
 const productsRoutes = require("./routes/productsRoutes.js");
 const apiProductsRoute = require("./routes/api/apiProductsRoute.js");
 const apiCategoriesRoute = require("./routes/api/apiCategoriesRoute.js");
+const apiUserRoute = require("./routes/api/apiUserRoute.js");
 // const categoriesRoutes = require("./routes/categoriesRoutes.js");
 // const brandsRoutes = require("./routes/brandsRoutes.js");
 
@@ -59,6 +60,7 @@ app.use("/users", usersRoutes);
 app.use("/products", productsRoutes);
 app.use("/products", apiProductsRoute);
 app.use("/categories", apiCategoriesRoute);
+app.use("/users", apiUserRoute);
 
 // app.use("/categories", categoriesRoutes);
 // app.use("/brands", brandsRoutes);
