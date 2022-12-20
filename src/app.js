@@ -10,7 +10,7 @@ const session = require("express-session");
 
 //Global middleWares
 const recordameMiddleware = require("./middlewares/recordameMiddleware.js");
-const userLoggedMiddleware = require ("./middlewares/userLoggedMiddleware");
+const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
 //Settings
 app.use(express.static(path.join(__dirname, "../public")));

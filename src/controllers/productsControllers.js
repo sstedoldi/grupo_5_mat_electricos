@@ -12,6 +12,7 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 //Controller definition
 const productsController = {
+  //
   //lista todos los productos
   index: (req, res) => {
     db.Products.findAll({
@@ -26,7 +27,8 @@ const productsController = {
       });
     });
   },
-
+  //
+  //lista por categoría
   category: async (req, res) => {
     let idCategory = req.params.id;
     let category = await db.Categories.findByPk(idCategory);
@@ -48,7 +50,8 @@ const productsController = {
       })
       .catch((error) => res.send(error));
   },
-
+  //
+  //detalle de un producto
   detail: (req, res) => {
     let id = req.params.id;
     console.log(id);
@@ -64,7 +67,7 @@ const productsController = {
     });
   },
   //
-  //
+  //formulario de creación
   create: (req, res) => {
     //llevo categories, subcategories y brands al formulario de create
     let categories = db.Categories.findAll();
@@ -77,7 +80,7 @@ const productsController = {
       .catch((error) => res.send(error));
   },
   //
-  //
+  //almacenamiento de producto
   store: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -119,7 +122,7 @@ const productsController = {
     }
   },
   //
-  //
+  //formulario de edición de producto
   edit: (req, res) => {
     //busco el producto a editar
     let idProduct = req.params.id;
@@ -145,7 +148,7 @@ const productsController = {
       .catch((error) => res.send(error));
   },
   //
-  //
+  //edición de producto
   update: async (req, res) => {
     let errors = validationResult(req);
     let idProduct = req.params.id;
@@ -178,7 +181,7 @@ const productsController = {
       .catch((error) => res.send(error));
   },
   //
-  //
+  //eliminación de producto
   delete: (req, res) => {
     let idProduct = req.params.id;
     db.Products.destroy({ where: { id: idProduct } })
@@ -189,12 +192,7 @@ const productsController = {
       .catch((error) => res.send(error));
   },
   //
-  //
-  cart: (req, res) => {
-    res.render("productCart");
-  },
-  //
-  //
+  //busqueda de producto
   search: (req, res) => {
     let query = req.query.search;
     console.log(query);
@@ -215,181 +213,13 @@ const productsController = {
         });
       })
       .catch((error) => res.send(error));
-
-    // let productsFiltered = db.Products.filter(({ product }) => {
-    //   [
-    //     product.category.includes(query) ||
-    //       product.subcategory.includes(query) ||
-    //       product.description.includes(query) ||
-    //       product.brand.includes(query),
-    //   ];
-    // });
-    // res.render("productSearch", {
-    //   query,
-    //   productsFiltered,
-    //   toThousand,
-    // });
+  },
+  //
+  //FALTA CARRTIO
+  cart: (req, res) => {
+    res.render("productCart");
   },
 };
 
 ////
 module.exports = productsController;
-
-// cables: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("cables", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// lamparas: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("lamparas", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// iluminacion: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("iluminacion", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// hogar: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("hogar", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// seguridad: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("seguridad", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// domiciliaria: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("domiciliaria", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// solar: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("solar", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// herramientas: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("herramientas", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// industria: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("industria", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// redes: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("redes", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// saldos: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("saldos", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// porteros: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("porteros", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-// via: (req, res) => {
-//   db.Products.findAll({
-//     include: ["category", "subcategory", "brand"],
-//     raw: true,
-//     nest: true,
-//   }).then((products) => {
-//     res.render("via", {
-//       products,
-//       toThousand,
-//     });
-//   });
-// },
-//
-//
