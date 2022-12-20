@@ -6,7 +6,11 @@ const apiProductsController = {
   //
   //lista todos los productos
   products: (req, res) => {
-    db.Products.findAll()
+    db.Products.findAll({
+      include: ["category", "subcategory", "brand"],
+      limit: 20, //provisorio
+      order: [["id", "ASC"]],
+    })
       .then((products) => {
         return res.status(200).json({
           total: products.length,
@@ -19,7 +23,12 @@ const apiProductsController = {
   //
   //Detalla de un producto
   productsId: (req, res) => {
-    db.Products.findByPk(req.params.id)
+    let idProduct = req.params.id;
+    db.Products.findByPk(idProduct, {
+      include: ["brand", "category", "subcategory"],
+      raw: true,
+      nest: true,
+    })
       .then((product) => {
         return res.status(200).json({
           data: product,
