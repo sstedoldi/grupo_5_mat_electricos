@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include("partials/head") %>
-  <link rel="stylesheet" href="/css/style-users.css"></link>
+    <link rel="stylesheet" href="/css/style-users.css">
+    </link>
 </head>
+
 <body>
   <!-- HEADER -->
   <header class="main-header">
@@ -14,73 +17,61 @@
   <main class="main-register">
     <!-- REGISTER FORM -->
     <div class="form-register">
-      <form action="/users/" method="POST" enctype="multipart/form-data">
+      <form action="/users/" method="POST" enctype="multipart/form-data" id="registerForm">
         <h3>Registrate</h3>
         <!-- name -->
         <label for="name">Nombre</label>
-          <input 
-            class="controls" 
-            type="text" 
-            name="name" 
-            value="<%= locals.oldData && oldData.name ? oldData.name : "" %>">
-            <div class="errors">
-              <%= locals.errors && errors.name ? errors.name.msg : "" %>
-            </div> 
+        <input class="controls" type="text" name="name"
+          value="<%= locals.oldData && oldData.name ? oldData.name : "" %>">
+          <span></span>
+        <div class="errors">
+          <%= locals.errors && errors.name ? errors.name.msg : "" %>
+        </div>
 
         <!-- lastname -->
         <label for="lastName">Apellido</label>
-          <input 
-            class="controls" 
-            type="text" 
-            name="lastName"
-            value="<%= locals.oldData && oldData.lastName ? oldData.lastName : "" %>">
-            <div class="errors">
-              <%= locals.errors && errors.lastName ? errors.lastName.msg : "" %>
-            </div>
-            <!-- Address -->
-            <label for="address">Address</label>
-          <input 
-            class="controls" 
-            type="text"  
-            name="address"
-            value="<%= locals.oldData && oldData.address ? oldData.address : "" %>">
-            <div class="errors">
-              <%= locals.errors && errors.address ? errors.address.msg : "" %>
-            </div> 
+        <input class="controls" type="text" name="lastName"
+          value="<%= locals.oldData && oldData.lastName ? oldData.lastName : "" %>">
+          <span></span>
+          <div class="errors">
+          <%= locals.errors && errors.lastName ? errors.lastName.msg : "" %>
+        </div>
+        <!-- Address -->
+        <label for="address">Address</label>
+        <input class="controls" type="text" name="address"
+          value="<%= locals.oldData && oldData.address ? oldData.address : "" %>">
+          <span></span>
+          <div class="errors">
+          <%= locals.errors && errors.address ? errors.address.msg : "" %>
+        </div>
 
         <!-- birthDate -->
         <label for="birthDate">Nacimiento</label>
-          <input 
-            class="controls" 
-            type="date" 
-            name="birthDate">
-            <div class="errors">
-              <%= locals.errors && errors.birthDate ? errors.birthDate.msg : "" %>
-            </div>
+        <input class="controls" type="date" name="birthDate">
+        <span></span>
+        <div class="errors">
+          <%= locals.errors && errors.birthDate ? errors.birthDate.msg : "" %>
+        </div>
         <!-- email -->
         <label for="email">e-mail</label>
-          <input 
-            class="controls" 
-            type="email" 
-            name="email"
-            placeholder="ej@ejemplo.com"
-            value=" <%= locals.oldData && oldData.email ? oldData.email : "" %>">
-            <div class="errors">
-              <%= locals.errors && errors.email ? errors.email.msg : "" %>
-            </div>
+        <input class="controls" type="email" name="email" placeholder="ej@ejemplo.com"
+          value=" <%= locals.oldData && oldData.email ? oldData.email : "" %>">
+          <span></span>
+          <div class="errors">
+          <%= locals.errors && errors.email ? errors.email.msg : "" %>
+        </div>
         <!-- password -->
         <label for="password">Contraseña</label>
-          <input 
-            class="controls" 
-            type="password" 
-            name="password">
-            <div class="errors">
-              <%= locals.errors && errors.password ? errors.password.msg : "" %>
-            </div>
+        <input class="controls" type="password" name="password">
+        <span></span>
+        <div class="errors">
+          <%= locals.errors && errors.password ? errors.password.msg : "" %>
+        </div>
         <!-- userImage -->
         <div class="formularios-create">
           <label for="image" class="form-label-create">Imagen de Perfil:</label>
-            <input type="file" id="image" name="image" class="form-input-create">
+          <input type="file" id="image" name="image" class="form-input-create">
+          <span></span>
         </div>
         <br>
         <!-- conditions -->
@@ -100,7 +91,10 @@
     <%- include("partials/footer") %>
   </footer>
   <!-- &&&& -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="/js/registerValidation.js"></script>
 </body>
 
 </html>
