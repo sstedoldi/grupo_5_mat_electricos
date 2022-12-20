@@ -42,6 +42,8 @@ const apiProductsController = {
   lastProduct: (req, res) => {
     db.Products.findAll({
       include: ["category", "subcategory", "brand"],
+      raw: true,
+      nest: true,
       limit: 1,
       order: [["id", "DESC"]],
     })
