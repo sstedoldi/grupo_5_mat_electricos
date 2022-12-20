@@ -17,8 +17,8 @@
               <h3 class="main-section-title">Productos encontrados para: <%= query %> </h3>
               <div class="products-articles">
                 <!-- ############# -->
-                <% productsFound.forEach(product => { %>
-                  <%- include("partials/article", {product}) %>
+                <% productsFound.forEach(products => { %>
+                  <%- include("partials/article", {products}) %>
                 <% }) %>      
                 <!-- ############# -->
               </div>

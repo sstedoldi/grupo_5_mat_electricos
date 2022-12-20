@@ -11,24 +11,19 @@
     <header class="main-header"><%- include("partials/header") %></header>
     <!-- &&&& -->
     <!-- MAIN -->
-    <!-- <main class="main-products"> VER SI NO TIENE EFECTOS -->
-        <main class="main-sections">
-            <section>
-              <h3 class="main-section-title">Solo cables</h3>
-              <div class="products-articles">
-                <!-- ############# -->
-                <% for(let products=0; products.category_id == 1; products++){%>
-                 
-                  <%- include("partials/article", {products}) %>
-                  <%   } %> 
-
-               
-
-                <!-- ############# -->
-
-              </div>
-            </section>
-    </main>
+    <main class="main-products">
+      <main class="main-sections">
+          <section>
+            <h3 class="main-section-title">Productos de la categoría: <%= category.name %> </h3>
+            <div class="products-articles">
+              <!-- ############# -->
+              <% products.forEach(products => { %>
+                <%- include("partials/article", {products}) %>
+              <% }) %>      
+              <!-- ############# -->
+            </div>
+          </section>
+  </main>
     <!-- &&&& -->
     <!-- FOOTER -->
     <footer class="main-footer"><%- include("partials/footer") %></footer>
