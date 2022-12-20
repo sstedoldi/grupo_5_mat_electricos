@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `Electricidad_Belgrano`.`users` (
   `lastName` VARCHAR(75) NOT NULL,
   `email` VARCHAR(75) NOT NULL,
   `birthDate` DATE NOT NULL,
-  `password` CHAR(32) NOT NULL,
+  `password` CHAR(60) NOT NULL,
   `address` TEXT NOT NULL,
   `image` TEXT NULL,
   `tax_id` VARCHAR(11) NULL,
