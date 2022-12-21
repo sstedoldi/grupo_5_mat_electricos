@@ -1,4 +1,4 @@
-const productCreateForm = document.querySelector("#productCreateForm");
+const productEditForm = document.querySelector("#productEditForm");
 
 // const productCategory = document.getElementById("category");
 const productCategory = document.querySelector("[name=category_id]");
@@ -36,9 +36,9 @@ productStockMin.addEventListener("blur", validateEmptyField);
 productImage.addEventListener("blur", validateEmptyField);
 productDescription.addEventListener("blur", validateEmptyField);
 
-productCreateForm.addEventListener("submit", function (e) {
+productEditForm.addEventListener("submit", function (e) {
   let error = false;
-  formFields = [...productCreateForm.elements];
+  formFields = [...productEditForm.elements];
   console.log(formFields);
   formFields.pop();
 

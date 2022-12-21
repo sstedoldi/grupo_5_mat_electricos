@@ -5,53 +5,48 @@
   <%- include("partials/head") %>
     <link rel="stylesheet" href="/css/style-products.css">
     </link>
-  </head>
+</head>
   <!-- <div class="top-header-top">Materiales eléctricos</div> -->
-  
-  <body>
-    <!-- HEADER -->
-    <header class="main-header">
-      <%- include("partials/header") %>
-    </header>
-    <!-- &&&& -->
-    <!-- MAIN -->
-    <main class="main-home">
-      <div class="main-home-spot-1">
-        <video width="90%" loop autoplay muted>
-          <source src="./images/videos/EB-MAY-21-SUBS.mp4" />
-        </video>
-      </div>
-      <section class="main-sections">
+<body>
+  <!-- HEADER -->
+  <header class="main-header">
+    <%- include("partials/header") %>
+  </header>
+  <!-- &&&& -->
+  <!-- MAIN -->
+  <main class="main-home">
+    <div class="main-home-spot-1">
+      <video width="90%" loop autoplay muted>
+        <source src="./images/videos/EB-MAY-21-SUBS.mp4" />
+      </video>
+    </div>
+
+    <!-- PENDIENTE -->
+    <!-- <section class="main-sections">
       <h3 class="main-section-title">Basados en tu última visita</h3>
       <div class="products-articles">
-        <!-- ############# -->
-        <% products.forEach(products=> { %>
-          <% let i=1; %>
-          <% if ((products.status=="visited" ) && (i<4)) { %>
-            <% i++; %>
-            <%- include("partials/article", {products}) %>
-            <% } %>
-            <% }) %>
-            <!-- ############# -->
-          </div>
-        </section>
-        <section class="main-sections">
-          <h3 class="main-section-title">Productos en oferta</h3>
-          <div class="products-articles">
-            <!-- ############# -->
-            <% products.forEach(products=> { %>
-              <% let i=1; %>
-              <% if ((products.status=="hot-sale" ) && (i<4)) { %>
-                <% i++; %>
-                <%- include("partials/article", {products}) %>
-                <% } %>
-                <% }) %>
-                <!-- ############# -->
-              </div>
-            </section>
-          </main>
-          
-          
+        <% //products.forEach(products=> { %>
+          <% //let i=1; %>
+          <% //if ((products.status=="visited" ) && (i<4)) { %>
+            <% //i++; %>
+            <%- //include("partials/article", {products}) %>
+            <% //} %>
+          <% //}) %>
+      </div>
+    </section>
+    <section class="main-sections">
+      <h3 class="main-section-title">Productos en oferta</h3>
+      <div class="products-articles">
+        <% //products.forEach(products=> { %>
+          <% //let i=1; %>
+          <% //if ((products.status=="hot-sale" ) && (i<4)) { %>
+            <% //i++; %>
+            <%- //include("partials/article", {products}) %>
+            <% //} %>
+            <% //}) %>
+      </div>
+    </section> -->
+  </main>
   <!-- &&&& -->
   <!-- FOOTER -->
   <footer class="main-footer">

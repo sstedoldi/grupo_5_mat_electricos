@@ -17,8 +17,9 @@
     <main>
         <div class="form-product-create">
             <h3 class="form-create-title"> Cargá un nuevo producto!</h3>
-            <form action="/products/" method="POST" enctype="multipart/form-data" id="productCreateForm">
+            <form id="productCreateForm" action="/products/" method="POST" enctype="multipart/form-data" >
                 <div class="div-create-forms">
+                    <!-- Categoria -->
                     <div class="formularios-create">
                         <label for="category" class="form-label-create">Categoria</label>
                         <select id="category"
@@ -36,7 +37,7 @@
                             <%= locals.errors && errors.category_id ? errors.category_id.msg : "" %>
                         </div>
                     </div>
-
+                    <!-- Subcategoria -->
                     <div class="formularios-create">
                         <label for="subcategory" class="form-label-create">Subcategoria</label>
                         <select id="subcategory"
@@ -131,7 +132,7 @@
                         <label for="image" class="form-label-create">Imagen</label>
                         <input type="file" id="image" name="image" class="form-input-create"
                             value="<%= locals.oldData && oldData.image ? oldData.image : "" %>">
-                            <span></span>
+                        <span></span>
                         <div class="errors">
                             <%= locals.errors && errors.image ? errors.image.msg : "" %>
                         </div>

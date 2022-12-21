@@ -18,7 +18,7 @@
         <div class="form-product-create">
             <h3 class="form-create-title"> Edita el producto: <%= productToEdit.id %>
             </h3>
-            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form id="productEditForm" action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="div-create-forms">
                     <!-- Category -->
                     <div class="formularios-create">
@@ -28,8 +28,12 @@
                           <% categories.forEach(category => { %>
                           <option value="<%= category.id %>"><%= category.name %></option>
                           <% }); %></select>
+                          <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.category_id ? errors.category_id.msg : "" %>
+                        </div>
                     </div>
-                    <!-- Subcategory, aunque figure como Category -->
+                    <!-- Subcategory -->
                     <div class="formularios-create">
                         <label for="subcategory" class="form-label-create">Subcategoria</label>
                         <select id="subcategory" name="subcategory_id" class="form-input-create">
@@ -37,6 +41,10 @@
                           <% subcategories.forEach(subcategory => { %>
                           <option value="<%= subcategory.id %>"><%= subcategory.name %></option>
                           <% }); %></select>
+                          <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.subcategory_id ? errors.subcategory_id.msg : "" %>
+                        </div>
                     </div>
                     <!-- Brand -->
                     <div class="formularios-create">
@@ -45,43 +53,75 @@
                         <option value="<%= productToEdit.brand_id %>"><%= productToEdit.brand.name %></option>
                           <% brands.forEach(brand => { %>
                           <option value="<%= brand.id %>"><%= brand.name %></option>
-                          <% }); %></select> 
+                          <% }); %></select>
+                          <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.brand_id ? errors.brand_id.msg : "" %>
+                        </div>
                     </div>
                     <!-- Price -->
                     <div class="formularios-create">
                         <label for="nonvatPrice" class="form-label-create">Precio (sin IVA)</label>
                         <input value="<%= productToEdit.nonvatPrice %>" class="form-input-create" type="number" name="nonvatPrice" id="nonvatPrice"/>
+                        <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.nonvatPrice ? errors.nonvatPrice.msg : "" %>
+                        </div>
                     </div>
                     <!-- vat -->
                     <div class="formularios-create">
                         <label for="vat" class="form-label-create">IVA</label>
                         <input value="<%= productToEdit.vat %>" class="form-input-create" type="number" name="vat" id="vat"/>
+                        <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.vat ? errors.vat.msg : "" %>
+                        </div>
                     </div>
                     <!-- Discount -->
                     <div class="formularios-create">
                         <label for="discount" class="form-label-create">Descuento</label>
                         <input value="<%= productToEdit.discount %>" class="form-input-create" type="number" name="discount" id="discount"/>
+                        <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.discount ? errors.discount.msg : "" %>
+                        </div>
                     </div>
                     <!-- Stock -->
                     <div class="formularios-create">
                         <label for="stock" class="form-label-create">Stock inicial</label>
                         <input value="<%= productToEdit.stock %>" class="form-input-create" type="number" name="stock" id="stock"/>
+                        <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.stock ? errors.stock.msg : "" %>
+                        </div>
                     </div>
                     <!-- Stock minimo -->
                     <div class="formularios-create">
                         <label for="stock_min" class="form-label-create">Stock minimo</label>
                         <input value="<%= productToEdit.stock_min %>" class="form-input-create" type="number" name="stock_min" id="stock_min"/>
+                        <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.stock_min ? errors.stock_min.msg : "" %>
+                        </div>
                     </div>
                     <!-- Image -->
                     <div class="formularios-create">
                         <label for="image" class="form-label-create">Imagen</label>
                         <input type="file" id="image" name="image"
                             class="form-input-create">
+                        <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.image ? errors.image.msg : "" %>
+                        </div>
                     </div>
                     <!-- Description -->
                     <div class="formularios-create-description">
                         <label for="description" class="form-label-create">Descripción</label>
                         <textarea name="description" id="description" class="form-input-create-description"><%= productToEdit.description %></textarea>
+                        <span></span>
+                        <div class="errors">
+                            <%= locals.errors && errors.description ? errors.description.msg : "" %>
+                        </div>
                     </div>
                     <div class="formularios-create-button">
                         <input class="button-create" type="submit" value="Editar producto" />
@@ -103,6 +143,7 @@
     </footer>
     <!-- &&&& -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="/js/productEditValidation.js"></script>
 </body>
 
 </html>
