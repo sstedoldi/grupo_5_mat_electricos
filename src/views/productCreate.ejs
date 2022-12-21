@@ -25,7 +25,7 @@
                         <select id="category"
                             value="<%= locals.oldData && oldData.category_id ? oldData.category_id : "" %>"
                             name="category_id" class="form-input-create">
-                            <option disabled selected>- Seleccione la categoria -</option>
+                            <option value="" disabled selected>- Seleccione la categoria -</option>
                             <% categories.forEach(category=> { %>
                                 <option value="<%= category.id %>">
                                     <%= category.name %>
@@ -43,7 +43,7 @@
                         <select id="subcategory"
                             value="<%= locals.oldData && oldData.subcategory_id ? oldData.subcategory_id : "" %>"
                             name="subcategory_id" class="form-input-create">
-                            <option disabled selected>- Seleccione la Subcategoria -</option>
+                            <option value="" disabled selected>- Seleccione la Subcategoria -</option>
                             <% subcategories.forEach(subcategory=> { %>
                                 <option value="<%= subcategory.id %>">
                                     <%= subcategory.name %>
@@ -61,7 +61,7 @@
                         <select id="brand_id" name="brand_id"
                             value="<%= locals.oldData && oldData.brand_id ? oldData.brand_id : "" %>"
                             class="form-input-create">
-                            <option disabled selected>- Seleccione la marca -</option>
+                            <option value="" disabled selected>- Seleccione la marca -</option>
                             <% brands.forEach(brand=> { %>
                                 <option value="<%= brand.id %>">
                                     <%= brand.name %>

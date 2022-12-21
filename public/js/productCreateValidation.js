@@ -14,6 +14,7 @@ const productDescription = document.querySelector("textarea[name=description]");
 
 const validateEmptyField = (e) => {
   const field = e.target;
+  console.log(field);
   if (field.value.trim() === "") {
     const spanTagError = field.nextElementSibling;
     spanTagError.innerText = "El campo " + field.name + " es obligatorio";
